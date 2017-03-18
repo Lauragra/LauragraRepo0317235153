@@ -19,7 +19,7 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [],
+  "notification_subscribers": ["lauragra@microsoft.com"],
   "branches_to_filter": [],
   "skip_source_output_uploading": false,
   "need_preview_pull_request": false,
