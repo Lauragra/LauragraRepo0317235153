@@ -7,7 +7,7 @@
 ## [Use Visual Studio](get-started/create-and-debug-office-add-ins-in-visual-studio.md)
 ## [Use any editor](get-started/create-an-office-add-in-using-any-editor.md)
 # [Design](design/add-in-design.md)
-## [Buttons](doc-office-sample.md)
+## [Buttons](design/doc-office-sample.md)
 ## [UI Elements](design/ui-elements/ui-elements.md)
 ### [Interaction patterns](design/ui-elements/interaction-patterns.md)
 ### [Layout for content add-ins](design/ui-elements/layout-for-content-add-ins.md)
