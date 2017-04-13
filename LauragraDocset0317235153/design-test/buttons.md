@@ -1,12 +1,12 @@
 # Buttons component in Office UI Fabric
 
-Buttons are best used to enable a user to commit a change or complete steps in a task. The text of a button should communicate the intent of the interaction. Therefore, as a guiding pattern for add-ins, buttons are placed at the bottom of the UI container of a task pane, dialogs, or content pane.
+Use buttons in your Office Add-in to enable a user to commit a change or complete steps in a task. Make sure that the text of the button communicates the intent of the interaction. Place buttons at the bottom of the UI container of a task pane, dialog box, or content pane.
 
-For example, use buttons at the end of a form to submit it; to close the end of a dialog, or move to the next settings screen to commit changes.
+For example, use buttons for the user to submit a form, to close a dialog box, or to move to the next settings screen to commit changes.
   
-**Task pane example**
+**Example: Buttons on a task pane**
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButtonEdit@430.png)
+![An image showing a primary and secondary button in the context of a task pane in an Office app.](../images/exampleButtonEdit@430.png)
 
 ## Best Practices
 
@@ -35,6 +35,12 @@ For example, use buttons at the end of a form to submit it; to close the end of 
 For details, see [Button](https://dev.office.com/fabric#/components/button) on the Office UI Fabric website.
 
 ## Variants
+
+|**Variation**|**Description**|**Example**|
+|:------------|:--------------|:----------|
+|**Primary button**|Inherits theme color at rest state. Use this as the main call to action.| ![Primary Button Image.](../images/primary.png)|
+|**Default button**|Default button should always perform safe operations and should never delete.|![Default Button Image.](../images/default.png)|
+|**Compound Button**|Used to cause actions that complete a task or cause a transitional task.|![Compound Button Image.](../images/compound.png)|
 
 - **Primary button** - Inherits theme color at rest state. Use this as the main call to action.
 
