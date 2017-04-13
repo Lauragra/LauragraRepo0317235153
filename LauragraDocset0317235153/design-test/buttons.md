@@ -42,18 +42,6 @@ For details, see [Button](https://dev.office.com/fabric#/components/button) on t
 |**Default button**|Default button should always perform safe operations and should never delete.|![Default Button Image.](../images/default.png)|
 |**Compound Button**|Used to cause actions that complete a task or cause a transitional task.|![Compound Button Image.](../images/compound.png)|
 
-- **Primary button** - Inherits theme color at rest state. Use this as the main call to action.
-
-    ![Primary Button Image.](../images/primary.png)
-
-- **Default button** - Default button should always perform safe operations and should never delete.
-
-    ![Default Button Image.](../images/default.png)
-
-- **Compound Button** - Used to cause actions that complete a task or cause a transitional task.
-
-    ![Compound Button Image.](../images/compound.png)
-
 For details, see [Button](https://dev.office.com/fabric#/components/button) on the Office UI Fabric website.
 
 ## Additional resources
