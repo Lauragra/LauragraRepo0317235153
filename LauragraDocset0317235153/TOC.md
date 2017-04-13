@@ -16,7 +16,7 @@
 ### [Design icons for add-in commands](design-test/design-icons.md)
 ## [Task pane add-ins](design-test/task-pane-add-ins.md)
 ## [Dialog boxes]()
-## [Content add-ins](design-test/layout-for-content-add-ins.md)
+## [Content add-ins](design-test/content-add-ins.md)
 ## [Office UI Fabric]()
 ### [Get started with Fabric]()
 ### []
