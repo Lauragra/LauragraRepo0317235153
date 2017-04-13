@@ -1,4 +1,4 @@
-# Buttons component in Office UI Fabric
+# Toggle component in Office UI Fabric
 
 Use buttons in your Office Add-in to enable a user to commit a change or complete steps in a task. Make sure that the text of the button communicates the intent of the interaction. Place buttons at the bottom of the UI container of a task pane, dialog box, or content pane.
 
@@ -46,5 +46,5 @@ For details, see [Button](https://dev.office.com/fabric#/components/button) on t
 
 ## Additional resources
 
-* [UX Pattern Sample](https://office.visualstudio.com/DefaultCollection/OC/_git/GettingStarted-FabricReact)
-* [GitHub Development Resources](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code)
+* [UX pattern sample]()
+* [GitHub development resources](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code)
