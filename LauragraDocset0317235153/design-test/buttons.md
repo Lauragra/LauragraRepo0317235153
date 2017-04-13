@@ -1,4 +1,4 @@
-# Buttons For Add-ins
+# Buttons component in Office UI Fabric
 
 Buttons are best used to enable a user to commit a change or complete steps in a task. The text of a button should communicate the intent of the interaction. Therefore, as a guiding pattern for add-ins, buttons are placed at the bottom of the UI container of a task pane, dialogs, or content pane.
 
