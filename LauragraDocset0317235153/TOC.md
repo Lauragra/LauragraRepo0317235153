@@ -19,7 +19,7 @@
 ## [Content add-ins](design-test/content-add-ins.md)
 ## [Office UI Fabric]()
 ### [Get started with Fabric]()
-### []
+### [Buttons](design-test/buttons.md)
 ## [Data visualization style guidelines](design-test/data-visualization-guidelines.md)
 ## [Voice guidelines](design-test/voice-guidelines.md)
 ## [Accessibility guidelines](design-test/accessibility-guidelines.md)
