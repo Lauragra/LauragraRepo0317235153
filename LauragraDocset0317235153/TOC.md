@@ -16,7 +16,7 @@
 ## [Interface elements]()
 ### [Add-in commands](design-test/add-in-commands.md)
 #### [Design icons for add-in commands](design-test/design-icons.md)
-### [Task pane add-ins](design-test/task-pane-add-ins.md)
+### [Task panes](design-test/task-pane-add-ins.md)
 ### [Dialog boxes]()
 ### [Content add-ins](design-test/content-add-ins.md)
 ## [Office UI Fabric]()
