@@ -7,7 +7,7 @@
 ## [Use Visual Studio](get-started/create-and-debug-office-add-ins-in-visual-studio.md)
 ## [Use any editor](get-started/create-an-office-add-in-using-any-editor.md)
 
-# [Design 4](design-test/ui-elements.md)
+# [Design 4](design-test/ui-elements-x.md)
 ## [Overview]()
 ### [Design principles](design-test/add-in-design-principles.md)
 ### [Design language](design-test/add-in-design-language.md)
