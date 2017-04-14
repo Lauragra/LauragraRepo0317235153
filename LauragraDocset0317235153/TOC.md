@@ -8,7 +8,7 @@
 ## [Use any editor](get-started/create-an-office-add-in-using-any-editor.md)
 
 # [Design 6](design-test-6/design-add-ins.md)
-## [Design principles](design-test-6/add-in-design-principles.md)
+## [Principles](design-test-6/add-in-design-principles.md)
 ### [Design language](design-test-6/add-in-design-language.md)
 ### [Best practices](design-test-6/add-in-design-best-practices.md)
 ## [Office UI extension points]()
@@ -30,7 +30,7 @@
 ### [Pivot](design-test-6/pivot.md)
 ### [TextField](design-test-6/textfield.md)
 ### [Toggle](design-test-6/toggle.md)
-## [Design resources]()
+## [Resources]()
 ### [UX design templates](design-test-6/ux-design-patterns.md)
 ### [Data visualization guidelines](design-test-6/data-visualization-guidelines.md)
 ### [Voice guidelines](design-test-6/voice-guidelines.md)
