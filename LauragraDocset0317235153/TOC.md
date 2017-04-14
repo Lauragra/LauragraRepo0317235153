@@ -10,7 +10,7 @@
 # [Design 6](design-test-6/design-add-ins.md)
 ## [Principles](design-test-6/add-in-design-principles.md)
 ### [Design language](design-test-6/add-in-design-language.md)
-### [Best practices](design-test-6/add-in-design-best-practices.md)
+## [Best practices](design-test-6/add-in-design-best-practices.md)
 ## [Office UI extension points]()
 ### [Add-in commands](design-test-6/add-in-commands.md)
 #### [Design icons for add-in commands](design-test-5/design-icons.md)
