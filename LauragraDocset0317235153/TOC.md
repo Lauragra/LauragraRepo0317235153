@@ -7,8 +7,8 @@
 ## [Use Visual Studio](get-started/create-and-debug-office-add-ins-in-visual-studio.md)
 ## [Use any editor](get-started/create-an-office-add-in-using-any-editor.md)
 
-# [Design 5](design-test-5/design-add-ins-5.md)
-## [Get to know our design principles](design-test-5/add-in-design-principles-5.md)
+# [Design 5](design-test-5/design-add-ins.md)
+## [Get to know our design principles](design-test-5/add-in-design-principles.md)
 ### [Design language](design-test-5/add-in-design-language.md)
 ### [Design best practices](design-test-5/add-in-design-best-practices.md)
 ### [Design pattern templates](design-test-5/ux-design-patterns.md)
@@ -37,7 +37,7 @@
 ### [Accessibility guidelines](design-test-5/accessibility-guidelines.md)
 ### [Usability testing](design-test-5/usability-testing.md)
 
-# [Design 4](design-test/design-add-ins-4.md)
+# [Design 4](design-test/design-add-ins.md)
 ## [Overview]()
 ### [Design principles](design-test/add-in-design-principles.md)
 ### [Design language](design-test/add-in-design-language.md)
