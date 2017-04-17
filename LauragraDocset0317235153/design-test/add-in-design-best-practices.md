@@ -29,11 +29,11 @@ Effective add-ins offer unique and compelling functionality that extends Office 
 
  - Provide teaching UI to guide users and make your UI personal.
 
-    ![A screenshot that shows an add-in task pane with get started steps next to an add-in with no get started steps](../../images/586202ad-333b-417c-ad31-cc6eb952b239.png)
+    ![A screenshot that shows an add-in task pane with get started steps next to an add-in with no get started steps](../images/586202ad-333b-417c-ad31-cc6eb952b239.png)
 
   - If your content add-in binds to data in the user's document, include sample data or a template to show users the data format to use.
 
-    ![A screenshot that shows a content add-in with data next to a content add-in with no data](../../images/7de2215f-ccef-4f82-aa9d-babcbddae0c6.png)
+    ![A screenshot that shows a content add-in with data next to a content add-in with no data](../images/7de2215f-ccef-4f82-aa9d-babcbddae0c6.png)
 
 - Offer [free trials](https://msdn.microsoft.com/en-us/library/dn456317.aspx#Anchor_1). If your add-in requires a subscription, make some functionality available without a subscription.
 
@@ -66,7 +66,7 @@ For templates that illustrate patterns that you can apply as you develop your fi
 
 - Provide a version of your add-in that also works on hosts that do not support commands. A single add-in manifest can work in both command-aware (with commands) and non-command-aware (as a taskpane) hosts.
 
-    ![A screenshot that shows a task pane add-in in Office 2013 and the same add-in using add-in commands in Office 2016](../../images/4f90a3cc-8cc4-4879-9a03-0bb2b6079026.png)
+    ![A screenshot that shows a task pane add-in in Office 2013 and the same add-in using add-in commands in Office 2016](../images/4f90a3cc-8cc4-4879-9a03-0bb2b6079026.png)
 
 
 
