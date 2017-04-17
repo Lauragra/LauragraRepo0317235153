@@ -1,4 +1,6 @@
-#Layout for content add-ins
+# Content add-ins
+
+## Best practices
 
 Create a consistent look and feel for your content add-ins by using the recommended design layout. The recommended layout for a content add-in includes the following elements: 
 
@@ -10,6 +12,10 @@ Create a consistent look and feel for your content add-ins by using the recommen
 
 You can also add [custom HTML-based UI](ui-elements.md#custom-HTML-based-UI) to your content add-in.
 
+## Implementation
+
+## Samples and other resources
+
 For a sample that shows how to use Office UI Fabric in Office Add-ins, see [Office Add-in Fabric UI Sample](https://github.com/OfficeDev/Office-Add-in-Fabric-UI-Sample).
 
-<!-- Add sample template for content add-in and individual building blocks - Command Bar, Input, layout components. -->
+
