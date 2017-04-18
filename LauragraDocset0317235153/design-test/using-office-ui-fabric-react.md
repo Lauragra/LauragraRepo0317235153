@@ -45,7 +45,65 @@ To create an add-in that uses Fabric React, we recommend that you use the Yeoman
 After running `npm start`, a browser window opens that displays a spinner. To view the full UI of the add-in, ensure you sideload your manifest and then open the add-in. For more information, see [Sideload Office Add-ins for testing](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins).
 
 ###4. Add a Fabric React Button
-To add a button to your add-in, perform the following steps:
+
+Next, let's add a button to the add-in. Perform the following steps:
+
+1. Open the project folder created by the Yeoman generator, and navigate to **src\components**.
+2. Create **button.tsx**.
+3. In **Button.tsx**, enter the following code to create a new ButtonPrimaryExample component.
+
+```React
+
+import * as React from 'react';
+import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
+import { Label } from 'office-ui-fabric-react/lib/Label';
+
+export class ButtonPrimaryExample extends React.Component<IButtonProps, {}> {
+  public constructor() {
+    super();
+  }
+
+  public render() {
+    let { disabled } = this.props;
+
+    return (
+      <div className='ms-BasicButtonsExample'>
+        <Label>Adding Fabric React's primary button</Label>
+        <PrimaryButton
+          data-automation-id='test'
+          disabled={ disabled }
+          text='Create account'
+          onClick={ () => alert('Clicked') }
+        />
+      </div>
+    );
+  }
+}
+
+```
+
+4. Open src\components\app.tsx and perform the following steps:
+	1. Add an import statement to reference the new ButtonPrimaryExample component created in step 3.
+	   	```React
+			import {ButtonPrimaryExample} from './button';
+		``` 
+	2. Replace the default **render()** function with the following code that uses **ButtonPrimaryExample**.
+	```React
+		render() {
+        return (
+            <div className='ms-welcome'>
+                <Header logo='assets/logo-filled.png' title={this.props.title} message='Welcome' />
+                <HeroList message='Discover what HelloReact can do for you today!' items={this.state.listItems}>
+                    <p className='ms-font-l'>Modify the source files, then click <b>Run</b>.</p>
+                    <Button  className='ms-welcome__action' buttonType={ButtonType.hero} icon='ChevronRight' onClick={this.click}>Run</Button>
+                    <ButtonPrimaryExample />
+                </HeroList>
+            </div>
+        );
+    };
+	```
+	3. 
+	
 
 
 
