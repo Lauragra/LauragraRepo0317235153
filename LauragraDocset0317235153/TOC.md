@@ -27,7 +27,7 @@
 ### [Pivot](design-test-6/pivot.md)
 ### [TextField](design-test-6/textfield.md)
 ### [Toggle](design-test-6/toggle.md)
-## [Guidelines]()
+## [Guidelines and resources]()
 ### [UX design templates](design-test-6/ux-design-patterns.md)
 ### [Icon guidelines for add-in commands](design-test-5/design-icons.md)
 ### [Data visualization guidelines](design-test-6/data-visualization-guidelines.md)
@@ -63,7 +63,7 @@
 ### [Data visualization style guidelines](design-test-5/data-visualization-guidelines.md)
 ### [Voice guidelines](design-test-5/voice-guidelines.md)
 ### [Accessibility guidelines](design-test-5/accessibility-guidelines.md)
-### [Usability testing](design-test-5/usability-testing.md)
+## [Test your design with users](design-test-5/usability-testing.md)
 
 # [Design 4](design-test/design-add-ins.md)
 ## [Overview]()
