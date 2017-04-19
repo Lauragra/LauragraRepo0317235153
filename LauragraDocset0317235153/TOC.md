@@ -73,7 +73,7 @@
 ### [Design pattern templates](design-test/ux-design-patterns.md)
 ## [Interface elements]()
 ### [Add-in commands](design-test/add-in-commands.md)
-### [Task pane autoopen feature](design-test/autoopen-task-pane)
+#### [Task pane autoopen feature](design-test/autoopen-task-pane)
 #### [Design icons for add-in commands](design-test/design-icons.md)
 ### [Task panes](design-test/task-pane-add-ins.md)
 ### [Dialog boxes](design-test/dialog-boxes.md)
