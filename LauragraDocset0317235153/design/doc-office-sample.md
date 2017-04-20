@@ -72,7 +72,7 @@ For example, use buttons at the end of a form to submit it; to close the end of 
 
 ## Implementation
 
-For details, see ![Button](https://dev.office.com/fabric#/components/button) on the Office UI Fabric website.
+For details, see [Button](https://dev.office.com/fabric#/components/button) on the Office UI Fabric website.
 
 ## Additional Resources
 * [UX Pattern Sample](https://office.visualstudio.com/DefaultCollection/OC/_git/GettingStarted-FabricReact)
