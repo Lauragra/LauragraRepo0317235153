@@ -6,21 +6,27 @@ Office UI Fabric is a JavaScript front-end framework for building user experienc
 
 Fabric consists of several projects:
 
-- **Fabric Core** - Contains the core elements of the design language such as icons, colors, type, and grid. Both Fabric JS and Fabric React use Fabric Core. 
-- **Fabric React (recommended)** - Implements the UX components using the React framework.
-- **Fabric JS** - Implements UX components using JavaScript only. Use Fabric JS if you don't want to take a dependency on the React framework.  
+- **Fabric Core** - Contains the core elements of the design language such as icons, colors, type, and grid. Both Fabric React and Fabric JS use Fabric Core. 
+- **Fabric React (recommended)** - Implements Fabric's UX components using the React framework.
+- **Fabric JS** - Implements UX components using JavaScript only.  
 
-The following sections walk you through the basics of using Fabric Core and Fabric React.
-
-
+The following sections show you how to get started using Fabric Core and Fabric React.
 
 ##Use Fabric Core.
-Fabric core provides the main elements of the design language including fonts, types, icons and branded assets available
-look at Fabric site to get what it provides. 
-Include the guidance on using the icons and fonts. 
 
-##2. Use Fabric icons and fonts
-Using icons is simple. All you have to do is use an "i" element and reference the appropriate classes. You can control the size of the icon by changing the font size. For example, the following code shows how to make an extra-large table icon that uses the themePrimary (#0078d7) color. 
+To get started using Fabric Core in your add-in:
+
+###1. Add the Fabric CDN reference 
+
+To reference Fabric from the CDN, add the following HTML code to your page.
+
+```HTML
+<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css">
+``` 
+
+###2. Use Fabric icons and fonts 
+
+To use a Fabric icon, include the "i" element on your page, and then reference the appropriate classes. You can control the size of the icon by changing the font size. For example, the following code shows how to make an extra-large table icon that uses the themePrimary (#0078d7) color. 
    
     <i class="ms-Icon ms-font-xl ms-Icon--Table ms-fontColor-themePrimary"></i>
 
@@ -30,29 +36,33 @@ For information about font sizes and colors that are available in Office UI Fabr
 
 
 ##Use Fabric React components.
-follow these steps
 
-When you use the Fabric React components as described in this section, you don't need a separate refernce to Fabric Core. 
+Fabric provides several React-based UX components, like buttons or checkboxes, that you can use in your add-in. To get started using Fabric React's components in your add-in, perform the following steps.
 
-#Where do the recommended components go?
+> Note: If you follow the steps in this section, there's no need to add the reference to Fabric Core, as outlined in the previous section.
 
-###1. Create your project with the Yeoman generator for Office. 
+### Step 1 - Create your project with the Yeoman generator for Office. 
 
-To create an add-in that uses Fabric React, we recommend that you use the Yeoman generator for Office. The Yeoman generator for Office provides the project scaffolding and build management needed to develop and Office add-in. For more information on getting started with the Yeoman generator, see [Create an Office Add-in using any editor](https://dev.office.com/docs/add-ins/get-started/create-an-office-add-in-using-any-editor) and [https://github.com/OfficeDev/generator-office](https://github.com/OfficeDev/generator-office).
+To create an add-in that uses Fabric React, we recommend that you use the Yeoman generator for Office. The Yeoman generator for Office provides the project scaffolding and build management needed to develop an Office add-in. 
 
->Important: Ensure you use **Windows PowerShell**, not the command prompt, to run the commands. 
+To create your project, perform the following steps from [Create an Office Add-in using any editor](https://dev.office.com/docs/add-ins/get-started/create-an-office-add-in-using-any-editor):
 
-After running `npm start`, a browser window opens that displays a spinner. To view the full UI of the add-in, ensure you sideload your manifest and then open the add-in. For more information, see [Sideload Office Add-ins for testing](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins).
+1. Install the pre-requisites.
+2. Run yo office to create the default files for your add-in.
+3. Run `npm start` to start a local web server (a browser window showing a spinner opens automatically). 
+4. Sideload your manifest to view the full UI of the add-in.    
 
-###4. Add a Fabric React Button
+>Important: Use **Windows PowerShell**, not the command prompt, to run the commands to create your project. 
 
-Next, let's add a button to the add-in. Perform the following steps:
+### Step 2 - Add a Fabric React Button
+
+Next, create a new React component that uses components from Fabric React by performing the following steps:
 
 1. Open the project folder created by the Yeoman generator, and navigate to **src\components**.
 2. Create **button.tsx**.
-3. In **Button.tsx**, enter the following code to create a new ButtonPrimaryExample component.
+3. In **button.tsx**, enter the following code to create the ButtonPrimaryExample component. 
 
-```React
+```TypeScript
 
 import * as React from 'react';
 import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
@@ -62,6 +72,16 @@ export class ButtonPrimaryExample extends React.Component<IButtonProps, {}> {
   public constructor() {
     super();
   }
+
+   insertText = async () => {
+        // In the click event, write text to the document. 
+
+        await Word.run(async (context) => {
+            var body = context.document.body;  
+            body.insertParagraph('Hello Office UI Fabric React Button!', Word.InsertLocation.end);  
+            await context.sync();
+        });
+    }
 
   public render() {
     let { disabled } = this.props;
@@ -73,7 +93,7 @@ export class ButtonPrimaryExample extends React.Component<IButtonProps, {}> {
           data-automation-id='test'
           disabled={ disabled }
           text='Create account'
-          onClick={ () => alert('Clicked') }
+          onClick={ this.insertText }
         />
       </div>
     );
@@ -82,80 +102,61 @@ export class ButtonPrimaryExample extends React.Component<IButtonProps, {}> {
 
 ```
 
-4. Open src\components\app.tsx and perform the following steps:
-	1. Add an import statement to reference the new ButtonPrimaryExample component created in step 3.
+The above code does the following:
+
+- References the React library using `import * as React from 'react';`.
+- Reference additional components (PrimaryButton, IButtonProps, Label) from Fabric that we use within button.tsx. 
+- Declare and make public the new `ButtonPrimaryExample` component using `export class ButtonPrimaryExample extends React.Component`. 
+- Declare the **insertText** function to handle the onclick event. 
+- Define the UI of the react element using the **render** function. Render defines the structure of the component. Within **render**, we wire up the onclick event using **this.insertText**.
+
+### Step 3 - Add your React component to your add-in 
+
+Add the `ButtonPrimaryExample` to your add-in by opening **src\components\app.tsx** and adding the following code: 
+
+- Add the following import statement to reference `ButtonPrimaryExample` from **button.tsx** created in step 2 (no file extension is needed). 
 	   	```React
 			import {ButtonPrimaryExample} from './button';
 		``` 
-	2. Replace the default **render()** function with the following code that uses **ButtonPrimaryExample**.
+- Replace the default **render()** function with the following code that uses **<ButtonPrimaryExample />**. Notice that the default text and button is replaced with the text and primary button used in `ButtonPrimaryExample`.
+
 	```React
-		render() {
+	   render() {
         return (
             <div className='ms-welcome'>
                 <Header logo='assets/logo-filled.png' title={this.props.title} message='Welcome' />
-                <HeroList message='Discover what HelloReact can do for you today!' items={this.state.listItems}>
-                    <p className='ms-font-l'>Modify the source files, then click <b>Run</b>.</p>
-                    <Button  className='ms-welcome__action' buttonType={ButtonType.hero} icon='ChevronRight' onClick={this.click}>Run</Button>
+                <HeroList message='Discover what HelloReact can do for you today!' items={this.state.listItems}>                    
                     <ButtonPrimaryExample />
                 </HeroList>
             </div>
         );
     };
 	```
-	3. 
+
+Save your changes and all open browser instances, including the add-in, updates automatically and now shows the React component.  
 	
+### Recommended components
 
-
-
-create button file
-go to the Fabric site button page
-copy and paste the code
-add imports statement to index.html
-add <button>
-add some click code
-View the change
-
-
-
-
-##3. Use Fabric JS UX components
-
-Fabric provides several UX components, like buttons or checkboxes, that you can use in your add-in. The following is a list of the Fabric JS UX components that we recommend for use in an add-in. To use one of the Fabric components in your add-in, follow the link to the Fabric documentation, and then follow the instructions in **Using this component**.
+The following is a list of the Fabric React UX components that we recommend for use in an add-in.  
 
 > **Note:** We will add additional components over time. 
 
-- [Breadcrumb](https://dev.office.com/fabric-js/Components/Breadcrumb/Breadcrumb.html)
-- [Button](https://dev.office.com/fabric-js/Components/Button/Button.html) (Consider using the small button variant in your add-in. Add 16px of padding to small buttons to ensure a 40px minimum touch target on touch devices.)
-- [Checkbox](https://dev.office.com/fabric-js/Components/CheckBox/CheckBox.html)
-- [ChoiceFieldGroup](https://dev.office.com/fabric-js/Components/ChoiceFieldGroup/ChoiceFieldGroup.html)
-- [Date Picker](https://dev.office.com/fabric-js/Components/DatePicker/DatePicker.html) (For an example that shows how to implement the Date Picker in an add-in, see the [Excel Sales Tracker](https://github.com/OfficeDev/Excel-Add-in-JavaScript-SalesTracker) code sample.)
-- [Dropdown](https://dev.office.com/fabric-js/Components/Dropdown/Dropdown.html)
-- [Label](https://dev.office.com/fabric-js/Components/Label/Label.html)
-- [Link](https://dev.office.com/fabric-js/Components/Link/Link.html)
-- [List](https://dev.office.com/fabric-js/Components/List/List.html) (Consider changing the component's default styles in the CSS.)
-- [MessageBanner](https://dev.office.com/fabric-js/Components/MessageBanner/MessageBanner.html)
-- [MessageBar](https://dev.office.com/fabric-js/Components/MessageBar/MessageBar.html)
-- [Overlay](https://dev.office.com/fabric-js/Components/Overlay/Overlay.html)
-- [Panel](https://dev.office.com/fabric-js/Components/Panel/Panel.html)
-- [Pivot](https://dev.office.com/fabric-js/Components/Pivot/Pivot.html)
-- [ProgressIndicator](https://dev.office.com/fabric-js/Components/ProgressIndicator/ProgressIndicator.html)
-- [Searchbox](https://dev.office.com/fabric-js/Components/SearchBox/SearchBox.html)
-- [Spinner](https://dev.office.com/fabric-js/Components/Spinner/Spinner.html)
-- [Table](https://dev.office.com/fabric-js/Components/Table/Table.html)
-- [TextField](https://dev.office.com/fabric-js/Components/TextField/TextField.html)
-- [Toggle](https://dev.office.com/fabric-js/Components/Toggle/Toggle.html)
-  
-
-##Next steps
-If you're looking for an end-to-end code sample that shows you how to use Fabric JS, we've got you covered. See the following resource:
-
-- [Excel Sales Tracker](https://github.com/OfficeDev/Excel-Add-in-JavaScript-SalesTracker) 
+- [Breadcrumb](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [Button](https://dev.office.com/docs/add-ins/design/add-in-design) 
+- [Checkbox](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [ChoiceGroup](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [Dropdown](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [Label](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [Pivot](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [TextField](https://dev.office.com/docs/add-ins/design/add-in-design)
+- [Toggle](https://dev.office.com/docs/add-ins/design/add-in-design)
 
 ##Related resources
-If you're looking for code samples or documentation on a previous release of Fabric, see the following:
 
+- [Getting started with Fabric React code sample]()
 - [UX design patterns (uses Fabric 2.6.1)](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) 
 - [Office Add-in Fabric UI sample (uses Fabric 1.0)](https://github.com/OfficeDev/Office-Add-in-Fabric-UI-Sample) 
 - [Using Fabric 2.6.1 in an Office Add-in](https://dev.office.com/docs/add-ins/design/ui-elements/using-office-ui-fabric)
+- [Yeoman generator for Office](https://github.com/OfficeDev/generator-office)
  
 
