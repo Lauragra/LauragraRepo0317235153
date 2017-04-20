@@ -4,7 +4,8 @@ List provides a consistent layout to interact with collections. Using List allow
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img
+* example image to place the component in context.
 
 ## Best Practices
 
@@ -46,32 +47,32 @@ List provides a consistent layout to interact with collections. Using List allow
     <tr>
         <td><h4>Ordered List<h4></td>
         <td>Disabled uncontrolled Dropdown with defaultSelectedKey</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Unordered List<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>List of 5000 grid items<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>List of 5000 variable height items<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Fixed List of 5000 email tiles<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Scrolling items into view<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

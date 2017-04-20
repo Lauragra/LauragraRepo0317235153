@@ -4,11 +4,10 @@ In add-in, breadcrumbs are used as a navigational aid. They indicate the current
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img 
+* example image to place the component in context. 
 
 ## Best Practices
-
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
 
 <table>
     <tr>
@@ -31,8 +30,8 @@ In add-in, breadcrumbs are used as a navigational aid. They indicate the current
     </tr>
     <tr>
         <td><h4>Simple Breadcrumb<h4></td>
-        <td>It is typically placed in a horizontal form, under the masthead or navigation of a primary content area</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>It is typically placed in a horizontal form, under the masthead or navigation of a primary content area.</td>
+        <td>img</td>
     </tr>
 </table>
 

@@ -4,17 +4,26 @@ In Add-in, Pivot control, “Tab pattern” are used for quick navigation to fre
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img
+* example image to place the component in context.
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Use on content-heavy pages that require a significant amount of scrolling to access the various sections.
+* Don't - Don’t use on pages which doesn’t scroll.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Be concise on the navigation labels, ideally one or two words rather than a phrase.
+* Don't - Don’t use full sentences or complex punctuation (colons, semicolons, etc.).
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - When there are two levels of pivots, the top-level and sub-level headers should have enough visual differentiation so that users can clearly separate the two.
+* Don't - Don’t nest pivots more than two levels (top-level/sub-level pattern).
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Pivot headers should persist on-screen.
+* Don't - Don’t use pivots to navigate to another page. Use link navigation instead.
 
 <table>
     <tr>
@@ -54,27 +63,27 @@ In Add-in, Pivot control, “Tab pattern” are used for quick navigation to fre
     <tr>
         <td><h4>Default Pivot – Text only<h4></td>
         <td>Disabled uncontrolled Dropdown with defaultSelectedKey</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Pivot with icons – Text and icons<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Links of Tab Style<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Pivot with Trigger onchange event<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Pivot with Rendering nested components within the Pivot<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

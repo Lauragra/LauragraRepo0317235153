@@ -4,11 +4,14 @@ In add-in, Toggles represent a physical switch to turn things on or off. Use Tog
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img
+* example image to place the component in context.
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Use a Toggle for binary settings when changes become effective immediately after the user changes them.
+* Don't - Don’t use a Toggle if it requires user to perform an extra step for changes to be effective.
 
 <table>
     <tr>
@@ -32,22 +35,22 @@ In add-in, Toggles represent a physical switch to turn things on or off. Use Tog
     <tr>
         <td><h4>Enabled and checked<h4></td>
         <td>Disabled uncontrolled Dropdown with defaultSelectedKey</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Enabled and unchecked<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Disabled and checked<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Disabled and unchecked<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

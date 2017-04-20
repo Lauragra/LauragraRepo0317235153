@@ -6,17 +6,26 @@ The control has two selection states: unselected and selected.
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img 
+* example image to place the component in context.
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Use when there are 2-7 options. Make sure there’s enough screen space. Otherwise, use a Checkbox or Dropdown list.
+* Don't - Don’t use ChoiceGroup if there are more than 7 options. Use a Dropdown instead.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Use only one ChoiceGroup within a cluster of ChoiceGroup that may be selected at a time.
+* Don't - Don’t use two ChoiceGroup for a single binary choice.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - List the options in a logical order, such as most likely to be selected to least, simplest operation to most complex, or least risk to most. Alphabetical ordering is not recommended because it is language dependent and therefore not localizable.
+* Don't - Don't use the options are numbers that have fixed steps. Instead, use a slide component.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Align radio buttons vertically instead of horizontally, if possible.
+* Don't - Don’t align buttons horizontally. Horizontal alignment is harder to read and localize.
 
 <table>
     <tr>
@@ -44,17 +53,17 @@ The control has two selection states: unselected and selected.
     <tr>
         <td><h4>ChoiceGroups<h4></td>
         <td>Pairing a set of content with radio button with a single line label</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>ChoiceGroups using Images<h4></td>
         <td>Pairing a set of images with radio button with a single line label</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>ChoiceGroups using Icons<h4></td>
         <td>Pairing a set of icons with radio button with a single line label</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

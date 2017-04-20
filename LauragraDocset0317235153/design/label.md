@@ -4,13 +4,18 @@ In Add-in, label is used as a name or title to a component or group of component
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img 
+* example image to place the component in context.
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Use sentence casing, e.g. “First name”
+* Don't - Don’t use title casing, e.g. “First Name”
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Be short and concise
+* Don't - Don’t use full sentences or complex punctuation (colons, semicolons, etc.).
 
 <table>
     <tr>
@@ -34,17 +39,17 @@ In Add-in, label is used as a name or title to a component or group of component
     <tr>
         <td><h4>Default Label<h4></td>
         <td>Disabled uncontrolled Dropdown with defaultSelectedKey</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Disabled Label<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Required Label<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

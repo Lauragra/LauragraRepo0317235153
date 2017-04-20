@@ -6,15 +6,22 @@ The control has two selection states: unselected and selected.
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img 
+* example image to place the component in context.
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img 
+* Do - Allow users to choose any combination of options when several Checkboxes are grouped together.
+* Don't - Don't put two groups of Checkboxes next to each other. Separate the two groups with labels.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img 
+* Do - Use Checkbox to facilitate choosing within the collection, while preserving the ability to check or uncheck sub choices.
+* Don't - Don’t use a Checkbox when the user can choose only one option from the group, use radio buttons instead.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img 
+* Do - Use Checkbox to indicate a status
+* Don't - Don’t use Checkbox to show/indicate an action
 
 <table>
     <tr>
@@ -42,22 +49,22 @@ The control has two selection states: unselected and selected.
     <tr>
         <td><h4>Uncontrolled checkbox<h4></td>
         <td>It is typically placed in a horizontal form, under the masthead or navigation of a primary content area</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Uncontrolled checkbox with default checked true<h4></td>
         <td>It is typically placed in a horizontal form, under the masthead or navigation of a primary content area</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Disabled uncontrolled checkbox with default checked true<h4></td>
         <td>It is typically placed in a horizontal form, under the masthead or navigation of a primary content area</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Controlled checkbox<h4></td>
         <td>It is typically placed in a horizontal form, under the masthead or navigation of a primary content area</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

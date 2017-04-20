@@ -4,19 +4,30 @@ The TextField component in add-in enables a user to type text. It's typically us
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img
+* example image to place the component in context.
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Use the TextField to accept data input on a form or page.
+* Don't - Don’t use a TextField to render basic copy as part of a body element of a page.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Label the TextField with a helpful name.
+* Don't - Don’t provide an unlabeled TextField and expect that users will know what to do with it.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Provide concise helper text that specifies what content is expected to be entered.
+* Don't - Don’t be overly verbose with helper text.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - When part of a form, provide clear designations for which fields are required vs. optional.
+* Don't - Don’t place a TextField inline with body copy.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img
+* Do - Provide all appropriate states for the control (static, hover, focus, engaged, unavailable, error).
+* Don't - Don’t occlude the entry or allow entry when the active content is not visible.
 
 <table>
     <tr>
@@ -48,27 +59,27 @@ The TextField component in add-in enables a user to type text. It's typically us
     <tr>
         <td><h4>Default TextField<h4></td>
         <td>Disabled uncontrolled Dropdown with defaultSelectedKey</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Disabled TextField<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Required TextField<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>TextField with a placeholder<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Multiline TextField<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 

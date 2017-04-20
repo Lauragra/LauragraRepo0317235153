@@ -4,17 +4,18 @@ A Dropdown is a list in which reveals selected items by clicking a drop-down but
   
 #### Example: Breadcrumb on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.pn)
+img 
+* example image to place the component in context. 
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img 
+* Do - Use a Dropdown when there are multiple choices that can be collapsed under one title. Or if the list of items is long or when space is constrained. 
+* Don't - Don’t use Dropdown if there’s less than 2 choices.
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
-
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
-
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.pn)
+img 
+* Do - Dropdowns contain shortened statements or words.
+* Don't - Don’t use lengthy words.
 
 <table>
     <tr>
@@ -38,12 +39,12 @@ A Dropdown is a list in which reveals selected items by clicking a drop-down but
     <tr>
         <td><h4>Basic uncontrolled Dropdown<h4></td>
         <td>Disabled uncontrolled Dropdown with defaultSelectedKey</td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
     <tr>
         <td><h4>Basic uncontrolled Dropdown<h4></td>
         <td></td>
-        <td><img src="../images/primary.pn" alt="Primary Button Image" ></td>
+        <td>img</td>
     </tr>
 </table>
 
