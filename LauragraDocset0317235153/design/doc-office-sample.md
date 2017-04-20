@@ -14,20 +14,36 @@ For example, use buttons at the end of a form to submit it; to close the end of 
 
 ![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-02.pnG)
 
-#### Do's 
-
-* Use only a single line of text in the label of
-* Button should be placed below a related content area the button.
-* Make sure the label conveys a clear purposeof the button to the user
-* Expose only one or two buttons to the user at a time. For example, “Accept” and “Cancel”.
-* “Submit”, “OK”, and “Apply” buttons should always be styled as primary buttons. When “Reset” or “Cancel” buttons appear alongside one of the above, they should be styled as secondary buttons.
-* Task buttons should be used to cause actions to complete a task or cause a transitional task.
-
-#### Don'ts
-
-* Don’t put too much text in a button – try keep text to a minimum.
-* Don’t place a button at the top of a table or inline.
-* Don’t use a button to navigate to another place with exception of “Back” and “Next” buttons, use a link instead.
+<table>
+    <tr>
+        <th>Do</th>
+        <th>Don't</th>
+    </tr>
+    <tr>
+        <td>Use only a single line of text in the label of the button.</td>
+        <td>Don’t put too much text in a button – try keep text to a minimum.</td>
+    </tr>
+    <tr>
+        <td>Button should be placed below a related content area the button.</td>
+        <td>Don’t place a button at the top of a table or inline.</td>
+    </tr>
+    <tr>
+        <td>Make sure the label conveys a clear purpose of the button to the user.</td>
+        <td>Don’t use a button to navigate to another place with exception of “Back” and “Next” buttons, use a link instead.</td>
+    </tr>
+    <tr>
+        <td>Expose only one or two buttons to the user at a time. For example, “Accept” and “Cancel”.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>“Submit”, “OK”, and “Apply” buttons should always be styled as primary buttons. When “Reset” or “Cancel” buttons appear alongside one of the above, they should be styled as secondary buttons.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Task buttons should be used to cause actions to complete a task or cause a transitional task.</td>
+        <td></td>
+    </tr>
+</table>
 
 ## Variants
 
@@ -53,6 +69,10 @@ For example, use buttons at the end of a form to submit it; to close the end of 
         <td><img src="../images/compound.png" alt="Compound Button Image" ></td>
     </tr>
 </table>
+
+## Implementation
+
+For details, see ![Button](https://dev.office.com/fabric#/components/button) on the Office UI Fabric website.
 
 ## Additional Resources
 * [UX Pattern Sample](https://office.visualstudio.com/DefaultCollection/OC/_git/GettingStarted-FabricReact)
