@@ -20,15 +20,13 @@ To get started using Fabric Core in your add-in, perform the following steps:
  
 To reference Fabric from the CDN, add the following HTML code to your page.
 
-`
-<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css">
-`
+`<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css">`
 
 ###2. Use Fabric icons and fonts 
 
 To use a Fabric icon, include the "i" element on your page, and then reference the appropriate classes. You can control the size of the icon by changing the font size. For example, the following code shows how to make an extra-large table icon that uses the themePrimary (#0078d7) color. 
    
-    <i class="ms-Icon ms-font-xl ms-Icon--Table ms-fontColor-themePrimary"></i>
+`<i class="ms-Icon ms-font-xl ms-Icon--Table ms-fontColor-themePrimary"></i>`
 
 To find more icons that are available in Office UI Fabric, use the search feature on the [Icons](https://dev.office.com/fabric#/styles/icons) page. When you find an icon to use in your add-in, be sure to prefix the icon name with `ms-Icon--`. 
 
@@ -63,7 +61,8 @@ Next, we want to add a button to our add-in. We create a new React component, ca
 2. Create **button.tsx**.
 3. In **button.tsx**, enter the following code to create the **ButtonPrimaryExample** component. 
 
-    `import * as React from 'react';
+```
+import * as React from 'react';
 import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 
@@ -97,29 +96,28 @@ export class ButtonPrimaryExample extends React.Component<IButtonProps, {}> {
       </div>
     );
   }
-}`
-
+}
+```
 The above code does the following:
 
 - References the React library using `import * as React from 'react';`.
-- Reference the Fabric components (PrimaryButton, IButtonProps, Label) that are used to create **ButtonPrimaryExample**. 
+- Reference the Fabric components (PrimaryButton, IButtonProps, Label) that are used to create `ButtonPrimaryExample`. 
 - Declare and make public the new `ButtonPrimaryExample` component using `export class ButtonPrimaryExample extends React.Component`. 
-- Declare the **insertText** function to handle the onclick event. 
-- Define the UI of the React component in the **render** function. Render defines the structure of the component. Within **render**, we wire up the onclick event using **this.insertText**.
+- Declare the `insertText` function to handle the onclick event. 
+- Define the UI of the React component in the `render` function. Render defines the structure of the component. Within `render`, we wire up the onclick event using `this.insertText`.
 
 ### Step 3 - Add your React component to your add-in 
 
 Add `ButtonPrimaryExample` to your add-in by opening **src\components\app.tsx** and performing the following steps: 
 
-- Add the following import statement to reference `ButtonPrimaryExample` from **button.tsx** created in step 2 (no file extension is needed). 
+- Add the following import statement to reference `ButtonPrimaryExample` from **button.tsx** created in step 2 (no file extension is needed): 
 `
 import {ButtonPrimaryExample} from './button';
 ` 
 
-- Replace the default **render()** function with the following code that uses `<ButtonPrimaryExample />`. Notice that the default text and button is replaced with the text and primary button defined in `ButtonPrimaryExample`.
-
-	`
-	   render() {
+- Replace the default `render()` function with the following code that uses `<ButtonPrimaryExample />`. Notice that the default text and button is replaced with the text and primary button defined in `ButtonPrimaryExample`.
+```
+render() {
         return (
             <div className='ms-welcome'>
                 <Header logo='assets/logo-filled.png' title={this.props.title} message='Welcome' />
@@ -129,7 +127,7 @@ import {ButtonPrimaryExample} from './button';
             </div>
         );
     };
-	`
+```
 
 Save your changes. All open browser instances, including the add-in, updates automatically and shows the `ButtonPrimaryExample` React component.  
 	
