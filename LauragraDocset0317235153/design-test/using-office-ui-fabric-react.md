@@ -55,11 +55,11 @@ To create your project, perform the following steps from [Create an Office Add-i
 
 ### Step 2 - Add a Fabric React Button
 
-Next, we want to add a button to our add-in. We create a new React component, called **ButtonPrimaryExample**, that consists of a Label and PrimaryButton from Fabric React. To create **ButtonPrimaryExample**, perform the following steps:
+Next, we want to add a button to our add-in. We create a new React component, called `ButtonPrimaryExample`, that consists of a Label and PrimaryButton from Fabric React. To create `ButtonPrimaryExample`, perform the following steps:
 
 1. Open the project folder created by the Yeoman generator, and navigate to **src\components**.
 2. Create **button.tsx**.
-3. In **button.tsx**, enter the following code to create the **ButtonPrimaryExample** component. 
+3. In **button.tsx**, enter the following code to create the `ButtonPrimaryExample` component. 
 
 ```
 import * as React from 'react';
@@ -115,7 +115,7 @@ Add `ButtonPrimaryExample` to your add-in by opening **src\components\app.tsx** 
 import {ButtonPrimaryExample} from './button';
 ` 
 
-- Replace the default `render()` function with the following code that uses `<ButtonPrimaryExample />`. Notice that the default text and button is replaced with the text and primary button defined in `ButtonPrimaryExample`.
+- Replace the default `render()` function with the following code that uses `<ButtonPrimaryExample />`. 
 ```
 render() {
         return (
@@ -129,7 +129,7 @@ render() {
     };
 ```
 
-Save your changes. All open browser instances, including the add-in, updates automatically and shows the `ButtonPrimaryExample` React component.  
+Save your changes. All open browser instances, including the add-in, updates automatically and shows the `ButtonPrimaryExample` React component. Notice that the default text and button is replaced with the text and primary button defined in `ButtonPrimaryExample`. 
 	
 ### Recommended components
 
