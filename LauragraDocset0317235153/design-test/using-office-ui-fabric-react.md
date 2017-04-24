@@ -1,4 +1,4 @@
-#Use Office UI Fabric React in Office Add-ins
+# Use Office UI Fabric React in Office Add-ins
 
 If you are building an Office Add-in, we encourage you to use [Office UI Fabric](https://dev.office.com/fabric) to create your user experience. 
 
@@ -147,7 +147,7 @@ The following is a list of the Fabric React UX components that we recommend for 
 - [TextField](https://dev.office.com/docs/add-ins/design/add-in-design)
 - [Toggle](https://dev.office.com/docs/add-ins/design/add-in-design)
 
-##Related resources
+## Related resources
 
 - [Getting started with Fabric React code sample](https://github.com/OfficeDev/)
 - [UX design patterns (uses Fabric 2.6.1)](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) 
