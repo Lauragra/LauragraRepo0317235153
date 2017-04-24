@@ -12,17 +12,17 @@ Fabric consists of several projects:
 
 The following sections show you how to get started using Fabric Core and Fabric React.
 
-##Use Fabric Core
+## Use Fabric Core
 
 To get started using Fabric Core in your add-in, perform the following steps:
 
-###1. Add the Fabric CDN reference. 
+### 1. Add the Fabric CDN reference. 
  
 To reference Fabric from the CDN, add the following HTML code to your page.
 
 `<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css">`
 
-###2. Use Fabric icons and fonts 
+### 2. Use Fabric icons and fonts 
 
 To use a Fabric icon, include the "i" element on your page, and then reference the appropriate classes. You can control the size of the icon by changing the font size. For example, the following code shows how to make an extra-large table icon that uses the themePrimary (#0078d7) color. 
    
@@ -33,7 +33,7 @@ To find more icons that are available in Office UI Fabric, use the search featur
 For information about font sizes and colors that are available in Office UI Fabric, see [Typography](https://dev.office.com/fabric#/styles/typography) and [Colors](https://dev.office.com/fabric#/styles/colors).
 
 
-##Use Fabric React components.
+## Use Fabric React components.
 
 Fabric provides several React-based UX components, like buttons or checkboxes, that you can use in your add-in. To get started using Fabric React's components in your add-in, perform the following steps.
 
