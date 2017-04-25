@@ -8,7 +8,7 @@
 ## [Use any editor](get-started/create-an-office-add-in-using-any-editor.md)
 
 # [Design](design-test/design-add-ins.md)
-## [Guidelines]()
+## [Guidelines](design-test/add-in-design-guidelines.md)
 ### [Design language](design-test/add-in-design-language.md)
 ### [UX design templates](design-test/ux-design-patterns.md)
 ### [Usability testing](design-test/usability-testing.md)
