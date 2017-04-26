@@ -8,10 +8,10 @@ For an overview of the feature, see the video [Add-in Commands in the Office Rib
 >**Note:** SharePoint catalogs do not support add-in commands. You can deploy add-in commands via [centralized deployment](https://support.office.com/en-ie/article/Deploy-Office-Add-ins-in-the-Office-365-new-Admin-Center-737e8c86-be63-44d7-bf02-492fa7cd9c3f?ui=en-US&rs=en-IE&ad=IE) or the [Office Store](https://msdn.microsoft.com/en-us/library/jj220033.aspx), or use [sideloading](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins) to deploy your add-in command for testing. 
 
 **Add-in with commands running in Excel Desktop**
-![Add-in commands](../images/addincommands1.png)
+![Add-in commands](../../images/addincommands1.png)
 
 **Add-in with commands running in Excel Online**
-![Add-in commands](../images/addincommands2.png)
+![Add-in commands](../../images/addincommands2.png)
 
 ## Command capabilities
 The following command capabilities are currently supported.
@@ -36,10 +36,9 @@ The following command capabilities are currently supported.
 ## Supported platforms
 Add-in commands are currently supported on the following platforms:
 
-- Office for Windows Desktop 2016 (build 16.0.6769.0000 or later)
-- Office Online with personal accounts
-- Office Online with work/school accounts (Preview)
-- Office for Mac ([Preview](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/blob/master/Tools/MacDevPreview.md))
+- Office for Windows Desktop 2016 (build 16.0.6769+)
+- Office for Mac (build 15.33+)
+- Office Online 
 
 More platforms are coming soon.
 
