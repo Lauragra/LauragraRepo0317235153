@@ -15,7 +15,7 @@ To align your text with the principles of the Office voice:
 
 If you plan to make your add-in [available in the Office Store](https://msdn.microsoft.com/EN-US/library/dn708487.aspx), make sure that your language and content complies with the [Validation policies](https://msdn.microsoft.com/EN-US/library/office/jj220035.aspx).
 
-## Accessibility guidelines for Office Add-ins
+## Accessibility guidelines
 
 As you design and develop your Office Add-ins, you'll want to ensure that all potential users and customers are able to use your add-in successfully. Apply the following guidelines to ensure that your solution is accessible to all audiences.
 
