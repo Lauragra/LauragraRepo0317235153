@@ -1,6 +1,6 @@
 # Use Office UI Fabric React in Office Add-ins
 
-Office UI Fabric is a JavaScript front-end framework for building user experiences for Office and Office 365. If you build your add-in using React, consider using Fabric React to create your user experience. Fabric provides several React-based UX components, like buttons or checkboxes, that you can use in your add-in. For more information, see [Office UI Fabric React](https://dev.office.com/fabric#/). 
+Office UI Fabric is a JavaScript front-end framework for building user experiences for Office and Office 365. If you build your add-in using React, consider using Fabric React to create your user experience. Fabric provides several React-based UX components, like buttons or checkboxes, that you can use in your add-in. 
 
 To get started using Fabric React's components in your add-in, perform the following steps.
 
@@ -18,9 +18,9 @@ To create your project, perform the following steps from [Create an Office Add-i
 4. Ensure you are in the directory with the project files, and then run `npm start`. A browser window showing a spinner opens automatically.
 5. Sideload your manifest to view the full UI of the add-in.    
 
-### Step 2 - Add a Fabric React Button
+### Step 2 - Add a Fabric React component
 
-Next, we want to add a button to our add-in. We create a new React component, called `ButtonPrimaryExample`, that consists of a Label and PrimaryButton from Fabric React. To create `ButtonPrimaryExample`, perform the following steps:
+Next, we want to add Fabric React components to our add-in. We create a new React component, called `ButtonPrimaryExample`, that consists of a Label and PrimaryButton from Fabric React. To create `ButtonPrimaryExample`, perform the following steps:
 
 1. Open the project folder created by the Yeoman generator, and navigate to **src\components**.
 2. Create **button.tsx**.
@@ -114,6 +114,7 @@ The following is a list of the Fabric React UX components that we recommend for 
 
 ## Related resources
 
+- [Office UI Fabric React](https://dev.office.com/fabric#/)
 - [Getting started with Fabric React code sample](https://github.com/OfficeDev/Word-Add-in-GettingStartFabricReact)
 - [UX design patterns (uses Fabric 2.6.1)](https://github.com/OfficeDev/Office-Add-in-UX-Design-Patterns-Code) 
 - [Office Add-in Fabric UI sample (uses Fabric 1.0)](https://github.com/OfficeDev/Office-Add-in-Fabric-UI-Sample) 
