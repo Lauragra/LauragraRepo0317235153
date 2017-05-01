@@ -6,13 +6,24 @@ For example, use buttons at the end of a form to submit it; to close the end of 
   
 #### Example: Buttons on a task pane
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/exampleButton@450.png)
+![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/overview_button.png)
 
 ## Best Practices
 
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-01.png)
-
-![Sample image displaying a primary and secondary button with the context of an Task Pane in an Office app.](../images/buttonUsage-02.pnG)
+<table>
+    <tr>
+        <th>Do</th>
+        <th>Don't</th>
+    </tr>
+    <tr>
+        <td>Default buttons should always perform safe operations in Add-in.</td>
+        <td>Don’t place the default focus on a button that destroys data. Instead, place it on the button that performs the “safe act” and retains the content or cancels the action.</td>
+    </tr>
+    <tr>
+        <td><img src="../images/buttonDo.png" alt="Example Do image for buttons" ></td>
+        <td><img src="../images/buttonDont.png" alt="Example Don't image for buttons" ></td>
+    </tr>
+</table>
 
 <table>
     <tr>
@@ -24,23 +35,15 @@ For example, use buttons at the end of a form to submit it; to close the end of 
         <td>Don’t put too much text in a button – try keep text to a minimum.</td>
     </tr>
     <tr>
-        <td>Button should be placed below a related content area the button.</td>
-        <td>Don’t place a button at the top of a table or inline.</td>
+        <td>· Make sure the label conveys a clear purpose of the button to the user. Use concise, specific, self-explanatory labels, usually a single word.</td>
+        <td>Don’t use a button to navigate to another place apart from “Back” and “Next” buttons, use a link instead.</td>
     </tr>
     <tr>
-        <td>Make sure the label conveys a clear purpose of the button to the user.</td>
-        <td>Don’t use a button to navigate to another place with exception of “Back” and “Next” buttons, use a link instead.</td>
+        <td>Expose only one or two buttons to the user at a time. For example, “Accept” and “Cancel”. If you need to expose more actions to the user, consider using checkboxes or radio buttons from which the user can select actions, with a single command button to trigger those actions.</td>
+        <td>Don’t put anything other than text in a button.</td>
     </tr>
     <tr>
-        <td>Expose only one or two buttons to the user at a time. For example, “Accept” and “Cancel”.</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>“Submit”, “OK”, and “Apply” buttons should always be styled as primary buttons. When “Reset” or “Cancel” buttons appear alongside one of the above, they should be styled as secondary buttons.</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Task buttons should be used to cause actions to complete a task or cause a transitional task.</td>
+        <td>“Submit”, “OK”, and “Apply” buttons should always be styled as primary buttons. When “Reset” or “Cancel” buttons appear alongside one of the above, they should be styled as default buttons.</td>
         <td></td>
     </tr>
 </table>
@@ -54,17 +57,17 @@ For example, use buttons at the end of a form to submit it; to close the end of 
         <th>Example</th>
     </tr>
     <tr>
-        <td><h4>Primary Button<h4></td>
+        <td>Primary Button</td>
         <td>Inherits theme color at rest state. Use this as the main call to action.</td>
         <td><img src="../images/primary.png" alt="Primary Button Image" ></td>
     </tr>
     <tr>
-        <td><h4>Default button<h4></td>
+        <td>Default button</td>
         <td>Default button should always perform safe operations and should never delete.</td>
         <td><img src="../images/default.png" alt="Default Button Image" ></td>
     </tr>
     <tr>
-        <td><h4>Compound Button<h4></td>
+        <td>Compound Button</td>
         <td>Used to cause actions that complete a task or cause a transitional task.</td>
         <td><img src="../images/compound.png" alt="Compound Button Image" ></td>
     </tr>
