@@ -27,6 +27,7 @@ Office UI Fabric includes a set of default theme colors. When Fabric is applied 
 
 Office applications allow customers to personalize their interfaces by applying an Office UI theme. Customers can choose between four UI themes to vary styling of backgrounds and buttons of Word, PowerPoint, Excel and other apps in the Office suite. To make your add-ins feel like a natural part of Office and respond to personalization use our Themeing APIs. For instance, task pane background colors switch to a dark gray in some themes. Our theming APIs allow you to follow suit and adjust foreground text to insure accessibility.
 >  For mail and task pane add-ins, use the [Context.officeTheme](https://dev.office.com/docs/reference/shared/office.context.officetheme.htm) property to match the theme of the Office applications. This API is currently only available in Office 2016.
+
 > For PowerPoint content add-ins, see [Use Office themes in your PowerPoint add-ins](https://dev.office.com/docs/add-ins/powerpoint/use-document-themes-in-your-powerpoint-add-ins.htm).
 
 General guidance for color is as follow:
