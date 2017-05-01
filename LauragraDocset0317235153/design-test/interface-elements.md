@@ -13,7 +13,7 @@ Use [add-in commands](add-in-commands.md) to add entry points to your add-in to 
 
 ## HTML containers
 
-Use HTML containers to embed HTML-based UI code withing Office clients. These web pages can then reference the Office JavaScript API to interact with content in the document. You can create three types of HTML containers.
+Use HTML containers to embed HTML-based UI code within Office clients. These web pages can then reference the Office JavaScript API to interact with content in the document. You can create three types of HTML containers.
 
 |**HTML container**|**Description**|
 |:-----------------|:--------------|
