@@ -25,11 +25,13 @@ Color is often used to emphasize brand and reinforce visual hierarchy. It helps 
 
 Office UI Fabric includes a set of default theme colors. When Fabric is applied to an Office Add-in as components or in layouts the same goals apply. Color should communicate hierarchy, purposefully guiding customers to action without interfering with content. Fabric theme colors can introduce a new accent color to the overall interface. This new accent can conflict with Office app branding and interfere with hierarchy. In other words, Fabric can introduce a new accent color to the overall interface when used inside of an add-in. This new accent color can distract and interfere with the overall hierarchy. Consider ways to avoid conflicts and interference. Use neutral accents or overwrite Fabric theme colors to match Office app branding or your own brand colors.
 
-General guidance for colors is as follow:
+General guidance for color is as follow:
 *	Use color sparingly to communicate hierarchy and reinforce brand
+* Overuse of a single accent color applied to both interactive and non-interactive elements can lead to confusion. For example, avoid using the same color for selected and unselected items in a navigation menu.
 *	Avoid unnecessary conflicts with Office branded app colors
-*	Use your own brand colors to build association with your service or company
-*	Ensure that all text is accessible 
+*	Use your own brand colors to build association with your service or company.
+*	Ensure that all text is accessible. Be sure that there is a 4.5:1 constrast ratio between foreground text and background.
+* Be aware of color blindness, use more than just color to indicate interactivity and hierarchy.
 *	Refer to icon guidelines to learn more about designing add-in command icons with the Office icon color pallet
 
 ## Layout
