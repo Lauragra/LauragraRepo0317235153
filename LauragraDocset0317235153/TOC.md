@@ -12,7 +12,7 @@
 ### [Design language](design-test/add-in-design-language.md)
 ### [UX design templates](design-test/ux-design-patterns.md)
 ### [Usability testing](design-test/usability-testing.md)
-## [Interface elements](design-test/ui-elements.md)
+## [Interface elements](design-test/interface-elements.md)
 ### [Add-in commands](design-test/add-in-commands.md)
 #### [Autoopen task pane](design-test/autoopen-task-pane)
 #### [Icon guidelines](design-test/design-icons.md)
