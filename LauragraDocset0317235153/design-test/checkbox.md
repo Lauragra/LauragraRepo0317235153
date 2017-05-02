@@ -6,7 +6,7 @@ The control has two selection states: unselected and selected.
   
 #### Example: Checkbox on a task pane
 
-![An image showing the checkbox](../images/overview_checkbox.png)
+![An image showing the checkbox](../images/overview_withApp_checkbox.png)
 
 ## Best Practices
 
@@ -25,10 +25,10 @@ The control has two selection states: unselected and selected.
 
 |**Variation**|**Description**|**Example**|
 |:------------|:--------------|:----------|
-|**Uncontrolled checkbox**|Needs description|![Needs image](../images/primary.pn)|
-|**Uncontrolled checkbox with default checked true**|Needs description|![Needs image](../images/default.pn)|
-|**Disabled uncontrolled checkbox with default checked true**|Needs description|![Needs image](../images/compound.pn)|
-|**Controlled checkbox**|Needs description|![Needs image](../images/compound.pn)|
+|**Uncontrolled checkbox**|Use as the default Checkbox state.|![Uncontrolled checkbox](../images/checkbox_unchecked.png)|
+|**Uncontrolled checkbox with default checked true**|Use when the Checkbox instance is to maintain its own state|![Uncontrolled checkbox with default checked true image](../images/checkbox_checked.png)|
+|**Disabled uncontrolled checkbox with default checked true**|Disabled state of the checkbox.|![Disabled uncontrolled checkbox with default checked true image](../images/checkbox_disabled.png)|
+|**Controlled checkbox**|Use when the checked state is at a higher level and you plan to pass in the correct value based on handling onChange events and re-rendering.|![Controlled checkbox image](../images/checkbox_unchecked.png)|
 
 ## Implementation
 

@@ -4,7 +4,7 @@ In add-ins, breadcrumbs are used as a navigational aid. They indicate the curren
   
 #### Example: Breadcrumb on a task pane
 
-![Breadcrumb example image](../images/overview_breadcrumb.png)
+![Breadcrumb example image](../images/overview_withApp_breadcrumb.png)
 
 ## Best Practices
 

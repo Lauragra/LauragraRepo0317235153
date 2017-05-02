@@ -6,7 +6,7 @@ Each option is represented by one ChoiceGroup button; a user can select only one
   
 #### Example: ChoiceGroup on a task pane
 
-![An image showing the checkbox](../images/overview_choicegroup.png)
+![An image showing the checkbox](../images/overview_withApp_choicegroup.png)
 
 ## Best Practices
 
@@ -26,8 +26,8 @@ Each option is represented by one ChoiceGroup button; a user can select only one
 
 |**Variation**|**Description**|**Example**|
 |:------------|:--------------|:----------|
-|**ChoiceGroups**|Pairing a set of content with radio button with a single line label.|![Needs image](../images/primary.pn)|
-|**ChoiceGroups using images**|Pairing a set of images with radio button with a single line label.|![Needs image](../images/default.pn)|
+|**ChoiceGroups**|Use when imagery is not necessary for making a selection.|![ChoiceGroup variant.](../images/radio.png)|
+|**ChoiceGroups using images**|Use when imagery is necessary for making a selection.|![ChoiceGroup variant with image.](../images/radioImage.png)|
 
 ## Implementation
 
