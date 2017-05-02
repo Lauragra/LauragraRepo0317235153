@@ -4,14 +4,14 @@ A Dropdown is a list which reveals selected items by clicking a drop-down button
   
 #### Example: Dropdown on a task pane
 
-![An image showing the checkbox](../images/overview_dropdown.png)
+![An image showing the Dropdown](../images/overview_withApp_dropdown.png)
 
 ## Best Practices
 
 |**Do**|**Don't**|
 |:------------|:--------------|
 |Use a Dropdown when the selected option is more likely than the alternatives (in contrast to radio buttons where all the choices are visible putting more emphasis on the other options).|Don't use dropdowns when additional options are equally likely.|
-|![Do ChoiceGroup example](../images/dropdownDo.png)|![Don't ChoiceGroup example](../images/dropdownDont.png)|
+|![Do Dropdown example](../images/dropdownDo.png)|![Don't Dropdown example](../images/dropdownDont.png)|
 
 |**Do**|**Don't**|
 |:------------|:--------------|
@@ -22,9 +22,9 @@ A Dropdown is a list which reveals selected items by clicking a drop-down button
 
 |**Variation**|**Description**|**Example**|
 |:------------|:--------------|:----------|
-|**Basic uncontrolled Dropdown**|Needs description|![Needs image](../images/primary.pn)|
-|**Disabled uncontrolled Dropdown with defaultSelectedKey**|Needs description|![Needs image](../images/default.pn)|
-|**Controlled Dropdown**|Needs description|![Needs image](../images/default.pn)|
+|**Basic uncontrolled Dropdown**|Use when many options are available for selection.|![Basic uncontrolled Dropdown image](../images/dropdownBasic.png)|
+|**Disabled uncontrolled Dropdown with defaultSelectedKey**|Disabled state of the Dropdown.|![Disabled uncontrolled Dropdown with defaultSelectedKey image](../images/dropdownDisabled.png)|
+|**Controlled Dropdown**|Use when the selected item is at a higher level and selection state must be maintained.|![Controlled Dropdown image](../images/dropdownBasic.png)|
 
 ## Implementation
 
