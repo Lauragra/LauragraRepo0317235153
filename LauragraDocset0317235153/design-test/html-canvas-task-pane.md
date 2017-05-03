@@ -17,7 +17,7 @@ Task Panes are interface surfaces typically docked to the right side of the wind
 
 ### Variants
 
-> Note: When designing for Desktop use we recommend using a 1366x768 resolution. Both Office 2016 Desktop and Office 365 Online have been measured using the 1366x768 resolution.
+> Note: The following dimensions show the various task pane sizes with the Microsoft Office Ribbon open. In the case of Excel, additional vertical space is required to accommodate the formula bar.
 
 ![Image displaying the various Task Pane sizes at 1366x768](../images/addinTaskpaneSizes.png)
 
