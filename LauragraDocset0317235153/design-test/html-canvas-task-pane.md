@@ -17,21 +17,15 @@ Task Panes are interface surfaces typically docked to the right side of the wind
 
 ### Variants
 
-> Note: The following dimensions show the various task pane sizes with the Microsoft Office Ribbon open. In the case of Excel, additional vertical space is required to accommodate the formula bar.
+> Note: The following dimensions show the various task pane sizes with the Microsoft Office Ribbon open at a 1366x768 resolution. In the case of Excel, additional vertical space is required to accommodate the formula bar.  
 
-![Image displaying the various Task Pane sizes at 1366x768](../images/addinTaskpaneSizes.png)
+**Office 2016 Desktop Task Pane Sizes**
 
-Office 2016 Desktop Task Pane Sizes:
-* Excel: 320x455 pixels
-* Outlook: 348x535 pixels
-* PowerPoint: 320x531 pixels
-* Word: 320x531 pixels
+![Image displaying the desktop Task Pane sizes at 1366x768](../images/addinTaskpaneSizes_desktop.png)
 
-Office 365 Online Task Pane Sizes:
-* Excel: 350x378 pixels
-* Outlook Web App: 320x570 pixels
-* PowerPoint: 348x391 pixels
-* Word: 329x445 pixels
+**Office 365 Online Task Pane Sizes**
+
+![Image displaying the desktop Task Pane sizes at 1366x768](../images/addinTaskpaneSizes_online.png)
 
 ### Personality Menu
 

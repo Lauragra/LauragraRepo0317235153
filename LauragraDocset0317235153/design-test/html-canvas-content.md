@@ -15,8 +15,6 @@ Content add-ins are surfaces that can be embedded directly into Word, Excel, or 
 
 ### Variants
 
-> Note: When designing for Desktop use we recommend using a 1366x768 resolution. 
-
 Office 2016 Desktop & Office 365 Online Content Add-in Sizes:
 * Excel: User specified
 * PowerPoint: User specified
@@ -30,7 +28,7 @@ Office 2016 Desktop & Office 365 Online Content Add-in Sizes:
 
 ![Image showing the personality meny on Windows Desktop](../images/personalityMenu_Win.png)
 
-**Mac:** The personality menu measures 26x26 pixels but floats 8 pixels in from the right and 6 pixels from the top increasing the space to 34x32 pixels.
+**Mac:** The personality menu measures 26x26 pixels but floats 8 pixels in from the right and 6 pixels from the top increasing the occupied space to 34x32 pixels.
 
 ![Image showing the personality meny on Mac Desktop](../images/personalityMenu_Mac.png)
 
