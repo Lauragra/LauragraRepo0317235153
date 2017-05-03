@@ -22,9 +22,9 @@ A Dropdown is a list which reveals selected items by clicking a drop-down button
 
 |**Variation**|**Description**|**Example**|
 |:------------|:--------------|:----------|
-|**Basic uncontrolled Dropdown**|Use when many options are available for selection.|![Basic uncontrolled Dropdown image](../images/dropdownBasic.png)|
+|**Basic uncontrolled Dropdown**|Use when many options are available for selection.|![Basic uncontrolled Dropdown image](../images/dropdownUncontrolled.png)|
 |**Disabled uncontrolled Dropdown with defaultSelectedKey**|Disabled state of the Dropdown.|![Disabled uncontrolled Dropdown with defaultSelectedKey image](../images/dropdownDisabled.png)|
-|**Controlled Dropdown**|Use when the selected item is at a higher level and selection state must be maintained.|![Controlled Dropdown image](../images/dropdownBasic.png)|
+|**Controlled Dropdown**|Use when the selected item is at a higher level and selection state must be maintained.|![Controlled Dropdown image](../images/dropdownControlled.png)|
 
 ## Implementation
 
