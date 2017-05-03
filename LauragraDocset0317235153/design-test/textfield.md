@@ -4,7 +4,7 @@ The TextField component in add-in enables a user to type text. It's typically us
   
 #### Example: TextField on a task pane
 
-![An image showing the Textfield](../images/overview_withApp_textfield.png)
+![An image showing the Textfield](../images/overview_withApp_textField.png)
 
 ## Best Practices
 
