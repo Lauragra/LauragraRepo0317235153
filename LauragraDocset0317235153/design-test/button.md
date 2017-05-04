@@ -26,9 +26,9 @@ For example, use buttons for the user to submit a form, to close a dialog box, o
 
 |**Variation**|**Description**|**Example**|
 |:------------|:--------------|:----------|
-|**Primary Button**|Inherits theme color at rest state. Use this as the main call to action.|![Primary Button image](../images/primary.png)|
-|**Default Button**|Default button should always perform safe operations and should never delete.|![Default Button image](../images/default.png)|
-|**Compound Button**|Used to cause actions that complete a task or cause a transitional task.|![Compound Button image](../images/compound.png)|
+|**Primary Button**|Inherits theme color at rest state. Use this as the main call to action.|![Primary Button image](../images/button_primary.png)|
+|**Default Button**|Default button should always perform safe operations and should never delete.|![Default Button image](../images/button_default.png)|
+|**Compound Button**|Used to cause actions that complete a task or cause a transitional task.|![Compound Button image](../images/button_compound.png)|
 
 ## Implementation
 
