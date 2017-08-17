@@ -1,7 +1,7 @@
 
 # Create an Office Add-in using any editor
 
-You can use the Yeoman generator to your Office Add-in. The Yeoman generator provides the project scaffolding and build management. The  `manifest.xml` file tells the Office application where your add-in is located and how you want it to appear. The Office application takes care of hosting it within Office.
+You can use the Yeoman generator to create your Office Add-in. The Yeoman generator provides the project scaffolding and build management. The  `manifest.xml` file tells the Office application where your add-in is located and how you want it to appear. The Office application takes care of hosting it within Office.
 
  >**Note:** These instructions use Terminal on a Mac, but you can also use other shell environments. 
 
@@ -57,6 +57,9 @@ The generator will prompt you for the following:
 - Add [TypeScript](https://www.typescriptlang.org/) -- use _N_
 - Choose framework -- use _Jquery_
 
+>**Note:** If you want to create an Office Add-in that uses Office UI Fabric React, enter the following:
+>- Add [TypeScript](https://www.typescriptlang.org/) -- use _Y_
+>- Choose framework -- use _React_
 
 ![Gif of yeoman generator prompting for project input](../../images/gettingstarted-fast.gif)
 
@@ -98,6 +101,7 @@ You can use any text editor to develop the files for your custom Office Add-in.
 
 ## Debug your Office Add-in
 
+
 You can debug your add-in in several ways:
 
 - Attach a debugger from the task pane (Office 2016 for Windows).
@@ -106,25 +110,10 @@ You can debug your add-in in several ways:
 
 ### Attach debugger from the task pane
 
-In Office 2016 for Windows, Build 77xx.xxxx or later, you can attach the debugger from the task pane. 
+In Office 2016 for Windows, Build 77xx.xxxx or later, you can attach the debugger from the task pane. The attach debugger feature will directly attach the debugger to the correct Internet Explorer process for you. You can attach a debugger regardless of whether you are using Yeoman Generator, Visual Studio Code, node.js, Angular, or another tool. 
 
-To launch the **Attach Debugger** tool, choose the top right corner of the task pane to activate the **Personality** menu (as shown in the red circle in the following image).   
+For more information, see [Attach debugger from the task pane](../testing/attach-debugger-from-task-pane.md).
 
-![Screenshot of Attach Debugger menu](../../images/attach-debugger.png)
-
-Select **Attach Debugger**. This launches the **Visual Studio Just-in-Time Debugger** dialog box, as shown in the following image. 
-
-![Screenshot of Visual Studio JIT Debugger dialog](../../images/visual-studio-debugger.png)
-
-You can then attach and debug in Visual Studio.   
-
-  >  **Note**:  Currently the only supported debugger tool is [Visual Studio 2015](https://www.visualstudio.com/downloads/) with [Update 3](https://msdn.microsoft.com/en-us/library/mt752379.aspx). If you don't have Visual Studio installed, selecting the **Attach Debugger** option doesn’t result in any action.  
-  
-For more information, see the following:
-
--	To launch and use the DOM Explorer in Visual Studio, see Tip 4 in the [Tips and Tricks](https://blogs.msdn.microsoft.com/officeapps/2013/04/16/building-great-looking-apps-for-office-using-the-new-project-templates/#tips_tricks) section of the [Building great-looking apps for Office using the new project templates](https://blogs.msdn.microsoft.com/officeapps/2013/04/16/building-great-looking-apps-for-office-using-the-new-project-templates) blog post.
--	To set breakpoints, see [Using Breakpoints](https://msdn.microsoft.com/en-US/library/5557y8b4.aspx).
--	To use F12, see [Using the F12 developer tools](https://msdn.microsoft.com/en-us/library/bg182326(v=vs.85).aspx).
 
 ### Browser developer tools 
 
@@ -134,8 +123,7 @@ You can use the Office web clients and open the browser's developer tools to deb
 
 If you're using the Office desktop client on Windows 10, you can [Debug add-ins using F12 developer tools on Windows 10](../testing/debug-add-ins-using-f12-developer-tools-on-windows-10.md).
     
-## Additional resources
+## Next steps
 
-
-- [Create and debug Office Add-ins in Visual Studio](../../docs/get-started/create-and-debug-office-add-ins-in-visual-studio.md)
+- [Deploy and publish your Office Add-in](../publish/publish.md)
     
