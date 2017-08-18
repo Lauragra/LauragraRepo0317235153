@@ -88,13 +88,29 @@
 ## [Get the whole document from an add-in for PowerPoint or Word](develop/get-the-whole-document-from-an-add-in-for-powerpoint-or-word.md)
 ## [Read and write data to the active selection in a document or spreadsheet](develop/read-and-write-data-to-the-active-selection-in-a-document-or-spreadsheet.md)
 ## [Bind to regions in a document or spreadsheet](develop/bind-to-regions-in-a-document-or-spreadsheet.md)
-# [Excel](excel.md)
-## [Excel JavaScript API programming overview](excel/excel-add-ins-javascript-programming-overview.md)
-## [Build your first Excel add-in](excel/build-your-first-excel-add-in.md)
-## [Format tables in add-ins for Excel](excel/format-tables-in-add-ins-for-excel.md)
-## [Read and write data to the active selection in a document or spreadsheet](develop/read-and-write-data-to-the-active-selection-in-a-document-or-spreadsheet.md)
-## [Bind to regions in a document or spreadsheet](develop/bind-to-regions-in-a-document-or-spreadsheet.md)
-# [Outlook](https://docs.microsoft.com/outlook/add-ins/.md)
+# [Excel](excel/excel-add-ins-overview.md)
+## [Get started](excel/excel-add-ins-get-started-overview.md)
+### [Use React](excel/excel-add-ins-get-started-react.md)
+### [Use Angular](excel/excel-add-ins-get-started-angular.md)
+### [Use jQuery](excel/excel-add-ins-get-started-jquery.md)
+## [Core concepts](excel/excel-add-ins-core-concepts.md)
+### [Excel JavaScript API programming overview](excel/excel-add-ins-programming-overview.md)
+### [Extention points](excel/excel-add-ins-extension-points.md)
+### [Work with Worksheets](excel-add-ins-manage-worksheets.md)
+### [Work with Ranges](excel-add-ins-manage-ranges.md)
+### [Work with Tables](excel-add-ins-manage-tables.md)
+### [Work with Charts](excel-add-ins-manage-charts.md)
+## Advanced concepts
+### Implement custom functions
+### Sort and filter data
+### Protect data
+### Perform calculations
+### Apply conditional formatting
+### Format a range
+### Handle events
+### ...
+## [Excel JavaScript API reference](https://dev.office.com/reference/add-ins/excel/excel-add-ins-reference-overview.md)
+# [Outlook](https://docs.microsoft.com/outlook/add-ins/)
 # [PowerPoint](powerpoint/powerpoint-add-ins.md)
 ## [Use document themes in your PowerPoint add-ins](powerpoint/use-document-themes-in-your-powerpoint-add-ins.md)
 ## [Get the whole document from an add-in for PowerPoint or Word](develop/get-the-whole-document-from-an-add-in-for-powerpoint-or-word.md)
