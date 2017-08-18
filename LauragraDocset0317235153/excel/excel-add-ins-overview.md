@@ -1,6 +1,8 @@
 # Excel Development
 
-## Microsoft Graph and Office.js
+    > Content coming soon.
+
+## (Info from Hongbo's 'Introduction' article: Microsoft Graph and Office.js)
 
 > This doc  mainly focuses on Excel part of Office.js. To learn Excel part of Microsoft Graph, please go to [here](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/excel).
 
