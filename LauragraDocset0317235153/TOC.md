@@ -96,10 +96,10 @@
 ## [Core concepts](excel/excel-add-ins-core-concepts.md)
 ### [Excel JavaScript API programming overview](excel/excel-add-ins-programming-overview.md)
 ### [Extention points](excel/excel-add-ins-extension-points.md)
-### [Work with Worksheets](excel-add-ins-manage-worksheets.md)
-### [Work with Ranges](excel-add-ins-manage-ranges.md)
-### [Work with Tables](excel-add-ins-manage-tables.md)
-### [Work with Charts](excel-add-ins-manage-charts.md)
+### [Work with Worksheets](excel/excel-add-ins-manage-worksheets.md)
+### [Work with Ranges](excel/excel-add-ins-manage-ranges.md)
+### [Work with Tables](excel/excel-add-ins-manage-tables.md)
+### [Work with Charts](excel/excel-add-ins-manage-charts.md)
 ## Advanced concepts
 ### Implement custom functions
 ### Sort and filter data
