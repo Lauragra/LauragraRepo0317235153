@@ -34,7 +34,7 @@ Generate the manifest file following the steps in the screenshot below.
 yo office
 ```
 
-![Yeoman generator](/images/yo-office.png)
+![Yeoman generator](images/yo-office.png)
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
@@ -54,7 +54,7 @@ To run the add-in, you need side-load the add-in within the Excel application. F
 
   Click **Upload My Add-in** button to upload the manifest file.
 
-  ![Excel Online upload](/images/excel-online-upload.png)
+  ![Excel Online upload](images/excel-online-upload.png)
 
 ## Step 3. Initialize
 
