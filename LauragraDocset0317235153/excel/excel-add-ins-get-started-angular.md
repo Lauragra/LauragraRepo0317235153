@@ -1,4 +1,4 @@
-# Create an Excel add-in using Angular
+# Build an Excel add-in using Angular
 
 ## Step 1. Generate the Angular project by **Angular CLI**
 

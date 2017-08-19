@@ -1,4 +1,4 @@
-# Create an Excel add-in using React
+# Build an Excel add-in using React
 
 ## Step 1. Generate the React project by **Create React App**
 

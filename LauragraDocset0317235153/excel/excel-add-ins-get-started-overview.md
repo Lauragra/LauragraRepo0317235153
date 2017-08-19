@@ -1,4 +1,4 @@
-# Create your first Excel add-in
+# Get started with Excel add-ins
 
     > Content coming soon.
 
