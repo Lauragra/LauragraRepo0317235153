@@ -1,6 +1,6 @@
 # Excel Development
 
-You can create an integration with Excel by using either Microsoft Graph or the Office Add-ins platform. Each of these integration options facilitates a particular type of scenario.
+Both Microsoft Graph and the Office Add-ins platform facilitate integration with Excel. Which form of integration you choose will depend upon your specific objectives.
 
 ## Access Excel data with Microsoft Graph
 
@@ -8,7 +8,7 @@ You can create an integration with Excel by using either Microsoft Graph or the 
 
 ## Extend Excel functionality with Office Add-ins
 
-The [Office Add-ins platform](https://dev.office.com/docs/add-ins/overview/office-add-ins) enables you to create an app that runs within the context of Excel, extending Excel functionality and/or adding content to the workbook where it is running. An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet. By using Office.js (the JavaScript API for Office), an add-in can interact with data in the workbook where it is running, including worksheets, ranges, tables, charts, named items, and more. To learn more about creating an Excel add-in, see [Excel add-ins overview](excel-add-ins-overview.md).
+The [Office Add-ins platform](https://dev.office.com/docs/add-ins/overview/office-add-ins) enables you to extend Excel functionality by creating an app that runs within the context of Excel. An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet. An add-in can use Office.js (the JavaScript API for Office) to interact with data in the workbook where it is running, including worksheets, ranges, tables, charts, named items, and more. To learn more about creating an Excel add-in, see [Excel add-ins overview](excel-add-ins-overview.md).
 
 ## Connect with us
 
@@ -17,4 +17,4 @@ Connect with us and the Office developer community on Stack Overflow by using th
 * Microsoft Graph: [microsoft-graph](https://stackoverflow.com/questions/tagged/microsoft-graph)
 * Office Add-ins: [office-js](https://stackoverflow.com/questions/tagged/office-js)
 
-To suggest new features for the Microsoft Graph and Office.js APIs, please visit the [Office Developer Platform UserVoice page]9https://officespdev.uservoice.com/).
+To suggest new features for the Microsoft Graph and Office.js APIs, please visit the [Office Developer Platform UserVoice page](https://officespdev.uservoice.com/).
