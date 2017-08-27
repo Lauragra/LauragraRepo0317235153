@@ -1,40 +1,69 @@
-# Excel Development
+# Excel add-ins overview
 
-    > Content coming soon.
+> **Note**: This article is a work-in-progress.  
 
-## (Info from Hongbo's 'Introduction' article: Microsoft Graph and Office.js)
+An Excel add-in runs in Excel and can interact with data in the workbook where it is running.
 
-> This doc  mainly focuses on Excel part of Office.js. To learn Excel part of Microsoft Graph, please go to [here](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/excel).
+- define Excel add-in
 
-In Office development, there are two technologies you will often hear - Microsoft Graph and Office.js.
+- state value prop of Excel add-in
+    - cross platform
+    - centralized deployment and distribution
+    - SSO (integrate easily with users' Office 365 accounts)
+    - just an app -- build with any web technology you want -- use any library you want.
+    - Hongbo's list:
+        * Cross platform. If you build an add-in using Office.js. It will not only support Windows, Mac, but also iOS, Online version Office.
+        * Single sign in. It integrate easily with users' Office 365 account.
+        * Centralized deployment and distribution. It helps the admin in the organization easily deploy and apply it to all employees in the corganization.
+        * Now we have an [Office store](https://store.office.com/en-us/appshome.aspx). You can submit your add-in in the store. It helps users find the add-in they want.
+        * An add-in built by Office.js is using the web technology. It is just a web app. Use any library you want! 
 
-**What is the difference between Microsoft Graph and Office.js?**
+- explain how Excel web add-ins differ from VBA, VSTO, COM (link to those docs)
+    > For VSTO, VBA development, please check [here](https://msdn.microsoft.com/en-us/library/fp179694.aspx).
 
-* Microsoft Graph lets you interact with Excel, Outlook, OneDrive, OneNote, Planner, SharePoint, etc. through REST API.
+    > how are add-ins different than VBA, COM, VSTO: https://dev.office.com/docs/add-ins/overview/office-add-ins#how-are-office-add-ins-different-than-com-and-vsto-add-ins
 
-* Office.js lets you interact with Excel without network connection. It helps you build Office Add-ins.
+good overview info: https://dev.office.com/docs/add-ins/overview/office-add-ins
 
-**Which one should I use?**
+## Anatomy of an Excel add-in 
 
-* If you have an app which needs to interact with Office like Excel through REST APIT, then Microsoft Graph is your choice.
-
-* If you want to build an add-in for Office like Excel to extend its functions, Office.js is your choice. However, you can also use Microsoft Graph in your add-in if neccessary.
-
-## What is Office Add-in
-
-An Office add-in can add features and functions to Excel, Word, PowerPoint, Outlook, OneNote, etc. The add-ins in [Office Store](https://store.office.com/en-us/appshome.aspx) can give you some ideas what an add-in can be done.
-
-## Why Office.js
-
-There are many ways to build an add-in such as VBA, VSTO, and so on. Why do we provide a new way Office.js?
-
-* Cross platform. If you build an add-in using Office.js. It will not only support Windows, Mac, but also iOS, Online version Office.
-* Single sign in. It integrate easily with users' Office 365 account.
-* Centralized deployment and distribution. It helps the admin in the organization easily deploy and apply it to all employees in the corganization.
-* Now we have an [Office store](https://store.office.com/en-us/appshome.aspx). You can submit your add-in in the store. It helps users find the add-in they want.
-* An add-in built by Office.js is using the web technology. It is just a web app. Use any library you want! 
-
-> For VSTO, VBA development, please check [here](https://msdn.microsoft.com/en-us/library/fp179694.aspx).
+- An Office Add-in is a web app that you can host anywhere. It runs in an Office application. A manifest.xml file specifies where the web app is located and how it should appear.
 
 
+## Capabilities of an Excel add-in
+
+(intro) -- subsections showing each of these things? or just summary paragraph(s), with link(s) to more detailed topic(s) in Core Concepts
+** also mention: like any web app, an Excel add-in can call REST APIs, which means it can use Microsoft Graph or any other REST API
+** maybe change TOC "Extension points" to "Extend Excel functionality" instead -- more understandable, more applicable to all 5 things...
+** maybe change TOC "Get started" to "Quickstart" within Excel section?
+
+### Task panes
+
+### Add-in commands
+
+### Content 
+
+### Dialogs
+
+### Custom functions (this probably should be added later)
+
+## JavaScript APIs for Excel
+
+- introduce Office.js
+- explain availability of / difference between Shared APIs (2013) and Excel APIs (2016)
+- discuss host support?
+- mention requirement sets (and link to more detailed topic)?
+- link to...?
+
+## Next steps
+
+- link to (Excel) 'Get started' topics
+- link to Core Concepts
+
+## Additional resources
+
+- Office Add-ins platform overview
+- Excel JavaScript API reference
+- Get started (Excel)
+- Core concepts (Excel)
 
