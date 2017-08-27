@@ -8,7 +8,7 @@ You can create an integration with Excel by using either Microsoft Graph or the 
 
 ## Extend Excel functionality with Office Add-ins
 
-The [Office Add-ins platform](https://dev.office.com/docs/add-ins/overview/office-add-ins) enables you to create an app that runs within the context of Excel, extending Excel functionality and/or adding content to the workbook where it is running. An Excel Add-in can extend Excel functionality by adding custom ribbon buttons or menu commands, inserting task panes, or opening dialog boxes, and can even embed rich, web-based objects such as charts or interactive visualizations within a document. By using Office.js (the JavaScript API for Office), your add-in can interact with the data in the workbook where it is running, including worksheets, ranges, tables, charts, named items, and more. To learn more about creating an Excel Add-in, see [Excel add-ins overview](excel-add-ins-overview.md).
+The [Office Add-ins platform](https://dev.office.com/docs/add-ins/overview/office-add-ins) enables you to create an app that runs within the context of Excel, extending Excel functionality and/or adding content to the workbook where it is running. An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet. By using Office.js (the JavaScript API for Office), an add-in can interact with data in the workbook where it is running, including worksheets, ranges, tables, charts, named items, and more. To learn more about creating an Excel add-in, see [Excel add-ins overview](excel-add-ins-overview.md).
 
 ## Connect with us
 
