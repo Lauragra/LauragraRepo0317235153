@@ -1,29 +1,16 @@
 # Excel add-ins overview
 
-> **Note**: This article is a work-in-progress.  
+An Excel add-in is a web app that runs in Excel and can interact with objects in the workbook where it runs. Excel add-ins enable third parties to extend the functionality of Excel by adding custom ribbon buttons or menu commands, inserting task panes, opening dialog boxes, and even embedding rich, web-based objects such as charts or interactive visualizations within a workbook. 
 
-An Excel add-in runs in Excel and can interact with data in the workbook where it is running.
+The [Office Add-ins platform](../overview/office-add-ins.md) enables you to create an Excel add-in that delivers the following key benefits:
 
-- define Excel add-in
+* Cross-platform support: Excel add-ins will run in Office for Windows, Mac, iOS, and Office Online.
+* Centralized deployment and distribution: Admins can quickly and easily deploy Excel add-ins across an organization.
+* Single sign on (SSO): Easily integrate your Excel add-in with users' Office 365 accounts.
+* Standard web technology: Create your Excel add-in using familiar web technologies such as HTML, CSS, and JavaScript, and use any library you like.
+* Office Store: Share your Excel add-in with a broad audience by publishing it to the [Office Store](https://store.office.com/en-us/appshome.aspx)
 
-- state value prop of Excel add-in
-    - cross platform
-    - centralized deployment and distribution
-    - SSO (integrate easily with users' Office 365 accounts)
-    - just an app -- build with any web technology you want -- use any library you want.
-    - Hongbo's list:
-        * Cross platform. If you build an add-in using Office.js. It will not only support Windows, Mac, but also iOS, Online version Office.
-        * Single sign in. It integrate easily with users' Office 365 account.
-        * Centralized deployment and distribution. It helps the admin in the organization easily deploy and apply it to all employees in the corganization.
-        * Now we have an [Office store](https://store.office.com/en-us/appshome.aspx). You can submit your add-in in the store. It helps users find the add-in they want.
-        * An add-in built by Office.js is using the web technology. It is just a web app. Use any library you want! 
-
-- explain how Excel web add-ins differ from VBA, VSTO, COM (link to those docs)
-    > For VSTO, VBA development, please check [here](https://msdn.microsoft.com/en-us/library/fp179694.aspx).
-
-    > how are add-ins different than VBA, COM, VSTO: https://dev.office.com/docs/add-ins/overview/office-add-ins#how-are-office-add-ins-different-than-com-and-vsto-add-ins
-
-good overview info: https://dev.office.com/docs/add-ins/overview/office-add-ins
+> **Note**: Excel add-ins are different from COM and VSTO add-ins, which are earlier Office integration solutions that run only on Office for Windows. Unlike COM add-ins, Excel add-ins do not require you to install any code to the user's device or to the Excel client itself. 
 
 ## Anatomy of an Excel add-in 
 
