@@ -45,8 +45,6 @@ good overview info: https://dev.office.com/docs/add-ins/overview/office-add-ins
 
 ### Dialogs
 
-### Custom functions (this probably should be added later)
-
 ## JavaScript APIs for Excel
 
 - introduce Office.js
