@@ -41,25 +41,19 @@ Your app can be hosted on any web server and can be built using any server-side 
 
 ## Capabilities of an Excel add-in
 
-An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet, as shown in the following screenshots. For more detailed information about these topics, see [Core concepts](excel-add-ins-core-concepts.md).
+An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet, as shown in the following screenshots. For more detailed information about each of these capabilities, see [Core concepts](excel-add-ins-core-concepts.md).
 
 **Custom ribbon buttons**  
-![Add-in commands](../../images/addincommands1.png)
+![Add-in commands](../../images/Excel_add-in_commands.png)
 
-**Task pane**
-(image here)
+**Task pane**  
+![Add-in dialog box](../../images/Excel_add-in_task_pane.png)
 
-**Web-based object embedded in a worksheet**  
-![In content add-in](../../images/DK2_AgaveOverview05.png)
+**Dialog box**  
+![Add-in dialog box](../../images/Excel_add-in_dialog.png)
 
-
-
-
-### Task panes
-
-### Content 
-
-### Dialogs
+**Embedded web-based object**  
+![Content add-in](../../images/Excel_add-in_content.png)
 
 ## JavaScript APIs for Excel
 
