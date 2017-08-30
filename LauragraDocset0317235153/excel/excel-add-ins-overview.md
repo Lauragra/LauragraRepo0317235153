@@ -20,28 +20,26 @@ An Excel add-in consists of two main components: an XML manifest file and a web 
 
 ### Manifest
 
-The XML manifest file defines an Excel add-in's settings and capabilities such as: 
+The [XML manifest file](../overview/add-in-manifests.md?product=excel) defines an Excel add-in's settings and capabilities such as: 
 
 * The add-in's display name, description, ID, version, and default locale.
 * How the add-in integrates with Excel, including any custom UI that the add-in creates (ribbon buttons, etc.).
 * The permissions that the add-in requires, such as reading and writing to the document.
 * The location of the add-in's web app.
 
-For more information about the XML manifest file, see [Office Add-ins XML manifest](../overview/add-in-manifests.md?product=excel).
-
 ### Web app 
 
-An Excel add-in's web app can enable the add-in to interact with objects in Excel, facilitate a user's interaction with online resources from within Excel, and in general, can do anything that a typical web app may do. For example, an add-in app may do things such as:
+The web app uses the [JavaScript API for Office](../../reference/add-ins/javascript-api-for-office.md?product=excel) to interact with objects in Excel and can also facilitate the user's interaction with online resources. For example, an add-in may do things such as:
 
 * Create, read, update, and delete data in the workbook (worksheets, ranges, tables, charts, named items, and more).
 * Facilitate a user's authentication with an online service by using the standard OAuth 2.0 flow.
 * Issue API requests to Microsoft Graph and/or other APIs.
 
-Your app can be hosted on any web server and can be built using any server-side technology that your hosting provider supports, such as ASP.NET, Node.js, PHP, Python, etc. Likewise, you can use any client-side framework for the web app, such as Angular, React, jQuery, etc., or even just VanillaJS.
+The app can be hosted on any web server and can be built using any server-side technology that your hosting provider supports, such as ASP.NET, Node.js, PHP, Python, etc. Likewise, you can use any client-side framework for the web app, such as Angular, React, jQuery, etc., or even just VanillaJS.
 
 ## Capabilities of an Excel add-in
 
-An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet, as shown in the following screenshots. For more detailed information about each of these capabilities, see [Core concepts](excel-add-ins-core-concepts.md?product=excel).
+An Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based objects such as charts or interactive visualizations within a worksheet, as shown in the following screenshots. For more detailed information about each of these capabilities, see [Extend Excel functionality](excel-add-ins-extend-excel.md?product=excel).
 
 **Custom ribbon buttons**:
 
@@ -69,30 +67,11 @@ An Excel add-in interacts with objects in Excel by using the [JavaScript API for
 
 ### Supported platforms
 
-Excel add-ins are supported across multiple versions of Office, including Office 2013 for Windows, Office 2016 for Windows, Office for iPad, Office for Mac, and Office Online. 
-
-New features are typically not available initially in all platforms. To learn at the same time.
-
-Not all of the newest features
-
-- discuss host support?
-- mention requirement sets (and link to more detailed topic)?
-
-Outlook 2013 and later versions, 
-Outlook 2016 for Mac, 
-Outlook Web App for Exchange 2013 on-premises, 
-Outlook Web App in Office 365 
-Outlook.com. 
-
-
-Not all of the newest features are supported in all clients at the same time. 
-Please refer to individual topics and API references, to see which hosts they are/are not supported in.
-
+Excel add-ins are supported across multiple versions of Office, including Office 2013 for Windows, Office 2016 for Windows, Office for iPad, Office for Mac, and Office Online. Not all features are available on all platforms. To learn which Excel add-in features and [requirement sets](../../reference/add-ins/requirement-sets/excel-api-requirement-sets.md?product=excel) are supported by each platform, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
 
 ## Next steps
 
-- link to (Excel) 'Get started' topics
-- link to Core Concepts
+Get started by using one of the [quickstart](excel-add-ins-get-started-overview.md?product=excel) walkthroughs to create your first Excel add-in. Then, check out [Core concepts](excel-add-ins-core-concepts.md?product=excel) to learn more about the fundamentals of building Excel add-ins.
 
 ## Additional resources
 
