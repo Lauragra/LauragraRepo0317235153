@@ -71,7 +71,7 @@ Excel add-ins are supported across multiple versions of Office, including Office
 
 ## Next steps
 
-Get started by using one of the [quickstart](excel-add-ins-get-started-overview.md?product=excel) walkthroughs to create your first Excel add-in. Then, check out [Core concepts](excel-add-ins-core-concepts.md?product=excel) to learn more about the fundamentals of building Excel add-ins.
+Get started by [creating your first Excel add-in](excel-add-ins-get-started-overview.md?product=excel). Then, check out [Core concepts](excel-add-ins-core-concepts.md?product=excel) to learn more about the fundamentals of building Excel add-ins.
 
 ## Additional resources
 
