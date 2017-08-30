@@ -1,38 +1,51 @@
 # Excel JavaScript API programming overview
 
-This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces key concepts that are fundamental to using the APIs, such as **RequestContext**, JavaScript proxy objects, **sync()**, **Excel.run()**, and **load()** and provides code examples that show how to apply the concepts.
+This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces key concepts that are fundamental to using the APIs, such as **RequestContext**, JavaScript proxy objects, **sync()**, **Excel.run**, and **load()** and provides code examples that show how to apply the concepts.
 
 >**Note:** When you build your add-in, if you plan to [publish](../publish/publish.md) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://msdn.microsoft.com/en-us/library/jj220035.aspx). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://msdn.microsoft.com/en-us/library/jj220035.aspx#Anchor_3) and the [Office Add-in host and availability page](https://dev.office.com/add-in-availability)).
 
 ## RequestContext
 
-The **RequestContext** object facilitates requests to the Excel application. Because the Office Add-in and the Excel application run in two different processes, the add-in requires a request context in order to be able to interact with objects in Excel such as worksheets, ranges, charts, and tables. The following snippet shows how to create a request context.
+The **RequestContext** object facilitates requests to the Excel application. Because the Office Add-in and the Excel application run in two different processes, the add-in requires a request context in order to be able to interact with objects in Excel such as worksheets, ranges, charts, and tables. The following snippet creates a request context.
 
 ```js
 const ctx = new Excel.RequestContext();
 ```
 
+**Note**: If you use the **Excel.run** function to specify the actions you want to perform on the Excel object model, you do not need to manually create the request context as shown above, since calling the **Excel.run** function automatically creates the request context. For details about the **Excel.run** function, see below.
+
 ## Proxy objects
 
-The Excel JavaScript objects declared and used in an add-in are proxy objects for the real objects in an Excel document. Actions taken on proxy objects are not realized in Excel, and the state of the Excel document is not realized in the proxy objects, until the document state has been synchronized. The document state is synchronized when the **sync()** method is run. (See below for details about the **sync()** method.)
+The Excel JavaScript objects that are declared and used in an add-in are proxy objects for the real objects in an Excel document. Actions taken on proxy objects are not realized in Excel, and the state of the Excel document is not realized in the proxy objects, until the document state has been synchronized by calling the **sync()** method on the request context. 
 
-For example, the following code snippet declares the local JavaScript object **selectedRange** to reference the selected range.
+For example, the following code snippet declares the local JavaScript object **selectedRange** to reference the selected range. The **selectedRange** object is a proxy object that can be used to queue the setting of the range's properties and invoking of the range's methods. However, any properties set or methods invoked on the **selectedRange** proxy object will not be realized in Excel until **ctx.sync()** is called.
 
 ```js
 const selectedRange = ctx.workbook.getSelectedRange();
 ```
 
-The **selectedRange** object is a proxy object that can be used to queue the setting of the range's properties and invoking of the ranges methods. Any properties set or methods invoked on the **selectedRange** proxy object will not be realized in Excel until the **sync()** method is run.
-
 ## sync()
 
 Calling the **sync()** method on the request context synchronizes the state between JavaScript proxy objects and real objects in Excel by executing any instructions that have been queued on the context and retrieving values for any properties that have been loaded for proxy objects. This method returns a promise, which is resolved when synchronization is complete. 
 
+## load()
+
+The **load()** method can be used to populate a proxy object that has been created in the add-in JavaScript layer, if you are intending to read back its properties. For example, if you create a proxy object to reference the selected range, and subsequently want to read the selected range's **address** property, you need to load the **address** property before you'll be able to read it. The following code snippet uses the **load()** method to load the **address** property for the selected range and then calls the **sync()** method to execute the load.
+
+```js
+const selectedRange = ctx.workbook.getSelectedRange();
+selectedRange.load('address');
+ctx.sync();
+console.log('The selected range is: ' + selectedRange.address);
+```
+
+If you are simply calling methods on a proxy object, or setting its properties, or using the object to navigate to another object, you do not need to call the **load()** method. The **load()** method is only required when you are intending to read properties on a proxy object. 
+
 ## Excel.run
 
-The **Excel.run** function executes a batch script that you define to perform actions on the Excel object model. The batch script includes definitions of local JavaScript proxy objects, **sync()** methods that synchronize the state between local objects and Excel objects, and promise resolution. Calling **Excel.run** automatically creates a request context, which you can use in the batch script to interact with objects in Excel. When the batch script completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to run a batch script outside of **Excel.run**, it is not recommended, as any object references that are created outside of **Excel.run()** would need to be manually tracked and managed.
+The **Excel.run** function executes a batch script that you define to perform actions on the Excel object model. The batch script includes definitions of local JavaScript proxy objects, **sync()** methods that synchronize the state between local objects and Excel objects, and promise resolution. Calling **Excel.run** automatically creates a request context, which you can use in the batch script to interact with objects in Excel. When the batch script completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to run a batch script outside of **Excel.run**, doing so is not recommended, as any object references that are created outside of **Excel.run** would need to be manually tracked and managed.
 
-The following example shows a simple batch script executed within **Excel.run**.
+The following example shows a simple batch script executed using **Excel.run**.
 
 ```js
 Excel.run(function (ctx) { 
@@ -51,39 +64,15 @@ Excel.run(function (ctx) {
 });
 ```
 
-## load()
+## Examples
 
-The **load()** method can be used to populate a proxy object that has been created in the add-in JavaScript layer, if you are intending to read back its properties. For example, if you create a proxy object to reference the selected range, and subsequently want to read the selected range's **address** property, you need to load the **address** property before you'll be able to read it. The following code snippet uses the **load()** method to load the **address** property for the selected range and then calls the **sync()** method to execute the load.
+The following two examples demonstrate the concepts that have been discussed thus far in this article.
 
-```js
-const selectedRange = ctx.workbook.getSelectedRange();
-selectedRange.load('address');
-ctx.sync();
-console.log('The selected range is: ' + selectedRange.address);
-```
-
-If you are simply calling methods on a proxy object, or setting its properties, or using the object to navigate to another object, you do not need to call the **load()** method. The **load()** method is only required when you are intending to read properties on a proxy object. You can call the **load()** method in any of the following ways, specifying the properties that you want to load when the **sync()** method is subsquently called.
-
-_Syntax:_
-
-```js
-object.load(string: properties);
-// or
-object.load(array: properties);
-// or
-object.load({ loadOption });
-```
-
-Where:
-
-* `properties` is the list of properties and/or relationship names to be loaded specified as comma-delimited strings or array of names. See **.load()** methods under each object for details.
-* `loadOption` specifies an object that describes the selection, expansion, top, and skip options. See object load [options](../../reference/excel/loadoption.md?product=excel) for details.
-
-## Example: Write values from an array to a range object
+### Write values from an array to a range object
 
 The following example shows how to write values from an array to a range object in an Excel worksheet.
 
-The **Excel.run()** function contains a batch of instructions. A proxy object is created to reference a range on the active worksheet (range address = `A1:B2`) and the value of this proxy object is set locally. When `ctx.sync()` is called, the state of the proxy object is synchronized with the corresponding object in Excel. The **sync()** method returns a promise that can be used to chain it with other operations.
+The **Excel.run** function contains a batch of instructions. A proxy object is created to reference a range on the active worksheet (range address = `A1:B2`) and the value of this proxy object is set locally. When `ctx.sync()` is called, the state of the proxy object is synchronized with the corresponding object in Excel. The **sync()** method returns a promise that can be used to chain it with other operations.
 
 ```js
 // Run a batch operation against the Excel object model. 
@@ -119,7 +108,7 @@ Excel.run(function (ctx) {
 });
 ```
 
-## Example: Copy values from one range to another
+### Copy values from one range to another
 
 The following example shows how to copy the values from range `A1:A2` to range `B1:B2` in the active worksheet, by using the **load()** method to retrieve the values of the first range and then using those values to populate the second range.
 
@@ -149,21 +138,28 @@ Excel.run(function (ctx) {
 
 ## Load properties and relationships
 
-By default, **object.load()** loads all scalar and complex properties of the object; the relationships (for example, **format** on a **Range** object) are not loaded by default. To optimize performance, you should explicitly specify the properties and relationships to be loaded when calling the **object.load()** method. For example, if you only intend to read back the **address** property of a range object, specify that property in the load call: `range.load('address')`.
+By default, **object.load()** loads all scalar and complex properties of the object; the relationships (for example, **format** on a **Range** object) are not loaded by default. To optimize performance, you should explicitly specify the properties and relationships to be loaded when calling the **object.load()** method. For example, if you only intend to read back the **address** property of a range object, specify only that property when you call **object.load**: 
 
-The **load()** method accepts three different types of input parameter:
-
-* Property and relationship names as a comma-separated string.
 ```js
-object.load('var1, relation1/var2');
+range.load('address');
 ```
 
-* Property and relationship names as an array of strings. 
+You can call **object.load()** in any of the following ways:
+
+_Syntax:_
+
 ```js
-object.load(['var1', 'relation1/var2']);
+object.load(string: properties);
+// or
+object.load(array: properties);
+// or
+object.load({ loadOption });
 ```
 
-* An object that specifies the selection, expansion, top, and skip options, as described in [Object Load Options](../../reference/excel/loadoption.md).
+_Where:_
+
+* `properties` is the list of properties and/or relationship names to be loaded specified as comma-delimited strings or array of names. See **.load()** methods under each object for details.
+* `loadOption` specifies an object that describes the selection, expansion, top, and skip options. See object load [options](../../reference/excel/loadoption.md?product=excel) for details.
 
 In the following example, only specific properties and relationships of the range are loaded. Because `format/font` is not loaded, the value of the `format.font.color` property cannot be read.
 
