@@ -28,9 +28,28 @@ The **selectedRange** object is a proxy object that can be used to queue the set
 
 Calling the **sync()** method on the request context synchronizes the state between JavaScript proxy objects and real objects in Excel by executing any instructions that have been queued on the context and retrieving values for any properties that have been loaded for proxy objects. This method returns a promise, which is resolved when synchronization is complete. 
 
-## Excel.run(function (context) { batch })
+## Excel.run
 
-The **Excel.run()** function executes a batch script that you define to perform actions on the Excel object model. The batch script includes definitions of local JavaScript proxy objects, **sync()** methods that synchronize the state between local objects and Excel objects, and promise resolution. Calling **Excel.run()** automatically creates a request context, which you can use in the batch script to interact with objects in Excel. When the batch script completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to run a batch script outside of **Excel.run()**, it is not recommended, as any object references that are created outside of **Excel.run()** would need to be manually tracked and managed.
+The **Excel.run** function executes a batch script that you define to perform actions on the Excel object model. The batch script includes definitions of local JavaScript proxy objects, **sync()** methods that synchronize the state between local objects and Excel objects, and promise resolution. Calling **Excel.run** automatically creates a request context, which you can use in the batch script to interact with objects in Excel. When the batch script completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to run a batch script outside of **Excel.run**, it is not recommended, as any object references that are created outside of **Excel.run()** would need to be manually tracked and managed.
+
+The following example shows a simple batch script executed within **Excel.run**.
+
+```js
+Excel.run(function (ctx) { 
+  const selectedRange = ctx.workbook.getSelectedRange();
+  selectedRange.load('address');
+  return ctx.sync()
+    .then(function () {
+      console.log('The selected range is: ' + selectedRange.address);
+  });
+}).catch(function (error) {
+  console.log('error: ' + error);
+
+  if (error instanceof OfficeExtension.Error) {
+    console.log('Debug info: ' + JSON.stringify(error.debugInfo));
+  }
+});
+```
 
 ## load()
 
@@ -69,7 +88,7 @@ The **Excel.run()** function contains a batch of instructions. A proxy object is
 ```js
 // Run a batch operation against the Excel object model. 
 // The ctx input parameter provides access to objects in the Excel document.
-Excel.run(ctx => {
+Excel.run(function (ctx) {
   // Create a proxy object for the sheet
   const sheet = ctx.workbook.worksheets.getActiveWorksheet();
 
@@ -87,10 +106,11 @@ Excel.run(ctx => {
 
   // Synchronize the state between JavaScript proxy objects and real objects in Excel 
   // by executing instructions that have been queued on the context
-  return ctx.sync().then(() => {
-    console.log('Done');
+  return ctx.sync()
+    .then(function () {
+      console.log('Done');
   });
-}).catch(error => {
+}).catch(function (error) {
   console.log('error: ' + error);
 
   if (error instanceof OfficeExtension.Error) {
@@ -104,20 +124,21 @@ Excel.run(ctx => {
 The following example shows how to copy the values from range `A1:A2` to range `B1:B2` in the active worksheet, by using the **load()** method to retrieve the values of the first range and then using those values to populate the second range.
 
 ```js
-Excel.run(ctx => {
+Excel.run(function (ctx) {
   // Create a proxy object for the range and load the values property
   const range = ctx.workbook.worksheets.getActiveWorksheet().getRange('A1:A2').load('values');
 
   // Synchronize the state between JavaScript proxy objects and real objects in Excel 
   // by executing instructions that have been queued on the context
-  return ctx.sync().then(() => {
-    // Assign the previously loaded values to the new range proxy object. 
-    // The values will be updated once the following .then() function is invoked.
-    ctx.workbook.worksheets.getActiveWorksheet().getRange('B1:B2').values = range.values;
+  return ctx.sync()
+    .then(function () {
+      // Assign the previously loaded values to the new range proxy object. 
+      // The values will be updated once the following .then() function is invoked.
+      ctx.workbook.worksheets.getActiveWorksheet().getRange('B1:B2').values = range.values;
   });
-}).then(() => {
+}).then(function () {
   console.log('done');
-}).catch(error => {
+}).catch(function (error) {
   console.log('Error: ' + error);
 
   if (error instanceof OfficeExtension.Error) {
@@ -147,23 +168,23 @@ object.load(['var1', 'relation1/var2']);
 In the following example, only specific properties and relationships of the range are loaded. Because `format/font` is not loaded, the value of the `format.font.color` property cannot be read.
 
 ```js
-Excel.run(ctx => {
+Excel.run(function (ctx) {
   const sheetName = 'Sheet1';
   const rangeAddress = 'A1:B2';
   const myRange = ctx.workbook.worksheets.getItem(sheetName).getRange(rangeAddress);
 
   myRange.load(['address', 'format/*', 'format/fill', 'entireRow' ]);
 
-  return ctx.sync().then(() => {
-    console.log (myRange.address);              // ok
-    console.log (myRange.format.wrapText);      // ok
-    console.log (myRange.format.fill.color);    // ok
-    //console.log (myRange.format.font.color);  // not ok as it was not loaded
-
+  return ctx.sync()
+    .then(function () {
+      console.log (myRange.address);              // ok
+      console.log (myRange.format.wrapText);      // ok
+      console.log (myRange.format.fill.color);    // ok
+      //console.log (myRange.format.font.color);  // not ok as it was not loaded
   });
-}).then(() => {
+}).then(function () {
   console.log('done');
-}).catch(error => {
+}).catch(function (error) {
   console.log('Error: ' + error);
 
   if (error instanceof OfficeExtension.Error) {
@@ -259,7 +280,7 @@ To apply the same update to all cells in a range, (for example, to populate all 
 The following example gets a range that contains 20 cells and then sets the number format for all cells in the range and populates all cells in the range with the value **3/11/2015**. 
 
 ```js
-Excel.run(ctx => {
+Excel.run(function (ctx) {
   const sheetName = 'Sheet1';
   const rangeAddress = 'A1:A20';
   const worksheet = ctx.workbook.worksheets.getItem(sheetName);
@@ -269,10 +290,11 @@ Excel.run(ctx => {
   range.values = '3/11/2015';
   range.load('text');
 
-  return ctx.sync().then(() => {
-    console.log(range.text);
+  return ctx.sync()
+    .then(function () {
+      console.log(range.text);
   });
-}).catch(error => {
+}).catch(function (error) {
   console.log('Error: ' + error);
   
   if (error instanceof OfficeExtension.Error) {
