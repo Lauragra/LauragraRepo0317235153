@@ -132,9 +132,17 @@ By default, **object.load()** loads all scalar and complex properties of the obj
 
 The **load()** method accepts three different types of input parameter:
 
-* Property and relationship names as a comma-separated string: `object.load('var1, relation1/var2');`
-* Property and relationship names as an array of strings: `object.load(['var1', 'relation1/var2']);`
-* An object that describes the selection, expansion, top, and skip options, as described in [Object Load Options](../../reference/excel/loadoption.md).
+* Property and relationship names as a comma-separated string.
+```js
+object.load('var1, relation1/var2');
+```
+
+* Property and relationship names as an array of strings. 
+```js
+object.load(['var1', 'relation1/var2']);
+```
+
+* An object that specifies the selection, expansion, top, and skip options, as described in [Object Load Options](../../reference/excel/loadoption.md).
 
 In the following example, only specific properties and relationships of the range are loaded. Because `format/font` is not loaded, the value of the `format.font.color` property cannot be read.
 
@@ -226,8 +234,8 @@ range.formula = [['', '', '=Rand()']];
 
 An unbounded range address specifies only column identifiers or only row identifiers. For example:
 
-* `C:C`, `A:F`, `A:XFD` (only specifies column identifiers)
-* `2:2`, `1:4`, `1:1048546` (only specifies row identifiers)
+* Addresses that specify only column identifers: `C:C`, `A:F`, `A:XFD`
+* Addresses that specify only row identifers: `2:2`, `1:4`, `1:1048546`
 
 When the API makes a request to retrieve an unbounded range (e.g., `getRange('C:C')`), the response will contain `null` values for cell-level properties such as `values`, `text`, `numberFormat`, and `formula`. Other properties of the range, such as `address` and `cellCount`, will contain valid values for the unbounded range.
 
