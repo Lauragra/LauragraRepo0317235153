@@ -16,7 +16,7 @@ The [Office Add-ins platform](../overview/office-add-ins.md?product=excel) provi
 
 An Excel add-in consists of two main components: an XML manifest file and a web app.
 
-![Excel add-in components](../../images/ExcelAddinComponents.png)
+![Excel add-in components](images/ExcelAddinComponents.png)
 
 ### Manifest
 
@@ -45,19 +45,19 @@ An Excel add-in can add custom ribbon buttons or menu commands, insert task pane
 
 **Custom ribbon buttons**:
 
-![Add-in commands](../../images/Excel_add-in_commands.png)
+![Add-in commands](images/Excel_add-in_commands.png)
 
 **Task pane**:
 
-![Add-in dialog box](../../images/Excel_add-in_task_pane.png)
+![Add-in dialog box](images/Excel_add-in_task_pane.png)
 
 **Dialog box**:
 
-![Add-in dialog box](../../images/Excel_add-in_dialog.png)
+![Add-in dialog box](images/Excel_add-in_dialog.png)
 
 **Embedded web-based object**:
 
-![Content add-in](../../images/Excel_add-in_content.png)
+![Content add-in](images/Excel_add-in_content.png)
 
 ## JavaScript APIs for Excel
 
