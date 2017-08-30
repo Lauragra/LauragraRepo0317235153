@@ -95,6 +95,7 @@
 ### [Use jQuery](excel/excel-add-ins-get-started-jquery.md)
 ## [Core concepts](excel/excel-add-ins-core-concepts.md)
 ### [Excel JavaScript API programming overview](excel/excel-add-ins-programming-overview.md)
+### [Extend Excel functionality](excel/excel-add-ins-extend-excel.md)
 ### [Work with Worksheets](excel/excel-add-ins-manage-worksheets.md)
 ### [Work with Ranges](excel/excel-add-ins-manage-ranges.md)
 ### [Work with Tables](excel/excel-add-ins-manage-tables.md)
