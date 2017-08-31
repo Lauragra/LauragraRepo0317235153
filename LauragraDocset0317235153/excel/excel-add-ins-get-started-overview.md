@@ -1,7 +1,5 @@
 # Get started with Excel add-ins
 
-    > Content coming soon.
-
 ## Explore snippets with Script Lab
 
 > Content coming soon.
