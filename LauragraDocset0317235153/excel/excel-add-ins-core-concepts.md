@@ -1,19 +1,16 @@
 # Core concepts
 
+This article builds upon the [Excel add-ins overview](excel-add-ins-overview.md?product=excel) article by providing more detailed information about the JavaScript APIs for Excel and the XML manifest. It also describes the lifecycle of an add-in and links to relevant resources for information about designing, developing, testing and debugging, and publishing an Excel add-in.
+
+## Components of an add-in
+
 An Excel add-in consists of two main components: an XML manifest file and a web app.
 
 ![Excel add-in components](images/ExcelAddinComponents.png)
 
-Script Lab?
+The XML manifest file defines an add-in's settings and capabilities, while the web app uses the JavaScript API for Office to interact with objects in Excel. 
 
 ## JavaScript APIs
-
-Office.js 
-
-* common APIs versus shared APIs
-* office versions
-* requirement sets -- what they are, why they matter, checking for supportability in JS code
-* open specifications page
 
 An Excel add-in interacts with objects in Excel by using the [JavaScript API for Office](../../reference/add-ins/javascript-api-for-office.md?product=excel), which includes two JavaScript object models:
 
@@ -21,19 +18,21 @@ An Excel add-in interacts with objects in Excel by using the [JavaScript API for
 
 2. **Host-specific APIs**: APIs that were introduced with Office 2016 and provide strongly-typed objects that correspond to specific host applications such as Excel. The [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) uses promises and provides access to Excel-specific objects such as worksheets, ranges, tables, charts. The host-specific APIs represent the future of Office JavaScript APIs, so you should use the Excel JavaScript API whenever feasible.  
 
+### Other (TBD)
+* Office.js reference
+* office versions
+
+### API Requirement sets
+
+(what they are, why they matter, checking for supportability in JS code)
+
 ### Supported platforms
 
 Excel add-ins are supported across multiple versions of Office, including Office 2013 for Windows, Office 2016 for Windows, Office for iPad, Office for Mac, and Office Online. Not all features are available on all platforms. To learn which Excel add-in features and [requirement sets](../../reference/add-ins/requirement-sets/excel-api-requirement-sets.md?product=excel) are supported by each platform, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
 
----
+### Open specifications
 
-The web app uses the [JavaScript API for Office](../../reference/add-ins/javascript-api-for-office.md?product=excel) to interact with objects in Excel and can also facilitate the user's interaction with online resources. For example, an add-in may do things such as:
-
-* Create, read, update, and delete data in the workbook (worksheets, ranges, tables, charts, named items, and more).
-* Facilitate a user's authentication with an online service by using the standard OAuth 2.0 flow.
-* Issue API requests to Microsoft Graph and/or other APIs.
-
-The app can be hosted on any web server and can be built using any server-side technology that your hosting provider supports, such as ASP.NET, Node.js, PHP, Python, etc. Likewise, you can use any client-side framework for the web app, such as Angular, React, jQuery, etc., or even just VanillaJS.
+(explain and link to open specifications page)
 
 ## Manifest
 

@@ -2,6 +2,14 @@
 
     > Content coming soon.
 
+## Explore snippets with Script Lab
+
+> Content coming soon.
+
+[Script Lab](https://store.office.com/en-001/app.aspx?assetid=WA104380862&ui=en-US&rs=en-001&ad=US&appredirect=false)
+
+[Get Script Lab](aka.ms/getscriptlab)
+
 ## (Info from Hongbo's 'Quick Start' article)
 
 An add-in built by Office.js has two parts: the **web app** and the **manifest file**. The manifest file tells Office where should find the app.
