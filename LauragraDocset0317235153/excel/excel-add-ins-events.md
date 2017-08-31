@@ -1,4 +1,4 @@
-# Work with Charts using the Excel JavaScript API
+# Work with Events using the Excel JavaScript API
 
 Add intro paragraph(s) here. 
 
