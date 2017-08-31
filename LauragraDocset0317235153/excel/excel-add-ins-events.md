@@ -3,8 +3,10 @@
 Add intro paragraph(s) here. 
 
 Then (below) add as many sections as you need for this article, writing content in standard markdown format.
+
 * **This is bold text** and *This is italic text*
 * JavaScript code blocks can be included like this:
+
 ```js
 console.log('This is JavaScript code!');
 ```
