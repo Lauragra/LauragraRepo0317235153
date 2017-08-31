@@ -1,3 +1,3 @@
 # Core concepts
 
-    > Content coming soon.
+> Content coming soon.
