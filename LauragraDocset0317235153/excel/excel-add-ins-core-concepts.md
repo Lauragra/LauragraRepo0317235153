@@ -1,6 +1,14 @@
 # Core concepts
 
+An Excel add-in consists of two main components: an XML manifest file and a web app.
+
+![Excel add-in components](images/ExcelAddinComponents.png)
+
+Script Lab?
+
 ## JavaScript APIs
+
+Office.js 
 
 * common APIs versus shared APIs
 * office versions

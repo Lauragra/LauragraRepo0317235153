@@ -1,57 +1,24 @@
 # Excel JavaScript API programming overview
 
-This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces key concepts that are fundamental to using the APIs, such as **RequestContext**, JavaScript proxy objects, **sync()**, **Excel.run**, and **load()** and provides code examples that show how to apply the concepts.
+This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces key concepts that are fundamental to using the APIs, such as request context, **Excel.run**, JavaScript proxy objects, **sync()**, and **load()**, and provides code examples that show how to apply the concepts.
 
 >**Note:** When you build your add-in, if you plan to [publish](../publish/publish.md) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://msdn.microsoft.com/en-us/library/jj220035.aspx). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://msdn.microsoft.com/en-us/library/jj220035.aspx#Anchor_3) and the [Office Add-in host and availability page](https://dev.office.com/add-in-availability)).
 
-## RequestContext
+## Request context
 
-The **RequestContext** object facilitates requests to the Excel application. Because the Office Add-in and the Excel application run in two different processes, the add-in requires a request context in order to be able to interact with objects in Excel such as worksheets, ranges, charts, and tables. The following snippet creates a request context.
-
-```js
-const ctx = new Excel.RequestContext();
-```
-
-**Note**: If you use the **Excel.run** function to specify the actions you want to perform on the Excel object model, you do not need to manually create the request context as shown above, since calling the **Excel.run** function automatically creates the request context. For details about the **Excel.run** function, see below.
-
-## Proxy objects
-
-The Excel JavaScript objects that are declared and used in an add-in are proxy objects for the real objects in an Excel document. Actions taken on proxy objects are not realized in Excel, and the state of the Excel document is not realized in the proxy objects, until the document state has been synchronized by calling the **sync()** method on the request context. 
-
-For example, the following code snippet declares the local JavaScript object **selectedRange** to reference the selected range. The **selectedRange** object is a proxy object that can be used to queue the setting of the range's properties and invoking of the range's methods. However, any properties set or methods invoked on the **selectedRange** proxy object will not be realized in Excel until **ctx.sync()** is called.
-
-```js
-const selectedRange = ctx.workbook.getSelectedRange();
-```
-
-## sync()
-
-Calling the **sync()** method on the request context synchronizes the state between JavaScript proxy objects and real objects in Excel by executing any instructions that have been queued on the context and retrieving values for any properties that have been loaded for proxy objects. This method returns a promise, which is resolved when synchronization is complete. 
-
-## load()
-
-The **load()** method can be used to populate a proxy object that has been created in the add-in JavaScript layer, if you are intending to read back its properties. For example, if you create a proxy object to reference the selected range, and subsequently want to read the selected range's **address** property, you need to load the **address** property before you'll be able to read it. The following code snippet uses the **load()** method to load the **address** property for the selected range and then calls the **sync()** method to execute the load.
-
-```js
-const selectedRange = ctx.workbook.getSelectedRange();
-selectedRange.load('address');
-ctx.sync();
-console.log('The selected range is: ' + selectedRange.address);
-```
-
-If you are simply calling methods on a proxy object, or setting its properties, or using the object to navigate to another object, you do not need to call the **load()** method. The **load()** method is only required when you are intending to read properties on a proxy object. 
+In the JavaScript API, the **RequestContext** object enables the add-in to interact with the Excel application. Because an Excel add-in and the Excel application run in two different processes, the add-in requires a request context in order to be able to interact with objects in Excel such as worksheets, ranges, charts, and tables. While it is possible to manually create a **RequestContext** object, one will automatically be created for you if you use the **Excel.run** function to define the actions you want to execute on the Excel object model.
 
 ## Excel.run
 
-The **Excel.run** function executes a batch script that you define to perform actions on the Excel object model. The batch script includes definitions of local JavaScript proxy objects, **sync()** methods that synchronize the state between local objects and Excel objects, and promise resolution. Calling **Excel.run** automatically creates a request context, which you can use in the batch script to interact with objects in Excel. When the batch script completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to run a batch script outside of **Excel.run**, doing so is not recommended, as any object references that are created outside of **Excel.run** would need to be manually tracked and managed.
+The **Excel.run** function executes a batch function that you define to perform actions on the Excel object model. Calling **Excel.run** automatically creates a request context, which you can use in the batch function to interact with objects in Excel. When the batch function completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to perform actions on the Excel object model outside of **Excel.run**, doing so is not recommended, as any object references that are created outside of **Excel.run** would need to be manually tracked and managed.
 
-The following example shows a simple batch script executed using **Excel.run**.
+The following example shows a simple batch function executed using **Excel.run**. The function defines a local JavaScript proxy object (**selectedRange**), loads a property of that object, and calls **context.sync()** to synchronize the state between local proxy objects and the real objects in Excel. 
 
 ```js
-Excel.run(function (ctx) { 
-  const selectedRange = ctx.workbook.getSelectedRange();
+Excel.run(function (context) { 
+  const selectedRange = context.workbook.getSelectedRange();
   selectedRange.load('address');
-  return ctx.sync()
+  return context.sync()
     .then(function () {
       console.log('The selected range is: ' + selectedRange.address);
   });
@@ -64,6 +31,33 @@ Excel.run(function (ctx) {
 });
 ```
 
+## Proxy objects
+
+The Excel JavaScript objects that are declared and used in an add-in are proxy objects for the real objects in an Excel document. Actions taken on proxy objects are not realized in Excel, and the state of objects in Excel is not realized in the proxy objects, until the document state has been synchronized by calling the **sync()** method on the request context. Any methods that you invoke or properties that you set on proxy objects are simply queued up, to be dispatched the next time **sync()** is called.
+
+For example, the following code snippet declares the local JavaScript object **selectedRange** to reference the selected range in the Excel document. The **selectedRange** object is a proxy object that can be used to queue the setting of the range's properties and invoking of the range's methods. However, any properties set or methods invoked on the **selectedRange** proxy object will not be realized in Excel until **context.sync()** is called.
+
+```js
+const selectedRange = context.workbook.getSelectedRange();
+```
+
+## sync()
+
+Calling the **sync()** method on the request context synchronizes the state between JavaScript proxy objects and real objects in Excel by executing any instructions that have been queued on the context and retrieving values for any properties that have been loaded for proxy objects. This method returns a promise, which is resolved when synchronization is complete. 
+
+## load()
+
+You can use the **load()** method to populate a proxy object that has been created in the add-in JavaScript layer, if you are intending to read back its properties. For example, if you create a proxy object to reference the selected range, and subsequently want to read the selected range's **address** property, you need to load the **address** property before you'll be able to read it. The following code snippet uses the **load()** method to load the **address** property for the selected range and then calls the **sync()** method to execute the load.
+
+```js
+const selectedRange = context.workbook.getSelectedRange();
+selectedRange.load('address');
+context.sync();
+console.log('The selected range is: ' + selectedRange.address);
+```
+
+If you are simply calling methods on a proxy object, or setting its properties, or using the object to navigate to another object, you do not need to call the **load()** method. The **load()** method is only required when you are intending to read properties on a proxy object. 
+
 ## Examples
 
 The following two examples demonstrate the concepts that have been discussed thus far in this article.
@@ -72,14 +66,14 @@ The following two examples demonstrate the concepts that have been discussed thu
 
 The following example shows how to write values from an array to a range object in an Excel worksheet.
 
-The **Excel.run** function contains a batch of instructions. A proxy object is created to reference a range on the active worksheet (range address = `A1:B2`) and the value of this proxy object is set locally. When `ctx.sync()` is called, the state of the proxy object is synchronized with the corresponding object in Excel. The **sync()** method returns a promise that can be used to chain it with other operations.
+The **Excel.run** function contains a batch of instructions. A proxy object is created to reference a range on the active worksheet (range address = `A1:B2`) and the value of this proxy object is set locally. When `context.sync()` is called, the state of the proxy object is synchronized with the corresponding object in Excel. The **sync()** method returns a promise that can be used to chain it with other operations.
 
 ```js
 // Run a batch operation against the Excel object model. 
-// The ctx input parameter provides access to objects in the Excel document.
-Excel.run(function (ctx) {
+// The context input parameter provides access to objects in the Excel document.
+Excel.run(function (context) {
   // Create a proxy object for the sheet
-  const sheet = ctx.workbook.worksheets.getActiveWorksheet();
+  const sheet = context.workbook.worksheets.getActiveWorksheet();
 
   // Specify values
   const values = [
@@ -95,7 +89,7 @@ Excel.run(function (ctx) {
 
   // Synchronize the state between JavaScript proxy objects and real objects in Excel 
   // by executing instructions that have been queued on the context
-  return ctx.sync()
+  return context.sync()
     .then(function () {
       console.log('Done');
   });
@@ -113,17 +107,17 @@ Excel.run(function (ctx) {
 The following example shows how to copy the values from range `A1:A2` to range `B1:B2` in the active worksheet, by using the **load()** method to retrieve the values of the first range and then using those values to populate the second range.
 
 ```js
-Excel.run(function (ctx) {
+Excel.run(function (context) {
   // Create a proxy object for the range and load the values property
-  const range = ctx.workbook.worksheets.getActiveWorksheet().getRange('A1:A2').load('values');
+  const range = context.workbook.worksheets.getActiveWorksheet().getRange('A1:A2').load('values');
 
   // Synchronize the state between JavaScript proxy objects and real objects in Excel 
   // by executing instructions that have been queued on the context
-  return ctx.sync()
+  return context.sync()
     .then(function () {
       // Assign the previously loaded values to the new range proxy object. 
       // The values will be updated once the following .then() function is invoked.
-      ctx.workbook.worksheets.getActiveWorksheet().getRange('B1:B2').values = range.values;
+      context.workbook.worksheets.getActiveWorksheet().getRange('B1:B2').values = range.values;
   });
 }).then(function () {
   console.log('done');
@@ -164,14 +158,14 @@ _Where:_
 In the following example, only specific properties and relationships of the range are loaded. Because `format/font` is not loaded, the value of the `format.font.color` property cannot be read.
 
 ```js
-Excel.run(function (ctx) {
+Excel.run(function (context) {
   const sheetName = 'Sheet1';
   const rangeAddress = 'A1:B2';
-  const myRange = ctx.workbook.worksheets.getItem(sheetName).getRange(rangeAddress);
+  const myRange = context.workbook.worksheets.getItem(sheetName).getRange(rangeAddress);
 
   myRange.load(['address', 'format/*', 'format/fill', 'entireRow' ]);
 
-  return ctx.sync()
+  return context.sync()
     .then(function () {
       console.log (myRange.address);              // ok
       console.log (myRange.format.wrapText);      // ok
@@ -261,32 +255,32 @@ When the API makes a request to retrieve an unbounded range (e.g., `getRange('C:
 Setting cell-level properties such as `values`, `numberFormat`, and `formula` on unbounded range is **prohibited**, as the input request might be too large to handle. For example, the following code snippet is not valid because it attempts to specify `values` for an unbounded range. The API will return an error if you attempt to set cell-level properties for an unbounded range.
 
 ```js
-const range = ctx.workbook.worksheets.getActiveWorksheet().getRange('A:B');
+const range = context.workbook.worksheets.getActiveWorksheet().getRange('A:B');
 range.values = 'Due Date';
 ```
 
 ## Read or write to a large range
 
-"Large range" implies a range that is too large for a single API call. Many factors such as number of cells, values, number formats, and formulas contained in a range can make the response so large that it becomes unsuitable for API interaction. The API will make a best attempt to execute the requested operation (i.e., to retrieve or write the specified data), but attempting to perform read or write operations for a large range may result in an API error due to excessive resource utilization. To avoid such errors, we recommend that you execute separate read or write operations for smaller subsets of a large range, instead of attempting to execute a single read or write operation for the large range.
+If a range contains a large number of cells, values, number formats, and/or formulas, it may not be possible to successfully execute API operations for the range. The API will always make a best attempt to execute the requested operation on a range (i.e., to retrieve or write the specified data), but attempting to perform read or write operations for a large range may result in an API error due to excessive resource utilization. To avoid such errors, we recommend that you execute separate read or write operations for smaller subsets of a large range, instead of attempting to execute a single read or write operation for the large range.
 
 ## Update all cells in a range
 
-To apply the same update to all cells in a range, (for example, to populate all cells in a range with the same value, set the same number format for all cells in a range, or populate all cells in a range with the same formula), simply set the corresponding property on **range** object to the desired (single) value.
+To apply the same update to all cells in a range, (for example, to populate all cells in a range with the same value, set the same number format for all cells in a range, or populate all cells in a range with the same formula), set the corresponding property on **range** object to the desired (single) value.
 
 The following example gets a range that contains 20 cells and then sets the number format for all cells in the range and populates all cells in the range with the value **3/11/2015**. 
 
 ```js
-Excel.run(function (ctx) {
+Excel.run(function (context) {
   const sheetName = 'Sheet1';
   const rangeAddress = 'A1:A20';
-  const worksheet = ctx.workbook.worksheets.getItem(sheetName);
+  const worksheet = context.workbook.worksheets.getItem(sheetName);
   
   const range = worksheet.getRange(rangeAddress);
   range.numberFormat = 'm/d/yyyy';
   range.values = '3/11/2015';
   range.load('text');
 
-  return ctx.sync()
+  return context.sync()
     .then(function () {
       console.log(range.text);
   });
@@ -301,7 +295,7 @@ Excel.run(function (ctx) {
 
 ## Error messages
 
-When an API error occurs, the API will return an **error** object that consists of a code and a message. The following table provides a list of errors that the API may return.
+When an API error occurs, the API will return an **error** object that contains a code and a message. The following table defines a list of errors that the API may return.
 
 |error.code | error.message |
 |:----------|:--------------|
