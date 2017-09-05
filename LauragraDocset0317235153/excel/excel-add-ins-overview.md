@@ -14,20 +14,7 @@ The [Office Add-ins platform](../overview/office-add-ins.md?product=excel) provi
 
 ## Anatomy of an Excel add-in 
 
-An Excel add-in consists of two main components: an XML manifest file and a web app.
-
-![Excel add-in components](images/ExcelAddinComponents.png)
-
-### Manifest
-
-The [XML manifest file](../overview/add-in-manifests.md?product=excel) defines an Excel add-in's settings and capabilities such as: 
-
-* The add-in's display name, description, ID, version, and default locale.
-* How the add-in integrates with Excel, including any custom UI that the add-in creates (ribbon buttons, etc.).
-* The permissions that the add-in requires, such as reading and writing to the document.
-* The location of the add-in's web app.
-
-### Web app 
+An Excel add-in is simply a web app which includes a configuration file (commonly referred to as the "manifest") that defines the add-in's settings and capabilites. 
 
 The web app uses the [JavaScript API for Office](../../reference/add-ins/javascript-api-for-office.md?product=excel) to interact with objects in Excel and can also facilitate the user's interaction with online resources. For example, an add-in may do things such as:
 
@@ -35,7 +22,16 @@ The web app uses the [JavaScript API for Office](../../reference/add-ins/javascr
 * Facilitate a user's authentication with an online service by using the standard OAuth 2.0 flow.
 * Issue API requests to Microsoft Graph and/or other APIs.
 
-The app can be hosted on any web server and can be built using any server-side technology that your hosting provider supports, such as ASP.NET, Node.js, PHP, Python, etc. Likewise, you can use any client-side framework for the web app, such as Angular, React, jQuery, etc., or even just VanillaJS.
+The web app can be hosted on any web server and can be built using any server-side technology that your hosting provider supports, such as ASP.NET, Node.js, PHP, Python, etc. Likewise, you can use any client-side framework for the web app, such as Angular, React, jQuery, etc., or even just VanillaJS.
+
+An add-in's [manifest](../overview/add-in-manifests.md?product=excel) is an XML configuration file that defines an Excel add-in's settings and capabilities such as: 
+
+* The add-in's display name, description, ID, version, and default locale.
+* How the add-in integrates with Excel, including any custom UI that the add-in creates (ribbon buttons, etc.).
+* The permissions that the add-in requires, such as reading and writing to the document.
+* The location of the add-in's web app.
+
+To enable end-users to install and use an add-in in Excel, you must publish its manifest to either the Office Store or to an Add-ins catalog. 
 
 ## Capabilities of an Excel add-in
 
@@ -61,9 +57,9 @@ In addition to interacting with the data in the workbook where it runs, an Excel
 
 An Excel add-in interacts with objects in Excel by using the [JavaScript API for Office](../../reference/add-ins/javascript-api-for-office.md?product=excel), which includes two JavaScript object models:
 
-* **Common APIs**: APIs that were introduced with Office 2013 and are broadly useful across multiple types of host applications such as Word, Excel, PowerPoint, etc. 
+* **Excel JavaScript API**: Introduced with Office 2016, the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) provides strongly-typed objects that you can use to access worksheets, ranges, tables, charts, and more. The Excel JavaScript API represents the future of Office JavaScript APIs, so you should use it whenever feasible.
 
-* **Host-specific APIs**: APIs that were introduced with Office 2016 and provide strongly-typed objects that correspond to specific host applications such as Excel. You can use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to access Excel-specific objects such as worksheets, ranges, tables, charts. 
+* **Common APIs**: Introduced with Office 2013, the common APIs and are broadly useful across multiple types of host applications such as Word, Excel, PowerPoint, etc. You'll use the Common APIs if your add-in targets Excel 2013 and later, or to implement certain functionality such as commands and dialogs.
 
 For more detailed information about the JavaScript APIs for Excel, see [Core concepts](excel-add-ins-core-concepts.md).
 
