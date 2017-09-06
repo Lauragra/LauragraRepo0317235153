@@ -1,6 +1,6 @@
-# Build an Add-in with React
+# Build an Excel add-in using React
 
-### Step 1. Generate the React project by **Create React App**
+## Step 1. Generate the React project by **Create React App**
 
 If you never install [Create React App](https://github.com/facebookincubator/create-react-app) before, first install it globally.
 
@@ -14,33 +14,47 @@ Then generate your React app by
 create-react-app my-addin
 ```
 
-### Step 2. Generate the manifest file by **Office Toolbox**
+## Step 2. Generate the manifest file by **YO Office**.
 
-If you never installed [Office Toolbox](https://needupdate) before, first install it globally.
+If you never install [Yeoman](https://github.com/yeoman/yo) and [YO Office](https://github.com/OfficeDev/generator-office) before, first install them globally.
 
 ```bash
-npm install -g office-toolbox
+npm install -g yo generator-office
 ```
 
-If you installed it before, go to your app folder.
+Go to your app folder.
 
 ```bash
 cd my-addin
 ```
 
-Generate the manifest file following the steps below.
+Generate the manifest file following the steps in the screenshot below.
 
 ```bash
-office-toolbox
+yo office
 ```
 
-![Generate](./img/office-toolbox-generate.png)
+![Yeoman generator](images/yo-office.png)
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
-Open it and replace all the ports in the generated manifest file from `3000` to `4200`.
+To run the add-in, you need side-load the add-in within the Excel application. Follow the way below to side-load the manifest file:
 
-### Step 3. Initialize
+* Windows
+
+  Follow [this tutorial](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins).
+
+* macOS
+
+  Move the manifest file to the folder `/Users/{username}/Library/Containers/com.microsoft.Excel/Data/Documents/wef` \(if the folder does not exist, create one\)
+
+* Excel Online
+
+  Click **Upload My Add-in** button to upload the manifest file.
+
+  ![Excel Online upload](images/excel-online-upload.png)
+
+## Step 3. Initialize
 
 Open **public/index.html**, add
 
@@ -58,7 +72,7 @@ Office.initialize = () => {
 };
 ```
 
-### Step 4. Add "Color Me"
+## Step 4. Add "Color Me"
 
 Open **src/App.js**. Replace by
 
@@ -92,7 +106,7 @@ class App extends Component {
 export default App;
 ```
 
-### Step 5. Run the app
+## Step 5. Run
 
 Run the dev server through the terminal.
 
@@ -107,18 +121,6 @@ Run the dev server through the terminal.
   ```bash
    HTTPS=true npm start
   ```
-
-### Step 6. Side load the manifest file by **Office Toolbox**
-
-To run the add-in, you need side-load the add-in in the Excel.
-
-Run this in terminal and following the steps below.
-
-```bash
-office-toolbox
-```
-
-![Sideload](./img/office-toolbox-sideload.png)
 
 Open Excel and click your add-in to load.
 
