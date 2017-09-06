@@ -34,7 +34,7 @@ Generate the manifest file following the steps below.
 office-toolbox
 ```
 
-![Generate](./img/office-toolbox-generate.png)
+![Generate](images/office-toolbox-generate.png)
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
@@ -113,7 +113,7 @@ Run this in terminal and following the steps below.
 office-toolbox
 ```
 
-![Sideload](./img/office-toolbox-sideload.png)
+![Sideload](images/office-toolbox-sideload.png)
 
 Open Excel and click your add-in to load.
 
