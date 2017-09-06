@@ -1,18 +1,54 @@
 # Excel JavaScript API programming overview
 
-This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces key concepts that are fundamental to using the APIs, such as request context, **Excel.run**, JavaScript proxy objects, **sync()**, and **load()**, and provides code examples that show how to apply the concepts.
-
->**Note:** When you build your add-in, if you plan to [publish](../publish/publish.md) your add-in to the Office Store, make sure that you conform to the [Office Store validation policies](https://msdn.microsoft.com/en-us/library/jj220035.aspx). For example, to pass validation, your add-in must work across all platforms that support the methods that you define (for more information, see [section 4.12](https://msdn.microsoft.com/en-us/library/jj220035.aspx#Anchor_3) and the [Office Add-in host and availability page](https://dev.office.com/add-in-availability)).
-
-## Request context
-
-In the JavaScript API, the **RequestContext** object enables the add-in to interact with the Excel application. Because an Excel add-in and the Excel application run in two different processes, the add-in requires a request context in order to be able to interact with objects in Excel such as worksheets, ranges, charts, and tables. While it is possible to manually create a **RequestContext** object, one will automatically be created for you if you use the **Excel.run** function to define the actions you want to execute on the Excel object model.
+This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces key concepts that are fundamental to using the API and provides code samples that show how to apply the concepts. It also provides guidance about specific scenarios such as reading or writing to a large range, updating all cells in range, and more.
 
 ## Excel.run
 
-The **Excel.run** function executes a batch function that you define to perform actions on the Excel object model. Calling **Excel.run** automatically creates a request context, which you can use in the batch function to interact with objects in Excel. When the batch function completes and the promise is resolved, any tracked objects that were allocated during the execution will automatically be released. While it is possible to perform actions on the Excel object model outside of **Excel.run**, doing so is not recommended, as any object references that are created outside of **Excel.run** would need to be manually tracked and managed.
+The **Excel.run** function executes a batch function that you define to execute actions on the Excel object model. Calling **Excel.run** automatically creates a *request context* that is passed into the batch function, where you can use it to interact with Excel objects such as worksheets, ranges, charts, and tables. 
 
-The following example shows a simple batch function executed using **Excel.run**. The function defines a local JavaScript proxy object (**selectedRange**), loads a property of that object, and calls **context.sync()** to synchronize the state between local proxy objects and the real objects in Excel. 
+>**Note**: Because an Excel add-in and the Excel application run in two different processes, the add-in requires a request context in order to interact with Excel.
+
+Using **Excel.run** is advantageous not only because it automatically creates a request context, but also because when the batch function completes and the promise is resolved, any tracked objects that were allocated during the execution are automatically released. 
+
+The following example shows a simple batch function that is executed using **Excel.run**. It includes a single **catch** statement at the end of **Excel.run** to catch and log any errors that may occur within the batch function.
+
+```js
+Excel.run(function (context) { 
+  // You can use the Excel JavaScript API here in the batch function
+  // to execute actions on the Excel object model.
+  console.log('Your code goes here.');
+}).catch(function (error) {
+  console.log('error: ' + error);
+  if (error instanceof OfficeExtension.Error) {
+    console.log('Debug info: ' + JSON.stringify(error.debugInfo));
+  }
+});
+```
+
+## Proxy objects and the asynchronous programming model
+
+The Excel JavaScript objects that you declare and use in an add-in are proxy objects which represent elements that may or may not yet exist in the Excel document. Any methods that you invoke or properties that you set or load on proxy objects are simply added to a queue of pending changes, to be dispatched to the Excel application as a batch of instructions the next time you call the **sync()** method on the request context. 
+
+For example, the following code snippet declares the local JavaScript object **selectedRange** to reference the selected range in the Excel document and then sets some properties on that object. Because the **selectedRange** object is simply a proxy object, none of the properties set or methods invoked on that object will be dispatched to Excel until **context.sync()** is called.
+
+```js
+const selectedRange = context.workbook.getSelectedRange();
+selectedRange.format.fill.color = "#4472C4";
+selectedRange.format.font.color = "white";
+selectedRange.format.autofitColumns();
+```
+
+The Excel JavaScript API is fundamentally batch-centric. You can queue up as many changes as you wish on the request context, and then call the **sync()** method to execute the batch of queued instructions when necessary. To optimize performance, you should queue up as many changes as possible before calling **sync()** and minimize the number of times you call **sync()**. 
+
+### sync()
+
+Calling the **sync()** method on the request context synchronizes the state between JavaScript proxy objects and objects in the Excel document by executing any instructions that have been queued on the request context and retrieving values for any properties that have been requested to be loaded for proxy objects. The **sync()** method executes asynchronously and returns a promise, which is resolved when synchronization is complete. 
+
+>**Note**: In the Excel JavaScript API, **sync()** is the only asynchronous operation.
+
+Because **sync()** is an asynchronous operation that returns a promise, you should always **return** the promise (in JavaScript) or **await** the promise (in TypeScript). Doing so will ensure that the **sync()** operation completes before execution continues. 
+
+The following example shows a batch function that defines a local JavaScript proxy object (**selectedRange**), loads a property of that object, and then uses the JavaScript Promises pattern to call **context.sync()** to synchronize the state between local proxy objects and objects in the Excel document. 
 
 ```js
 Excel.run(function (context) { 
@@ -24,43 +60,73 @@ Excel.run(function (context) {
   });
 }).catch(function (error) {
   console.log('error: ' + error);
-
   if (error instanceof OfficeExtension.Error) {
     console.log('Debug info: ' + JSON.stringify(error.debugInfo));
   }
 });
 ```
 
-## Proxy objects
+### load()
 
-The Excel JavaScript objects that are declared and used in an add-in are proxy objects for the real objects in an Excel document. Actions taken on proxy objects are not realized in Excel, and the state of objects in Excel is not realized in the proxy objects, until the document state has been synchronized by calling the **sync()** method on the request context. Any methods that you invoke or properties that you set on proxy objects are simply queued up, to be dispatched the next time **sync()** is called.
+Before you can read the properties of a proxy object, you must explicitly load the properties to populate the proxy object with data from the Excel document. For example, if you create a proxy object to reference the selected range, and subsequently want to read the selected range's **address** property, you need to load the **address** property before you'll be able to read it. To request that properties of a proxy object be loaded, call the **load()** method on the object to specify those properties.  
 
-For example, the following code snippet declares the local JavaScript object **selectedRange** to reference the selected range in the Excel document. The **selectedRange** object is a proxy object that can be used to queue the setting of the range's properties and invoking of the range's methods. However, any properties set or methods invoked on the **selectedRange** proxy object will not be realized in Excel until **context.sync()** is called.
+>**Note**: If you are simply calling methods on a proxy object, or setting its properties, or using the object to navigate to another object, you do not need to call the **load()** method. The **load()** method is only required when you are intending to read properties on a proxy object. 
 
-```js
-const selectedRange = context.workbook.getSelectedRange();
-```
+Just like requests to set properties or invoke methods on proxy objects, requests to load properties on proxy objects get added to the queue of pending requests on the request context, to be do be dispatched to the Excel application as a batch of instructions the next time you call the **sync()** method on the request context. Therefore, you can queue up as many **load()** calls on the request context as you need to, and they will all be executed with any other queued up instructions the next time you call **sync()**. 
 
-## sync()
-
-Calling the **sync()** method on the request context synchronizes the state between JavaScript proxy objects and real objects in Excel by executing any instructions that have been queued on the context and retrieving values for any properties that have been loaded for proxy objects. This method returns a promise, which is resolved when synchronization is complete. 
-
-## load()
-
-You can use the **load()** method to populate a proxy object that has been created in the add-in JavaScript layer, if you are intending to read back its properties. For example, if you create a proxy object to reference the selected range, and subsequently want to read the selected range's **address** property, you need to load the **address** property before you'll be able to read it. The following code snippet uses the **load()** method to load the **address** property for the selected range and then calls the **sync()** method to execute the load.
+In the following example, only specific properties and relationships of the range are loaded. Because `format/font` is not loaded, the value of the `format.font.color` property cannot be read.
 
 ```js
-const selectedRange = context.workbook.getSelectedRange();
-selectedRange.load('address');
-context.sync();
-console.log('The selected range is: ' + selectedRange.address);
+Excel.run(function (context) {
+  const sheetName = 'Sheet1';
+  const rangeAddress = 'A1:B2';
+  const myRange = context.workbook.worksheets.getItem(sheetName).getRange(rangeAddress);
+
+  myRange.load(['address', 'format/*', 'format/fill', 'entireRow' ]);
+
+  return context.sync()
+    .then(function () {
+      console.log (myRange.address);              // ok
+      console.log (myRange.format.wrapText);      // ok
+      console.log (myRange.format.fill.color);    // ok
+      //console.log (myRange.format.font.color);  // not ok as it was not loaded
+  });
+}).then(function () {
+  console.log('done');
+}).catch(function (error) {
+  console.log('Error: ' + error);
+  if (error instanceof OfficeExtension.Error) {
+    console.log('Debug info: ' + JSON.stringify(error.debugInfo));
+  }
+});
 ```
 
-If you are simply calling methods on a proxy object, or setting its properties, or using the object to navigate to another object, you do not need to call the **load()** method. The **load()** method is only required when you are intending to read properties on a proxy object. 
+By default, **object.load()** loads all scalar and complex properties of the object; the relationships (for example, **format** on a **Range** object) are not loaded by default. To optimize performance, you should explicitly specify the properties and relationships to be loaded when calling the **object.load()** method. For example, if you only intend to read back the **address** property of a range object, specify only that property when you call **object.load**: 
+
+```js
+range.load('address');
+```
+
+You can call **object.load()** in any of the following ways:
+
+_Syntax:_
+
+```js
+object.load(string: properties);
+// or
+object.load(array: properties);
+// or
+object.load({ loadOption });
+```
+
+_Where:_
+
+* `properties` is the list of properties and/or relationship names to be loaded specified as comma-delimited strings or array of names. See **.load()** methods under each object for details.
+* `loadOption` specifies an object that describes the selection, expansion, top, and skip options. See object load [options](../../reference/excel/loadoption.md?product=excel) for details.
 
 ## Examples
 
-The following two examples demonstrate the concepts that have been discussed thus far in this article.
+The following two examples demonstrate the concepts that have been discussed in this article thus far.
 
 ### Write values from an array to a range object
 
@@ -95,7 +161,6 @@ Excel.run(function (context) {
   });
 }).catch(function (error) {
   console.log('error: ' + error);
-
   if (error instanceof OfficeExtension.Error) {
     console.log('Debug info: ' + JSON.stringify(error.debugInfo));
   }
@@ -123,60 +188,6 @@ Excel.run(function (context) {
   console.log('done');
 }).catch(function (error) {
   console.log('Error: ' + error);
-
-  if (error instanceof OfficeExtension.Error) {
-    console.log('Debug info: ' + JSON.stringify(error.debugInfo));
-  }
-});
-```
-
-## Load properties and relationships
-
-By default, **object.load()** loads all scalar and complex properties of the object; the relationships (for example, **format** on a **Range** object) are not loaded by default. To optimize performance, you should explicitly specify the properties and relationships to be loaded when calling the **object.load()** method. For example, if you only intend to read back the **address** property of a range object, specify only that property when you call **object.load**: 
-
-```js
-range.load('address');
-```
-
-You can call **object.load()** in any of the following ways:
-
-_Syntax:_
-
-```js
-object.load(string: properties);
-// or
-object.load(array: properties);
-// or
-object.load({ loadOption });
-```
-
-_Where:_
-
-* `properties` is the list of properties and/or relationship names to be loaded specified as comma-delimited strings or array of names. See **.load()** methods under each object for details.
-* `loadOption` specifies an object that describes the selection, expansion, top, and skip options. See object load [options](../../reference/excel/loadoption.md?product=excel) for details.
-
-In the following example, only specific properties and relationships of the range are loaded. Because `format/font` is not loaded, the value of the `format.font.color` property cannot be read.
-
-```js
-Excel.run(function (context) {
-  const sheetName = 'Sheet1';
-  const rangeAddress = 'A1:B2';
-  const myRange = context.workbook.worksheets.getItem(sheetName).getRange(rangeAddress);
-
-  myRange.load(['address', 'format/*', 'format/fill', 'entireRow' ]);
-
-  return context.sync()
-    .then(function () {
-      console.log (myRange.address);              // ok
-      console.log (myRange.format.wrapText);      // ok
-      console.log (myRange.format.fill.color);    // ok
-      //console.log (myRange.format.font.color);  // not ok as it was not loaded
-  });
-}).then(function () {
-  console.log('done');
-}).catch(function (error) {
-  console.log('Error: ' + error);
-
   if (error instanceof OfficeExtension.Error) {
     console.log('Debug info: ' + JSON.stringify(error.debugInfo));
   }
@@ -286,7 +297,6 @@ Excel.run(function (context) {
   });
 }).catch(function (error) {
   console.log('Error: ' + error);
-  
   if (error instanceof OfficeExtension.Error) {
     console.log('Debug info: ' + JSON.stringify(error.debugInfo));
   }
@@ -322,6 +332,5 @@ When an API error occurs, the API will return an **error** object that contains 
 ## Additional resources
 
 * [Get started with Excel add-ins](excel-add-ins-get-started-overview.md?product=excel)
-* [Explore snippets with Script Lab](excel-add-ins-script-lab.md?product=excel)
 * [Excel add-ins code samples](http://dev.office.com/code-samples#?filters=excel,office%20add-ins)
 * [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)
