@@ -50,7 +50,7 @@ yo office
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
-## Update the app: Initialize
+## Update the app
 
 1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
 ```html
@@ -73,14 +73,52 @@ Office.initialize = () => {
 import 'core-js/client/shim';
 ```
 
-## Update the app: Add "Color Me" functionality 
-
-1. Open **src/app/app.component.html**, replace file contents with the following single element, and save the file. 
+4. Open **src/app/app.component.html**, replace file contents with the following HTML, and save the file. 
 ```html
-<button (click)="onColorMe()">Color Me</button>
+<div id="content-header">
+    <div class="padding">
+        <h1>Welcome</h1>
+    </div>
+</div>
+<div id="content-main">
+    <div class="padding">
+        <p>Choose the button below to set the color of the selected range to green.</p>
+        <br />
+        <h3>Try it out</h3>
+        <button (click)="onColorMe()">Color Me</button>
+    </div>
+</div>
 ```
 
-2. Open **src/app/app.component.ts**, replace file contents with the following code, and save the file. 
+5. Open **src/app/app.component.css**, replace file contents with the following CSS code, and save the file.
+```css
+#content-header {
+    background: #2a8dd4;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    overflow: hidden;
+}
+
+#content-main {
+    background: #fff;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+}
+
+.padding {
+    padding: 15px;
+}
+```
+
+6. Open **src/app/app.component.ts**, replace file contents with the following code, and save the file. 
 
 ```typescript
 import { Component } from '@angular/core';
