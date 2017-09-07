@@ -1,6 +1,6 @@
 # Build an Excel add-in using Angular
 
-This article walks you through the process of building an Excel add-in by using Angular and the Excel JavaScipt API.
+This article walks you through the process of building an Excel add-in by using Angular and the Excel JavaScript API.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ yo office
 ![Yeoman generator](images/yo-office.png)
 >**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
-3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:4200` and save your changes.
+3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:4200` and save the file.
 >**Note**: Be sure to change the protocol to **http** in addition to changing the port number to **4200**.
 
 4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
@@ -52,12 +52,12 @@ yo office
 
 ## Update the app: Initialize
 
-1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save your change.
+1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 
+2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save the file. 
 
 ```typescript 
 declare const Office: any;
@@ -67,7 +67,7 @@ Office.initialize = () => {
 };
 ```
 
-3. Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save your change.
+3. Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save the file.
 
 ```typescript
 import 'core-js/client/shim';
@@ -75,12 +75,12 @@ import 'core-js/client/shim';
 
 ## Update the app: Add "Color Me" functionality 
 
-1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes. 
+1. Open **src/app/app.component.html**, replace file contents with the following single element, and save the file. 
 ```html
 <button (click)="onColorMe()">Color Me</button>
 ```
 
-2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes. 
+2. Open **src/app/app.component.ts**, replace file contents with the following code, and save the file. 
 
 ```typescript
 import { Component } from '@angular/core';

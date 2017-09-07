@@ -1,6 +1,6 @@
 # Build an Excel add-in using React
 
-This article walks you through the process of building an Excel add-in by using React and the Excel JavaScipt API.
+This article walks you through the process of building an Excel add-in by using React and the Excel JavaScript API.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ yo office
 ![Yeoman generator](images/yo-office.png)
 >**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
-3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:3000` and save your changes.
+3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:3000` and save the file.
 
 4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
     - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
@@ -49,12 +49,12 @@ yo office
 
 ## Update the app: Initialize
 
-1. Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save your change.
+1. Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-2. Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save your change. 
+2. Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save the file. 
 
 ```typescript
 const Office = window.Office;
@@ -66,7 +66,7 @@ Office.initialize = () => {
 
 ## Update the app: Add "Color Me" functionality 
 
-Open **src/App.js**, replace file contents with the following code, and save your changes. 
+Open **src/App.js**, replace file contents with the following code, and save the file. 
 
 ```javascript
 import React, { Component } from 'react';

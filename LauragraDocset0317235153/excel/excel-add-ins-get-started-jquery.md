@@ -1,6 +1,6 @@
 # Build an Excel add-in using jQuery
 
-This article walks you through the process of building an Excel add-in by using jQuery and the Excel JavaScipt API.
+This article walks you through the process of building an Excel add-in by using jQuery and the Excel JavaScript API.
 
 ## Create the web app
 
