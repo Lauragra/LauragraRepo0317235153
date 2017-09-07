@@ -47,7 +47,7 @@ yo office
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
-## Update the app: Initialize
+## Update the app
 
 1. Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
 ```html
@@ -55,8 +55,7 @@ yo office
 ```
 
 2. Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save the file. 
-
-```typescript
+```js
 const Office = window.Office;
 
 Office.initialize = () => {
@@ -64,12 +63,10 @@ Office.initialize = () => {
 };
 ```
 
-## Update the app: Add "Color Me" functionality 
-
-Open **src/App.js**, replace file contents with the following code, and save the file. 
-
-```javascript
+3. Open **src/App.js**, replace file contents with the following code, and save the file. 
+```js
 import React, { Component } from 'react';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -88,12 +85,54 @@ class App extends Component {
 
   render() {
     return (
-      <button onClick={this.onColorMe}>Color Me</button>
+      <div id="content">
+        <div id="content-header">
+          <div className="padding">
+              <h1>Welcome</h1>
+          </div>
+        </div>
+        <div id="content-main">
+          <div className="padding">
+              <p>Choose the button below to set the color of the selected range to green.</p>
+              <br />
+              <h3>Try it out</h3>
+              <button onClick={this.onColorMe}>Color Me</button>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 export default App;
+```
+
+4. Open **src/App.css**, replace file contents with the following CSS code, and save the file. 
+```css
+#content-header {
+    background: #2a8dd4;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    overflow: hidden;
+}
+
+#content-main {
+    background: #fff;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+}
+
+.padding {
+    padding: 15px;
+}
 ```
 
 ## Try it out
