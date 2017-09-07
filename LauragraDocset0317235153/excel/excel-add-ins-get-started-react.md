@@ -99,12 +99,12 @@ export default App;
 1. Start the dev server by running one of the following commands via the terminal.
 - Windows
 ```bash
-  set HTTPS=true&&npm start
+set HTTPS=true&&npm start
 ```
 or
 - macOS
 ```bash
-  HTTPS=true npm start
+HTTPS=true npm start
 ```
 
 2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to change the background color of the selected range to green.
