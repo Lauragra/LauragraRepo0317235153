@@ -65,6 +65,7 @@ Office.initialize = () => {
 ```
 
 3. Open **src/App.js**, replace file contents with the following code, and save the file. 
+
 ```js
 import React, { Component } from 'react';
 import './App.css';
@@ -109,6 +110,7 @@ export default App;
 ```
 
 4. Open **src/App.css**, replace file contents with the following CSS code, and save the file. 
+
 ```css
 #content-header {
     background: #2a8dd4;
