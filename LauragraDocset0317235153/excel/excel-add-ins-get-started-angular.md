@@ -47,7 +47,7 @@ yo office
 
 4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
     - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
-    - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online.md)
+    - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
 ## Update the app: Initialize
@@ -57,8 +57,9 @@ yo office
 <script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
 ```
 
-2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change.
-```typescript
+2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 
+
+```typescript 
 declare const Office: any;
 
 Office.initialize = () => {
@@ -66,14 +67,15 @@ Office.initialize = () => {
 };
 ```
 
-## Update the app: Add "Color Me" functionality
+## Update the app: Add "Color Me" functionality 
 
-1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes.
+1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes. 
 ```html
 <button (click)="onColorMe()">Color Me</button>
 ```
 
-2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes.
+2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes. 
+
 ```typescript
 import { Component } from '@angular/core';
 
