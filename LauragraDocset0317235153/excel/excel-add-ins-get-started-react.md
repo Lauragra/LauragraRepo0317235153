@@ -111,10 +111,15 @@ or
 yarn start
 ```
 
-2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to change the background color of the selected range to green.
+2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
 
 ## Next steps
 
 Congratulations, you've successfully created an Excel add-in using React! Next, check out [Core concepts](excel-add-ins-core-concepts.md?product=excel) to learn more about the fundamentals of building Excel add-ins.
 
+## Additional resources
 
+* [Excel add-ins programming overview](excel-add-ins-programming-overview.md)
+* [Explore snippets with Script Lab](https://store.office.com/en-001/app.aspx?assetid=WA104380862&ui=en-US&rs=en-001&ad=US&appredirect=false)
+* [Excel add-in code samples](http://dev.office.com/code-samples#?filters=excel,office%20add-ins)
+* [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)
