@@ -42,12 +42,13 @@ yo office
 ![Yeoman generator](images/yo-office.png)
 >**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
-3. Open the manifest file, replace all occurrences of `https://localhost:3000` with `http://localhost:4200`, and save your changes.
+3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:4200` and save your changes.
+>**Note**: Be sure to change the protocol to **http** in addition to changing the port number to **4200**.
 
 4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
-* Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
-* Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online.md)
-* iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
+    - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
+    - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online.md)
+    - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
 ## Update the app: Initialize
 
@@ -57,6 +58,7 @@ yo office
 ```
 
 2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change.
+
 ```typescript
 declare const Office: any;
 
@@ -68,6 +70,7 @@ Office.initialize = () => {
 ## Update the app: Add "Color Me" functionality
 
 1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes.
+
 ```html
 <button (click)="onColorMe()">Color Me</button>
 ```
@@ -106,7 +109,7 @@ or
 ng serve
 ```
 
-2. Open Excel and from the **Home** tab, choose the **Show Taskpane** button in the ribbon to launch the add-in task pane. Choose the **Color Me** button in the task pane to change the background color of the selected range to green.
+2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to change the background color of the selected range to green.
 
 ## Next steps
 
