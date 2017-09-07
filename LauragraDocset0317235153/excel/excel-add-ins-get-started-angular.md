@@ -40,6 +40,7 @@ cd my-addin
 yo office
 ```
 ![Yeoman generator](images/yo-office.png)
+>**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
 3. Open the manifest file, replace all occurrences of `https://localhost:3000` with `http://localhost:4200`, and save your changes.
 
