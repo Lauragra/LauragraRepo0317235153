@@ -54,7 +54,7 @@ yo office
 
 1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save your change.
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
 2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 

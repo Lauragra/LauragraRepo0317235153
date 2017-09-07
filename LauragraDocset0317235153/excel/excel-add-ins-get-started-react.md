@@ -51,7 +51,7 @@ yo office
 
 1. Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save your change.
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
 2. Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save your change. 
@@ -97,10 +97,6 @@ export default App;
 ```
 
 ## Try it out
-
-1. Start the dev server by running one of the following commands via the terminal.
-    - Windows:  `set HTTPS=false&&npm start`
-    - macOS: `HTTPS=false npm start`
 
 1. Start the dev server by running one of the following commands via the terminal.
 ```bash
