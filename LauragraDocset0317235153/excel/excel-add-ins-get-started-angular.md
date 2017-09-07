@@ -57,7 +57,7 @@ yo office
 <script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
 ```
 
-2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change.
+2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 
 ```typescript
 declare const Office: any;
 
@@ -66,14 +66,15 @@ Office.initialize = () => {
 };
 ```
 
-## Update the app: Add "Color Me" functionality
 
-1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes.
+## Update the app: Add "Color Me" functionality 
+
+1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes. 
 ```html
 <button (click)="onColorMe()">Color Me</button>
 ```
 
-2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes.
+2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes. 
 ```typescript
 import { Component } from '@angular/core';
 
@@ -94,6 +95,7 @@ export class AppComponent {
   }
 }
 ```
+
 
 ## Try it out
 
