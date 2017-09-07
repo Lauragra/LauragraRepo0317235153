@@ -40,7 +40,9 @@ yo office
 ![Yeoman generator](images/yo-office.png)
 >**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
-3. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
+3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:3000` and save your changes.
+
+4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
     - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
@@ -97,15 +99,8 @@ export default App;
 ## Try it out
 
 1. Start the dev server by running one of the following commands via the terminal.
-- Windows
-```bash
-set HTTPS=true&&npm start
-```
-or
-- macOS
-```bash
-HTTPS=true npm start
-```
+    - Windows:  `set HTTPS=false&&npm start`
+    - macOS: `HTTPS=false npm start`
 
 2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to change the background color of the selected range to green.
 
