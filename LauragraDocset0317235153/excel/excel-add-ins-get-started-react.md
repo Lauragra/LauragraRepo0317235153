@@ -55,7 +55,8 @@ yo office
 ```
 
 2. Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save the file. 
-```js
+
+```typescript
 const Office = window.Office;
 
 Office.initialize = () => {

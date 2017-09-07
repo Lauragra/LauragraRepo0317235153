@@ -91,6 +91,7 @@ import 'core-js/client/shim';
 ```
 
 5. Open **src/app/app.component.css**, replace file contents with the following CSS code, and save the file.
+
 ```css
 #content-header {
     background: #2a8dd4;
