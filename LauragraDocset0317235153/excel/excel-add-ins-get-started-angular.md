@@ -58,7 +58,8 @@ yo office
 ```
 
 2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 
-```js
+
+```
 declare const Office: any;
 
 Office.initialize = () => {
@@ -74,7 +75,8 @@ Office.initialize = () => {
 ```
 
 2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes. 
-```js
+
+```
 import { Component } from '@angular/core';
 
 declare const Excel: any;
