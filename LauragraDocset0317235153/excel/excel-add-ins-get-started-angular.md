@@ -58,6 +58,13 @@ yo office
 ```
 
 2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 
+```typescript
+declare const Office: any;
+
+Office.initialize = () => {
+  platformBrowserDynamic().bootstrapModule(AppModule);
+};
+```
 
 ## Update the app: Add "Color Me" functionality 
 
