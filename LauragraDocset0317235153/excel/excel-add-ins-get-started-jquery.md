@@ -48,7 +48,35 @@ cd my-addin
 </html>
 ```
 
-4. In your app folder, create a file named **Common.css** to specify the custom styles for the add-in. Add the following code and save the file.
+4. In your app folder, create a file named **Home.js** to specify the jQuery script for the add-in. Add the following code and save the file.
+```js
+(function () {
+    "use strict";
+
+    Office.initialize = function (reason) {
+        $(document).ready(function () {
+            $('#set-color').click(setColor);
+        });
+    };
+
+    function setColor() {
+        Excel.run(function (context) {
+            var range = context.workbook.getSelectedRange();
+            range.format.fill.color = 'green';
+
+            return ctx.sync();
+        }).catch(function (error) {
+            console.log("Error: " + error);
+            if (error instanceof OfficeExtension.Error) {
+                console.log("Debug info: " + JSON.stringify(error.debugInfo));
+            }
+        });
+    }
+})();
+```
+
+5. In your app folder, create a file named **Common.css** to specify the custom styles for the add-in. Add the following code and save the file.
+
 ```css
 #content-header {
     background: #2a8dd4;
@@ -74,33 +102,6 @@ cd my-addin
 .padding {
     padding: 15px;
 }
-```
-
-5. In your app folder, create a file named **Home.js** to specify the jQuery script for the add-in. Add the following code and save the file.
-```js
-(function () {
-    "use strict";
-
-    Office.initialize = function (reason) {
-        $(document).ready(function () {
-            $('#set-color').click(setColor);
-        });
-    };
-
-    function setColor() {
-        Excel.run(function (context) {
-            var range = context.workbook.getSelectedRange();
-            range.format.fill.color = 'green';
-
-            return ctx.sync();
-        }).catch(function (error) {
-            console.log("Error: " + error);
-            if (error instanceof OfficeExtension.Error) {
-                console.log("Debug info: " + JSON.stringify(error.debugInfo));
-            }
-        });
-    }
-})();
 ```
 
 ## Create the manifest file and sideload the add-in
