@@ -67,6 +67,12 @@ Office.initialize = () => {
 };
 ```
 
+3. Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save your change.
+
+```typescript
+import 'core-js/client/shim';
+```
+
 ## Update the app: Add "Color Me" functionality 
 
 1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes. 
