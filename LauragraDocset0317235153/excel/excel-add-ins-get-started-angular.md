@@ -53,6 +53,7 @@ yo office
 ## Update the app: Initialize
 
 1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save your change.
+
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
 ```
@@ -70,6 +71,7 @@ Office.initialize = () => {
 ## Update the app: Add "Color Me" functionality 
 
 1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes. 
+
 ```html
 <button (click)="onColorMe()">Color Me</button>
 ```
