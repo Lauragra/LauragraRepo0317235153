@@ -150,7 +150,7 @@ or
 yarn start
 ```
 
-2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
+2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
 
 ## Next steps
 
