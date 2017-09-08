@@ -1,6 +1,6 @@
 # Build an Excel add-in using Angular
 
-This article walks you through the process of building an Excel add-in by using Angular and the Excel JavaScipt API.
+This article walks you through the process of building an Excel add-in by using Angular and the Excel JavaScript API.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ yo office
 ![Yeoman generator](images/yo-office.png)
 >**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
-3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:4200` and save your changes.
+3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:4200` and save the file.
 >**Note**: Be sure to change the protocol to **http** in addition to changing the port number to **4200**.
 
 4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
@@ -50,14 +50,15 @@ yo office
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
-## Update the app: Initialize
+## Update the app
 
-1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save your change.
+- Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
+
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save your change. 
+- Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save the file. 
 
 ```typescript 
 declare const Office: any;
@@ -67,20 +68,60 @@ Office.initialize = () => {
 };
 ```
 
-3. Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save your change.
+- Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save the file.
 
 ```typescript
 import 'core-js/client/shim';
 ```
 
-## Update the app: Add "Color Me" functionality 
+- Open **src/app/app.component.html**, replace file contents with the following HTML, and save the file. 
 
-1. Open **src/app/app.component.html**, replace file contents with the following single element, and save your changes. 
 ```html
-<button (click)="onColorMe()">Color Me</button>
+<div id="content-header">
+    <div class="padding">
+        <h1>Welcome</h1>
+    </div>
+</div>
+<div id="content-main">
+    <div class="padding">
+        <p>Choose the button below to set the color of the selected range to green.</p>
+        <br />
+        <h3>Try it out</h3>
+        <button (click)="onColorMe()">Color Me</button>
+    </div>
+</div>
 ```
 
-2. Open **src/app/app.component.ts**, replace file contents with the following code, and save your changes. 
+- Open **src/app/app.component.css**, replace file contents with the following CSS code, and save the file.
+
+```css
+#content-header {
+    background: #2a8dd4;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    overflow: hidden;
+}
+
+#content-main {
+    background: #fff;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+}
+
+.padding {
+    padding: 15px;
+}
+```
+
+- Open **src/app/app.component.ts**, replace file contents with the following code, and save the file. 
 
 ```typescript
 import { Component } from '@angular/core';
@@ -114,8 +155,19 @@ or
 ng serve
 ```
 
-2. In Excel, on the **Home** tab, choose the **Show Taskpane** button in the ribbon to open the add-in task pane. Choose the **Color Me** button in the task pane to change the background color of the selected range to green.
+2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane. 
+![Excel Add-in button](images/excel_quickstart_addin_2a.png)
+
+3. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
+![Excel Add-in](images/excel_quickstart_addin_2b.png)
 
 ## Next steps
 
 Congratulations, you've successfully created an Excel add-in using Angular! Next, check out [Core concepts](excel-add-ins-core-concepts.md?product=excel) to learn more about the fundamentals of building Excel add-ins.
+
+## Additional resources
+
+* [Excel add-ins programming overview](excel-add-ins-programming-overview.md)
+* [Explore snippets with Script Lab](https://store.office.com/en-001/app.aspx?assetid=WA104380862&ui=en-US&rs=en-001&ad=US&appredirect=false)
+* [Excel add-in code samples](http://dev.office.com/code-samples#?filters=excel,office%20add-ins)
+* [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)
