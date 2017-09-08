@@ -102,7 +102,6 @@
 ### [Work with Charts](excel/excel-add-ins-charts.md)
 ### [Work with Events](excel/excel-add-ins-events.md)
 ## Advanced concepts
-### [Implement custom functions](excel/excel-add-ins-customfunctions.md)
 ### [Sort and filter data](excel/excel-add-ins-sortfilter.md)
 ### [Protect data](excel/excel-add-ins-protect.md)
 ### [Perform calculations](excel/excel-add-ins-calc.md)
@@ -114,6 +113,7 @@
 ### [Document properties](excel/excel-add-ins-dp.md)
 ### [Performance - Best Practices](excel/excel-add-ins-perf.md)
 ### [Error handling](excel/excel-add-ins-error.md)
+### [Coauthoring in Excel add-ins](excel/co-authoring-in-excel-add-ins.md)
 ## [Excel JavaScript API reference](https://dev.office.com/reference/add-ins/excel/excel-add-ins-reference-overview.md)
 # [Outlook](https://docs.microsoft.com/outlook/add-ins/)
 # [PowerPoint](powerpoint/powerpoint-add-ins.md)
