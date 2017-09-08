@@ -56,7 +56,7 @@ In addition to interacting with the content in the workbook, Excel add-ins can a
 
 ![Content add-in](images/Excel_add-in_content.png)
 
-## Using JavaScript APIs to interact with workbook content
+## JavaScript APIs to interact with workbook content
 
 An Excel add-in interacts with objects in Excel by using the [JavaScript API for Office](../../reference/add-ins/javascript-api-for-office.md?product=excel), which includes two JavaScript object models:
 
