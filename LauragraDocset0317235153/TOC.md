@@ -102,6 +102,7 @@
 ### [Work with Charts](excel/excel-add-ins-charts.md)
 ### [Work with Events](excel/excel-add-ins-events.md)
 ## Advanced concepts
+### [Coauthoring in Excel add-ins](excel/co-authoring-in-excel-add-ins.md)
 ### Implement custom functions
 ### Sort and filter data
 ### Protect data
