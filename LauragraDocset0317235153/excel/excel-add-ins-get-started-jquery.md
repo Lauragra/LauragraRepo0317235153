@@ -114,7 +114,7 @@ cd my-addin
     <Version>1.0.0.0</Version>
     <ProviderName>Microsoft</ProviderName>
     <DefaultLocale>en-US</DefaultLocale>
-    <DisplayName DefaultValue="My Excel Add-in" />
+    <DisplayName DefaultValue="My Office Add-in" />
     <Description DefaultValue="A task pane add-in for Excel built using jQuery"/>
     <Capabilities>
     <Capability Name="Workbook" />
