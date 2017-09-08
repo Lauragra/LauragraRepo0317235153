@@ -4,7 +4,7 @@ This article describes how to use the [Excel JavaScript API](../../reference/exc
 
 ## Request context
 
-Excel and your Excel add-in run in two different processes. Because of these different processes, Excel add-ins require a **RequestContext** object in order to interact with objects in Excel via the Excel object model. In Excel add-ins, you use the request context object to interact with Excel objects such as worksheets, ranges, charts, and tables.
+Excel and your Excel add-in run in two different processes. Because of these different processes, Excel add-ins require a **RequestContext** object in order to interact with objects in Excel via the Excel object model. In Excel add-ins, you use the request context to interact with Excel objects such as worksheets, ranges, charts, and tables.
 
 ## Excel.run
 
