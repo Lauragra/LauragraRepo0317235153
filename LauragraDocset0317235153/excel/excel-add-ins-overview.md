@@ -5,12 +5,12 @@ An Excel add-in allows you to extend Excel and interact with content in the work
 - Add custom ribbon buttons or context menu items
 - Insert task panes
 - Open dialog boxes
-- Embed rich, web-based objects such as charts or interactive visualizations. 
+- Embed rich, web-based objects such as charts or interactive visualizations 
 
 The [Office Add-ins platform](../overview/office-add-ins.md?product=excel) provides the framework and APIs that enable you to create and run Excel add-ins. By using the Office Add-ins platform to create your Excel add-in, you'll get the following benefits:
 
 * **Cross-platform support**: Excel add-ins run in Office for Windows, Mac, iOS, and Office Online.
-* **Centralized deployment**: Admins can quickly and easily deploy Excel add-ins to all users in your organization.
+* **Centralized deployment**: Admins can quickly and easily deploy Excel add-ins to users throughout an organization.
 * **Single sign on (SSO)**: Easily integrate your Excel add-in with the Microsoft Graph.
 * **Use of standard web technology**: Create your Excel add-in using familiar web technologies such as HTML, CSS, and JavaScript.
 * **Distribution via the Office Store**: Share your Excel add-in with a broad audience by publishing it to the [Office Store](https://store.office.com/en-us/appshome.aspx).
@@ -25,7 +25,7 @@ An Excel add-in includes two basic components: a web application and a configura
 * Perform user authorization with an online service by using the standard OAuth 2.0 flow.
 * Issue API requests to Microsoft Graph or any other API.
 
-The web application can be hosted on any web server, and can be built using client-side frameworks (such as Angular, React, jQuery) or server-side technologies (such as ASP.NET, Node.js, PHP). 
+The web application can be hosted on any web server, and can be built using client-side frameworks (such as Angular, React, jQuery) or server-side technologies (such as ASP.NET, Node.js, PHP).
 
 An add-in's [manifest](../overview/add-in-manifests.md?product=excel) is an XML configuration file that defines an Excel add-in's settings and capabilities such as: 
 
@@ -73,5 +73,5 @@ Get started by [creating your first Excel add-in](excel-add-ins-get-started-over
 - [Office Add-ins platform overview](../overview/office-add-ins.md?product=excel)
 - [Best practices for developing Office Add-ins](../overview/add-in-development-best-practices.md?product=excel)
 - [Design guidelines for Office Add-ins](../design/add-in-design.md?product=excel)
-- [Excel JavaScript API programming overview](excel-add-ins-core-concepts.md?product=excel)
+- [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md?product=excel)
 - [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)
