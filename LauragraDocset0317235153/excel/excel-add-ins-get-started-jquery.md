@@ -143,7 +143,7 @@ cd my-addin
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
-2. Choose the **Set color** button in the task pane to set the color of the selected range to green.
+2. In the task pane that opens to the right of the document, choose the **Set color** button to set the color of the selected range to green.
 
 ## Next steps
 
