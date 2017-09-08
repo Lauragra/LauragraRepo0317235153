@@ -62,7 +62,7 @@ Excel.run(function (context) {
 });
 ```
 
-In the above example, **selectedRange** gets set and its **address** property gets loaded when **context.sync()** is called. 
+In the above example, **selectedRange** is set and its **address** property is loaded when **context.sync()** is called. 
 
 Because **sync()** is an asynchronous operation that returns a promise, you should always **return** the promise (in JavaScript). Doing so will ensure that the **sync()** operation completes before the script continues to run. 
 
