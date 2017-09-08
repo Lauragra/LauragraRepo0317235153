@@ -25,7 +25,7 @@ An Excel add-in includes two basic components: a web application and a configura
 * Perform user authorization with an online service by using the standard OAuth 2.0 flow.
 * Issue API requests to Microsoft Graph or any other API.
 
-The web application can be hosted on any web server, and can be built using your choice of client-side frameworks (such as Angular, React, jQuery) and any server-side technology that your hosting provider supports (such as ASP.NET, Node.js, PHP). 
+The web application can be hosted on any web server, and can be built using client-side frameworks (such as Angular, React, jQuery) or server-side technologies (such as ASP.NET, Node.js, PHP).
 
 An add-in's [manifest](../overview/add-in-manifests.md?product=excel) is an XML configuration file that defines an Excel add-in's settings and capabilities such as: 
 
