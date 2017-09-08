@@ -53,6 +53,7 @@ yo office
 ## Update the app
 
 - Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
+
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
@@ -74,6 +75,7 @@ import 'core-js/client/shim';
 ```
 
 - Open **src/app/app.component.html**, replace file contents with the following HTML, and save the file. 
+
 ```html
 <div id="content-header">
     <div class="padding">
