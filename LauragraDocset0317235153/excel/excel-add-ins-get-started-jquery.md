@@ -144,7 +144,8 @@ cd my-addin
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
 2. In the task pane that opens to the right of the document, choose the **Set color** button to set the color of the selected range to green.
-![Quarterly Sales Report Add-in](images/excel_quickstart_addin_1.png)
+
+    ![Excel Add-in](images/excel_quickstart_addin_1.png)
 
 ## Next steps
 

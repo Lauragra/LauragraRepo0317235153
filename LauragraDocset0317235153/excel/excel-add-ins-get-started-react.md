@@ -151,8 +151,10 @@ yarn start
 ```
 
 2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane. 
+![Excel Add-in button](images/excel_quickstart_addin_2a.png)
 
 3. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
+![Excel Add-in](images/excel_quickstart_addin_2b.png)
 
 ## Next steps
 
