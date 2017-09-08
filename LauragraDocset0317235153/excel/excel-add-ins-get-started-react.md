@@ -49,12 +49,13 @@ yo office
 
 ## Update the app
 
-1. Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
+- Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
+
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-2. Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save the file. 
+- Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save the file. 
 
 ```typescript
 const Office = window.Office;
@@ -64,7 +65,7 @@ Office.initialize = () => {
 };
 ```
 
-3. Open **src/App.js**, replace file contents with the following code, and save the file. 
+- Open **src/App.js**, replace file contents with the following code, and save the file. 
 
 ```js
 import React, { Component } from 'react';
@@ -109,7 +110,7 @@ class App extends Component {
 export default App;
 ```
 
-4. Open **src/App.css**, replace file contents with the following CSS code, and save the file. 
+- Open **src/App.css**, replace file contents with the following CSS code, and save the file. 
 
 ```css
 #content-header {
