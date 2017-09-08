@@ -145,6 +145,8 @@ cd my-addin
 
 2. In the task pane that opens to the right of the document, choose the **Set color** button to set the color of the selected range to green.
 
+![Quarterly Sales Report Add-in](images/excel_quickstart_addin_1.png)
+
 ## Next steps
 
 Congratulations, you've successfully created an Excel add-in using jQuery! Next, check out [Core concepts](excel-add-ins-core-concepts.md?product=excel) to learn more about the fundamentals of building Excel add-ins.
