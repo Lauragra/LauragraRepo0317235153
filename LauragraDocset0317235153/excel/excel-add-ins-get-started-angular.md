@@ -52,12 +52,12 @@ yo office
 
 ## Update the app
 
-1. Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
+- Open **src/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-2. Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save the file. 
+- Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save the file. 
 
 ```typescript 
 declare const Office: any;
@@ -67,13 +67,13 @@ Office.initialize = () => {
 };
 ```
 
-3. Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save the file.
+- Open **src/polyfills.ts**, add the following line of code above all other existing `import` statements, and save the file.
 
 ```typescript
 import 'core-js/client/shim';
 ```
 
-4. Open **src/app/app.component.html**, replace file contents with the following HTML, and save the file. 
+- Open **src/app/app.component.html**, replace file contents with the following HTML, and save the file. 
 ```html
 <div id="content-header">
     <div class="padding">
@@ -90,7 +90,7 @@ import 'core-js/client/shim';
 </div>
 ```
 
-5. Open **src/app/app.component.css**, replace file contents with the following CSS code, and save the file.
+- Open **src/app/app.component.css**, replace file contents with the following CSS code, and save the file.
 
 ```css
 #content-header {
@@ -119,7 +119,7 @@ import 'core-js/client/shim';
 }
 ```
 
-6. Open **src/app/app.component.ts**, replace file contents with the following code, and save the file. 
+- Open **src/app/app.component.ts**, replace file contents with the following code, and save the file. 
 
 ```typescript
 import { Component } from '@angular/core';
