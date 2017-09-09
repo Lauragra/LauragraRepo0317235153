@@ -30,7 +30,7 @@ Dialog boxes are surfaces that float above the active Excel application window. 
 
 ![Add-in dialog box in Excel](images/Excel_add-in_dialog.png)
 
-For more information about dialog boxes and the Dialog API, see [Dialog boxes in Office Add-ins](/design/dialog-boxes.md) and [Use the Dialog API in your Office Add-ins](../develop/dialog-api-in-office-add-ins.md).
+For more information about dialog boxes and the Dialog API, see [Dialog boxes in Office Add-ins](../design/dialog-boxes.md) and [Use the Dialog API in your Office Add-ins](../develop/dialog-api-in-office-add-ins.md).
 
 ## Content add-ins
 
@@ -49,7 +49,7 @@ For more information about content add-ins, see [Content Office Add-ins](../desi
 - [Office Add-in Commands Samples on Github](https://github.com/OfficeDev/Office-Add-in-Commands-Samples/)
 - [Task panes in Office Add-ins](../design/task-pane-add-ins.md)
 - [Excel Add-in JS WoodGrove Expense Trends](https://github.com/OfficeDev/Excel-Add-in-WoodGrove-Expense-Trends)
-- [Dialog boxes in Office Add-ins](/design/dialog-boxes.md)
+- [Dialog boxes in Office Add-ins](../design/dialog-boxes.md)
 - [Use the Dialog API in your Office Add-ins](../develop/dialog-api-in-office-add-ins.md)
 - [Office Add-in Dialog API Example](https://github.com/OfficeDev/Office-Add-in-Dialog-API-Simple-Example)
 - [Content Office Add-ins](../design/content-add-ins.md)
