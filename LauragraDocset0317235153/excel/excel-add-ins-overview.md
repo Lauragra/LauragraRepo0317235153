@@ -46,7 +46,7 @@ In addition to interacting with the content in the workbook, Excel add-ins can a
 
 **Task pane**
 
-![Add-in dialog box](images/Excel_add-in_task_pane.png)
+![Add-in task pane](images/Excel_add-in_task_pane.png)
 
 **Dialog box**
 
