@@ -1,6 +1,6 @@
 # Extend Excel functionality
 
-This article builds upon the information in the [Excel add-ins overview](excel-add-ins-overview.md?product=excel) by providing more information about the ways an add-in can extend the functionality of Excel.
+In addition to interacting with the content in a workbook, an Excel add-in can add custom ribbon buttons or menu commands, insert task panes, open dialog boxes, and even embed rich, web-based content directly into a worksheet.
 
 ## Add-in commands
 
