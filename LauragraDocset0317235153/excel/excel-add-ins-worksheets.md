@@ -2,28 +2,6 @@
 
 This article...
 
-```js
-Excel.run(function (context) {
-    var range = context.workbook.getSelectedRange();
-    range.format.fill.color = "yellow";
-    range.load("address");
-    return context.sync()
-        .then(function() {
-            console.log("The range address was \"" + range.address + "\".");
-        });
-}).catch(errorHandler);
-
-Excel.run(function (ctx) {
-    var chart = ctx.workbook.worksheets.getItem("Sample").charts.getItem("Chart1");
-    chart.load('title/text');
-    
-    return ctx.sync()
-        .then(function () {
-            console.log("Chart title is '" + chart.title.text + "'");
-        })
-}).catch(errorHandler);
-```
-
 ## List worksheets
 
 The following example lists the worksheets in a workbook.
@@ -49,8 +27,40 @@ Excel.run(function (context) {
 
 ## Get and set the active worksheet
 
-...
+The following examples show how to get and set the active worksheet.
 
+## Get the active worksheet
+
+The following example gets the active worksheet.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getActiveWorksheet();
+    sheet.load("name");
+    
+    return context.sync()
+        .then(function () {
+            console.log(`The active worksheet is "${sheet.name}"`);
+        });
+});
+```
+
+## Set the active worksheet
+
+The following example sets the active worksheet to the worksheet named **My Sheet**. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("My Sheet");
+    sheet.load("name");
+    sheet.activate();
+
+    return context.sync()
+        .then(function () {
+            console.log(`The active worksheet is "${sheet.name}"`);
+        });
+});
+```
 
 ## Reference worksheets by relative position
 
@@ -90,7 +100,7 @@ Excel.run(function (context) {
 
 ### Get the next worksheet
 
-The following example gets a reference to the worksheet that follows the active worksheet. If there is no worksheet after the active worksheet, this method will throw an **ItemNotFound** error.
+The following example gets a reference to the worksheet that follows the active worksheet. If there is no worksheet after the active worksheet, the **getNext()** method will throw an **ItemNotFound** error.
 
 ```js
  Excel.run(function (context) {
@@ -107,7 +117,7 @@ The following example gets a reference to the worksheet that follows the active 
 
 ### Get the previous worksheet
 
-The following example gets the worksheet that precedes the active worksheet. If there is no worksheet before the active worksheet, this method will throw an **ItemNotFound** error.
+The following example gets the worksheet that precedes the active worksheet. If there is no worksheet before the active worksheet, the **getPrevious()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
