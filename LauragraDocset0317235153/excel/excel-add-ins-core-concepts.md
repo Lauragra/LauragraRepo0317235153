@@ -2,8 +2,8 @@
  
 This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces core concepts that are fundamental to using the API and perform basic tasks such as reading or writing to a range, formatting cells, interacting with tables, charts and handle events.
  
-## Asynchronous programming
-The web based Excel add-ins run inside a browser container, which is embedded within the Office application in the case of desktop based platforms and runs as separate iFrame in the case of Office online platform. Enabling synchronous OfficeJS API interaction with Excel host across all supported platform is not performance friendly. Hence, the API call returns a promise that is resolved when the read or write action is completed by Excel application. Also, due to performance reasons, the APIs are batched together to the actions at once rather than making standalone calls. The following sections describe how this is accomplished using `Excel.run()` and `sync()` APIs.
+## Asynchronous nature of Excel APIs
+The web based Excel add-ins run inside a browser container, which is embedded within the Office application in the case of desktop based platforms and runs as separate iFrame in the case of Office online platform. Enabling synchronous OfficeJS API interaction with Excel host across all supported platform is not performance friendly. Hence, the API call returns a promise that is resolved when the read or write action is completed by Excel application. Also, due to performance reasons, the APIs are batched together to perform actions at once rather than making standalone API calls. The following sections describe how this is accomplished using `Excel.run()` and `sync()` APIs.
  
 ## Excel.run
  
