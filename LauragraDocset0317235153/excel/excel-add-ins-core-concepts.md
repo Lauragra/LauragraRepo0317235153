@@ -1,6 +1,6 @@
 # Excel JavaScript API core concepts
 
-This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces core concepts that are fundamental to using the API. It also provides guidance about specific scenarios such as reading or writing to a large range, updating all cells in range, and more.
+This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces core concepts that are fundamental to using the API. It also provides guidance about specific scenarios such as reading or writing to a large range, updating all cells in range, and more. 
 
 ## Request context
 
