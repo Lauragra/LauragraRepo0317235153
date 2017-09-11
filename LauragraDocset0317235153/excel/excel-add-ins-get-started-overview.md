@@ -1,6 +1,6 @@
 # Get started with Excel add-ins
 
-You can create an Excel add-in using familiar web technologies such as HTML, CSS, and JavaScript. 
+You can create an Excel add-in using familiar web technologies such as HTML, CSS, and JavaScript.  
 
 ## Create your first Excel add-in
 
