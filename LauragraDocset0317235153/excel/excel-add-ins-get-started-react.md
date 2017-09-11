@@ -1,85 +1,75 @@
 # Build an Excel add-in using React
 
-## Step 1. Generate the React project by **Create React App**
+This article walks you through the process of building an Excel add-in by using React and the Excel JavaScript API.
 
-If you never install [Create React App](https://github.com/facebookincubator/create-react-app) before, first install it globally.
+## Prerequisites
 
+Get started by completing the following prerequisite tasks:
+
+1. If you haven't done so previously, install [Create React App](https://github.com/facebookincubator/create-react-app) globally.
 ```bash
 npm install -g create-react-app
 ```
 
-Then generate your React app by
+2. If you haven't done so previously, install [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
+```bash
+npm install -g yo generator-office
+```
+
+## Generate a new React app
+
+Use Create React App to generate your React app by running the following command.
 
 ```bash
 create-react-app my-addin
 ```
 
-## Step 2. Generate the manifest file by **YO Office**.
+## Generate the manifest file and sideload the add-in
 
-If you never install [Yeoman](https://github.com/yeoman/yo) and [YO Office](https://github.com/OfficeDev/generator-office) before, first install them globally.
+An add-in's manifest file defines its settings and capabilities.
 
-```bash
-npm install -g yo generator-office
-```
-
-Go to your app folder.
-
+1. Navigate to your app folder.
 ```bash
 cd my-addin
 ```
 
-Generate the manifest file following the steps in the screenshot below.
-
+2. Use the Yeoman generator to generate the manifest file for your add-in by running the following command and then answering the prompts as shown in the screenshot below.
 ```bash
 yo office
 ```
-
 ![Yeoman generator](images/yo-office.png)
+>**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
-You should be able to see your manifest file with the name ends with **manifest.xml**.
+3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:3000` and save the file.
 
-To run the add-in, you need side-load the add-in within the Excel application. Follow the way below to side-load the manifest file:
+4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
+    - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
+    - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
+    - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
-* Windows
+## Update the app
 
-  Follow [this tutorial](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins).
-
-* macOS
-
-  Move the manifest file to the folder `/Users/{username}/Library/Containers/com.microsoft.Excel/Data/Documents/wef` \(if the folder does not exist, create one\)
-
-* Excel Online
-
-  Click **Upload My Add-in** button to upload the manifest file.
-
-  ![Excel Online upload](images/excel-online-upload.png)
-
-## Step 3. Initialize
-
-Open **public/index.html**, add
+- Open **public/index.html**, add the following `<script>` tag immediately before the `</head>` tag, and save the file.
 
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-before `</head>` tag.
-
-Open **src/index.js**, add `Office.initialize` out of `ReactDOM.render(<App />, document.getElementById('root'));` like below:
+- Open **src/index.js**, replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following code, and save the file. 
 
 ```typescript
+const Office = window.Office;
+
 Office.initialize = () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 };
 ```
 
-## Step 4. Add "Color Me"
+- Open **src/App.js**, replace file contents with the following code, and save the file. 
 
-Open **src/App.js**. Replace by
-
-```javascript
+```js
 import React, { Component } from 'react';
-
-const Excel = window.Excel;
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -89,7 +79,7 @@ class App extends Component {
   }
 
   onColorMe() {
-    Excel.run(async (context) => {
+    window.Excel.run(async (context) => {
       const range = context.workbook.getSelectedRange();
       range.format.fill.color = 'green';
       await context.sync();
@@ -98,7 +88,21 @@ class App extends Component {
 
   render() {
     return (
-      <button onClick={this.onColorMe}>Color Me</button>
+      <div id="content">
+        <div id="content-header">
+          <div className="padding">
+              <h1>Welcome</h1>
+          </div>
+        </div>
+        <div id="content-main">
+          <div className="padding">
+              <p>Choose the button below to set the color of the selected range to green.</p>
+              <br />
+              <h3>Try it out</h3>
+              <button onClick={this.onColorMe}>Color Me</button>
+          </div>
+        </div>
+      </div>
     );
   }
 }
@@ -106,23 +110,59 @@ class App extends Component {
 export default App;
 ```
 
-## Step 5. Run
+- Open **src/App.css**, replace file contents with the following CSS code, and save the file. 
 
-Run the dev server through the terminal.
+```css
+#content-header {
+    background: #2a8dd4;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    overflow: hidden;
+}
 
-* Windows
+#content-main {
+    background: #fff;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+}
 
-  ```bash
-    set HTTPS=true&&npm start
-  ```
+.padding {
+    padding: 15px;
+}
+```
 
-* macOS
+## Try it out
 
-  ```bash
-   HTTPS=true npm start
-  ```
+1. Start the dev server by running one of the following commands via the terminal.
+```bash
+npm start
+```
+or
+```bash
+yarn start
+```
 
-Open Excel and click your add-in to load.
+2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane.
+![Excel Add-in button](images/excel_quickstart_addin_2a.png)
 
-Congratulations you just finish your first React add-in for Excel!
+3. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
+![Excel Add-in](images/excel_quickstart_addin_2b.png)
 
+## Next steps
+
+Congratulations, you've successfully created an Excel add-in using React! Next, learn more about the [core concepts](excel-add-ins-core-concepts.md?product=excel) of building Excel add-ins.
+
+## Additional resources
+
+* [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md?product=excel)
+* [Explore snippets with Script Lab](https://store.office.com/en-001/app.aspx?assetid=WA104380862&ui=en-US&rs=en-001&ad=US&appredirect=false)
+* [Excel add-in code samples](http://dev.office.com/code-samples#?filters=excel,office%20add-ins)
+* [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)

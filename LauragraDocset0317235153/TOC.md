@@ -94,22 +94,25 @@
 ### [Use Angular](excel/excel-add-ins-get-started-angular.md)
 ### [Use jQuery](excel/excel-add-ins-get-started-jquery.md)
 ## [Core concepts](excel/excel-add-ins-core-concepts.md)
-### [Excel JavaScript API programming overview](excel/excel-add-ins-programming-overview.md)
 ### [Extend Excel functionality](excel/excel-add-ins-extend-excel.md)
 ### [Work with Worksheets](excel/excel-add-ins-worksheets.md)
 ### [Work with Ranges](excel/excel-add-ins-ranges.md)
 ### [Work with Tables](excel/excel-add-ins-tables.md)
 ### [Work with Charts](excel/excel-add-ins-charts.md)
 ### [Work with Events](excel/excel-add-ins-events.md)
-## Advanced concepts
-### Implement custom functions
-### Sort and filter data
-### Protect data
-### Perform calculations
-### Apply conditional formatting
-### Format a range
-### Handle events
-### ...
+## [Advanced concepts](excel/excel-add-ins-advanced-concepts.md)
+### [Sort and filter data](excel/excel-add-ins-sortfilter.md)
+### [Protect data](excel/excel-add-ins-protect.md)
+### [Perform calculations](excel/excel-add-ins-calc.md)
+### [Apply conditional formatting](excel/excel-add-ins-cf.md)
+### [Format a range](excel/excel-add-ins-format.md)
+### [Data validation](excel/excel-add-ins-datavalidation.md)
+### [Custom XML Parts](excel/excel-add-ins-cxp.md)
+### [Range Style](excel/excel-add-ins-style.md)
+### [Document properties](excel/excel-add-ins-dp.md)
+### [Performance - Best Practices](excel/excel-add-ins-perf.md)
+### [Error handling](excel/excel-add-ins-error.md)
+### [Coauthoring in Excel add-ins](excel/co-authoring-in-excel-add-ins.md)
 ## [Excel JavaScript API reference](https://dev.office.com/reference/add-ins/excel/excel-add-ins-reference-overview.md)
 # [Outlook](https://docs.microsoft.com/outlook/add-ins/)
 # [PowerPoint](powerpoint/powerpoint-add-ins.md)

@@ -25,6 +25,6 @@ console.log('This is JavaScript code!');
 
 ## Additional resources
 
-* [Excel JavaScript API programming overview](excel-add-ins-programming-overview.md?product=excel)
+* [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md?product=excel)
 * [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)
 * (add additional bullet points for links to other relevant information)
