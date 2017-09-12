@@ -2,7 +2,7 @@
 
 This article provides code samples that show how to perform common tasks with worksheets using the Excel JavaScript API. For the complete list of properties and methods that the **Worksheet** object supports, see [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md).
 
-**Note**: [TODO: add note to indicate that the information in this article applies only to the "worksheet" type of worksheet; the JavaScript Excel APIs do not apply to "chart" type of sheet and the "macro" type of sheet. https://excel.tips.net/T002538_Detecting_Types_of_Sheets_in_VBA.html]
+**Note**: The information in this article applies only to regular worksheets; it does not apply to "chart" sheets or "macro" sheets.
 
 ## List worksheets
 
@@ -27,7 +27,7 @@ Excel.run(function (context) {
 });
 ```
 
-**Note**: [TODO: add note about the **id** property being handled differently on Mac.] Returns a value that uniquely identifies the worksheet in a given workbook. The value of the identifier remains the same even when the worksheet is renamed or moved.]
+**Note**: The **id** property of a worksheet uniquely identifies the worksheet in a given workbook and its value will remain the same even when the worksheet is renamed or moved. When a worksheet is deleted from a workbook in Excel for Mac, the **id** of the deleted worksheet may be reassigned to a new worksheet that is subsequently created.
 
 ## Get and set the active worksheet
 
@@ -255,7 +255,7 @@ Excel.run(function (context) {
 });
 ```
 
-## Get a cell in a worksheet
+## Get a cell within a worksheet
 
 The following code sample gets the cell that is located in row 2, column 5 of the worksheet named **Sample**  and loads its **address** and **values** properties. The values that are passed into the **getCell(row: number, column:number)** method are the zero-indexed row number and column number for the cell that is being retrieved.
 
@@ -272,9 +272,9 @@ Excel.run(function (context) {
 });
 ```
 
-## Get a range in a worksheet
+## Get a range within a worksheet
 
-...
+These examples show different ways to get a reference to a range within a worksheet.
 
 ### Get range by address
 
