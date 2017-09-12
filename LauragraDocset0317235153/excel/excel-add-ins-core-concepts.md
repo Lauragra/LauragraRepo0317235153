@@ -24,6 +24,7 @@ Excel.run(function (context) {
   }
 });
 ```
+
 ## Request context
  
 Excel and your add-in run in two different processes. Since they use different runtime environments, Excel add-ins require a **RequestContext** object in order to connect your add-in to objects in Excel such as worksheets, ranges, charts, and tables.
