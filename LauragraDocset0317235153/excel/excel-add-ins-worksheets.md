@@ -1,6 +1,6 @@
 # Work with Worksheets using the Excel JavaScript API
 
-This article...
+This article provides code samples that show how to perform common tasks with worksheets using the Excel JavaScript API. For the complete list of properties and methods that the **Worksheet** object supports, see [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md).
 
 ## List worksheets
 
@@ -25,11 +25,13 @@ Excel.run(function (context) {
 });
 ```
 
+**Note**: [TODO: add note about the **id** property being handled differently on Mac.] Returns a value that uniquely identifies the worksheet in a given workbook. The value of the identifier remains the same even when the worksheet is renamed or moved. 
+
 ## Get and set the active worksheet
 
 The following examples show how to get and set the active worksheet.
 
-## Get the active worksheet
+### Get the active worksheet
 
 The following example gets the active worksheet.
 
@@ -45,15 +47,15 @@ Excel.run(function (context) {
 });
 ```
 
-## Set the active worksheet
+### Set the active worksheet
 
 The following example sets the active worksheet to the worksheet named **My Sheet**. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
     var sheet = context.workbook.worksheets.getItem("My Sheet");
-    sheet.load("name");
     sheet.activate();
+    sheet.load("name");
 
     return context.sync()
         .then(function () {
@@ -134,7 +136,39 @@ Excel.run(function (context) {
 
 ## Add, delete, rename and move a worksheet
 
-...
+The following examples show how to get add, delete, rename, and move a worksheet.
+
+### Add a worksheet
+
+The following example . a worksheet.
+
+```js
+```
+
+### Delete a worksheet
+
+The following example . a worksheet.
+
+```js
+```
+
+### Rename a worksheet
+
+The following example . a worksheet.
+
+```js
+```
+
+### Move a worksheet
+
+The following example . a worksheet.
+
+```js
+```
+
+
+
+
 
 ## Hide and unhide a worksheet
 
@@ -143,3 +177,7 @@ Excel.run(function (context) {
 ## Get a range or cell in a worksheet
 
 ...
+
+## Additional resources
+
+- [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md)
