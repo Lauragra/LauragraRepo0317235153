@@ -1,13 +1,13 @@
 # Excel add-ins overview
 
-An Excel add-in allows you to extend Excel application’s functionality across multiple platforms such as Windows, Online, Mac OS, iPad using web based technologies. Use Excel add-ins within a workbook to:
+An Excel add-in allows you to extend the Excel application’s functionality across multiple platforms including Office for Windows, Office Online, Office for the Mac, and Office for the iPad. Use Excel add-ins within a workbook to:
 
-- Interect with Excel objects, read and write Excel data. 
+- Interact with Excel objects, read and write Excel data. 
 - Extend functionality using web based task pane or content pane 
 - Add custom ribbon buttons or contextual menu items
 - Provide richer interaction using dialog window 
 
-The Office Add-ins platform provides the framework and OfficeJs JavaScript APIs that enable you to create and run Excel add-ins. By using the Office Add-ins platform to create your Excel add-in, you'll get the following benefits:
+The Office Add-ins platform provides the framework and Office.js JavaScript APIs that enable you to create and run Excel add-ins. By using the Office Add-ins platform to create your Excel add-in, you'll get the following benefits:
 
 * **Cross-platform support**: Excel add-ins run in Office for Windows, Mac, iOS, and Office Online.
 * **Centralized deployment**: Admins can quickly and easily deploy Excel add-ins to users throughout an organization.
@@ -29,7 +29,7 @@ The web application uses the [JavaScript API for Office](../../reference/add-ins
 
 The web application can be hosted on any web server, and can be built using client-side frameworks (such as Angular, React, jQuery) or server-side technologies (such as ASP.NET, Node.js, PHP).
 
-The [manifest](../overview/add-in-manifests.md?product=excel) is an XML configuration file that defines how the add-in integrates with Office clients by declaring settings and capabilities such as: 
+The [manifest](../overview/add-in-manifests.md?product=excel) is an XML configuration file that defines how the add-in integrates with Office clients by specifying settings and capabilities such as: 
 
 * The URL of the add-in's web application.
 * The add-in's display name, description, ID, version, and default locale.
@@ -64,7 +64,7 @@ An Excel add-in interacts with objects in Excel by using the [JavaScript API for
 
 * **Excel JavaScript API**: Introduced with Office 2016, the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) provides strongly-typed Excel objects that you can use to access worksheets, ranges, tables, charts, and more. 
 
-* **Shared API**: Introduced with Office 2013, the shared APIs are used for accessing features such as UI, dialogs, and client settings that are common across multiple types of host applications (such as Word, Excel, PowerPoint, and so on). It also provides limited functionality for Excel interaction and hence you can also use shared API if your add-in needs to run on Excel 2013. 
+* **Shared API**: Introduced with Office 2013, the shared API enables you to access features such as UI, dialogs, and client settings that are common across multiple types of host applications such as Word, Excel, and PowerPoint. Because the shared API does provide limited functionality for Excel interaction, you can use it if your add-in needs to run on Excel 2013.
 
 ## Next steps
 
