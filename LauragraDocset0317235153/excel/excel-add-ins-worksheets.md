@@ -4,9 +4,9 @@ This article provides code samples that show how to perform common tasks with wo
 
 **Note**: The information in this article applies only to regular worksheets; it does not apply to "chart" sheets or "macro" sheets.
 
-## List worksheets
+## Get worksheets
 
-The following code sample lists the worksheets in a workbook.
+The following code sample gets the collection of worksheets, loads the **name** property of each worksheet, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -35,7 +35,7 @@ These examples show how to get and set the active worksheet.
 
 ### Get the active worksheet
 
-The following code sample gets the active worksheet.
+The following code sample gets the active worksheet, loads its **name** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -51,7 +51,7 @@ Excel.run(function (context) {
 
 ### Set the active worksheet
 
-The following code sample sets the active worksheet to the worksheet named **My Sheet**. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
+The following code sample sets the active worksheet to the worksheet named **My Sheet**, loads its **name** property, and writes a message to the console. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
@@ -72,7 +72,7 @@ These examples show how to get a reference to a worksheet by using its relative 
 
 ### Get the first worksheet
 
-The following code sample gets a reference to the first worksheet in a workbook.
+The following code sample gets the first worksheet in the workbook, loads its **name** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -88,7 +88,7 @@ Excel.run(function (context) {
 
 ### Get the last worksheet
 
-The following code sample gets a reference to the last worksheet in a workbook.
+The following code sample gets the last worksheet in the workbook, loads its **name** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -104,7 +104,7 @@ Excel.run(function (context) {
 
 ### Get the next worksheet
 
-The following code sample gets a reference to the worksheet that follows the active worksheet. If there is no worksheet after the active worksheet, the **getNext()** method will throw an **ItemNotFound** error.
+The following code sample gets the worksheet that follows the active worksheet in the workbook, loads its **name** property, and writes a message to the console. If there is no worksheet after the active worksheet, the **getNext()** method will throw an **ItemNotFound** error.
 
 ```js
  Excel.run(function (context) {
@@ -121,7 +121,7 @@ The following code sample gets a reference to the worksheet that follows the act
 
 ### Get the previous worksheet
 
-The following code sample gets the worksheet that precedes the active worksheet. If there is no worksheet before the active worksheet, the **getPrevious()** method will throw an **ItemNotFound** error.
+The following code sample gets the worksheet that precedes the active worksheet in the workbook, loads its **name** property, and writes a message to the console. If there is no worksheet before the active worksheet, the **getPrevious()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
@@ -142,7 +142,7 @@ These examples show how to get add, delete, rename, and move a worksheet.
 
 ### Add a worksheet
 
-The following code sample adds a new worksheet to the workbook. The worksheet is added after all existing worksheets.
+The following code sample adds a new worksheet to the workbook, loads its **name** and **position** properties, and writes a message to the console. The worksheet is added after all existing worksheets.
 
 ```js
 Excel.run(function (context) {
@@ -160,7 +160,7 @@ Excel.run(function (context) {
 
 ### Delete a worksheet
 
-If the workbook contains more than one worksheet, the following code sample deletes the final worksheet. 
+The following code sample deletes the final worksheet in the workbook (as long as it's not the only sheet in the workbook) and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -221,7 +221,7 @@ These examples show how to set the visibility of a worksheet.
 
 ### Hide a worksheet
 
-The following code sample sets the visibility of worksheet named **Sample** to hidden. 
+The following code sample sets the visibility of worksheet named **Sample** to hidden, loads its **name** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -239,7 +239,7 @@ Excel.run(function (context) {
 
 ### Unhide a worksheet
 
-The following code sample sets the visibility of worksheet named **Sample** to visible. 
+The following code sample sets the visibility of worksheet named **Sample** to visible, loads its **name** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -257,7 +257,7 @@ Excel.run(function (context) {
 
 ## Get a cell within a worksheet
 
-The following code sample gets the cell that is located in row 2, column 5 of the worksheet named **Sample**  and loads its **address** and **values** properties. The values that are passed into the **getCell(row: number, column:number)** method are the zero-indexed row number and column number for the cell that is being retrieved.
+The following code sample gets the cell that is located in row 2, column 5 of the worksheet named **Sample**, loads its **address** and **values** properties, and writes a message to the console. The values that are passed into the **getCell(row: number, column:number)** method are the zero-indexed row number and column number for the cell that is being retrieved.
 
 ```js
 Excel.run(function (context) {
@@ -278,7 +278,7 @@ These examples show different ways to get a reference to a range within a worksh
 
 ### Get range by address
 
-The following code sample gets the range with address **B2:B5** from the worksheet named **Sample** and loads its **address** property.
+The following code sample gets the range with address **B2:B5** from the worksheet named **Sample**, loads its **address** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -295,7 +295,7 @@ Excel.run(function (context) {
 
 ### Get range by name
 
-The following code sample gets the range named **MyRange** from the worksheet named **Sample** and loads its **address** property.
+The following code sample gets the range named **MyRange** from the worksheet named **Sample**, loads its **address** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
@@ -312,7 +312,7 @@ Excel.run(function (context) {
 
 ### Get used range
 
-The following code sample gets the used range from the worksheet named **Sample** and loads its **address** property. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** function will return a range that consists of only the top left cell in the worksheet.
+The following code sample gets the used range from the worksheet named **Sample**, loads its **address** property, and writes a message to the console. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** function will return a range that consists of only the top left cell in the worksheet.
 
 ```js
 Excel.run(function (context) {
@@ -329,7 +329,7 @@ Excel.run(function (context) {
 
 ### Get entire range
 
-The following code sample gets the entire worksheet range from the worksheet named **Sample** and loads its **address** property.
+The following code sample gets the entire worksheet range from the worksheet named **Sample**, loads its **address** property, and writes a message to the console.
 
 ```js
 Excel.run(function (context) {
