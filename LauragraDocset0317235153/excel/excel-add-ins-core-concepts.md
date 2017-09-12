@@ -1,9 +1,10 @@
 # Excel JavaScript API core concepts
  
-This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces core concepts that are fundamental to using the API and perform basic tasks such as reading or writing to a range, formatting cells, interacting with tables, charts and handle events.
+This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces core concepts that are fundamental to using the API and performing basic tasks such as reading or writing to a range, formatting cells, interacting with tables, charts and handle events.
  
 ## Asynchronous nature of Excel APIs
-The web based Excel add-ins run inside a browser container, which is embedded within the Office application in the case of desktop based platforms and runs as separate iFrame in the case of Office online platform. Enabling synchronous OfficeJS API interaction with Excel host across all supported platform is not performance friendly. Hence, the API call returns a promise that is resolved when the read or write action is completed by Excel application. Also, due to performance reasons, the APIs are batched together to perform actions at once rather than making standalone API calls. The following sections describe how this is accomplished using `Excel.run()` and `sync()` APIs.
+
+The web-based Excel add-ins run inside a browser container that is embedded within the Office application on desktop-based platforms such as Office for Windows and runs inside an iFrame in Office Online. Enabling the Office.js API to interact synchronously with the Excel host across all supported platforms is not feasible due to performance considerations. Therefore, the **sync()** API call in Office.js returns a promise that is resolved when the Excel application completes the requested read or write actions. Also, you can queue up multiple actions, such as setting properties or invoking methods, and run them as a batch of commands with a single call to **sync()**, rather than sending a separate request for each action. The following sections describe how to accomplish this using the **Excel.run()** and **sync()** APIs.
  
 ## Excel.run
  
@@ -25,7 +26,7 @@ Excel.run(function (context) {
 ```
 ## Request context
  
-Excel and your add-in run in two different processes. Since they use different run time environments, Excel add-ins require a **RequestContext** object in order to connect your add-in to Excel's objectz as worksheets, ranges, charts, and tables.
+Excel and your add-in run in two different processes. Since they use different runtime environments, Excel add-ins require a **RequestContext** object in order to connect your add-in to objects in Excel such as worksheets, ranges, charts, and tables.
  
 ## Proxy objects
  
