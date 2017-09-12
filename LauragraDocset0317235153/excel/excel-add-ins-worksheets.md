@@ -1,6 +1,6 @@
 # Work with Worksheets using the Excel JavaScript API
 
-This article provides code samples that show how to perform common tasks with worksheets using the Excel JavaScript API. For the complete list of properties and methods that the **Worksheet** object supports, see [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md).
+This article provides code samples that show how to perform common tasks with worksheets using the Excel JavaScript API. For the complete list of properties and methods that the **Worksheet** and **WorksheetCollection** objects support, see [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md) and [WorksheetCollection Object (JavaScript API for Excel)](../../reference/excel/worksheetcollection.md).
 
 **Note**: The information in this article applies only to regular worksheets; it does not apply to "chart" sheets or "macro" sheets.
 
