@@ -1,6 +1,6 @@
 # Excel add-ins overview
 
-An Excel add-in allows you to extend the Excel application’s functionality across multiple platforms including Office for Windows, Office Online, Office for the Mac, and Office for the iPad. Use Excel add-ins within a workbook to:
+An Excel add-in allows you to extend Excel application functionality across multiple platforms including Office for Windows, Office Online, Office for the Mac, and Office for the iPad. Use Excel add-ins within a workbook to:
 
 - Interact with Excel objects, read and write Excel data. 
 - Extend functionality using web based task pane or content pane 
