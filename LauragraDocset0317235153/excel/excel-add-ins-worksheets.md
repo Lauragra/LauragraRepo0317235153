@@ -221,7 +221,7 @@ These examples show how to set the visibility of a worksheet.
 
 ### Hide a worksheet
 
-The following code sample sets the visibility of worksheet named **Sample** to hidden. If there is no worksheet with that name, the API will throw an **ItemNotFound** error.
+The following code sample sets the visibility of worksheet named **Sample** to hidden. 
 
 ```js
 Excel.run(function (context) {
@@ -239,7 +239,7 @@ Excel.run(function (context) {
 
 ### Unhide a worksheet
 
-The following code sample sets the visibility of worksheet named **Sample** to visible. If there is no worksheet with that name, the API will throw an **ItemNotFound** error.
+The following code sample sets the visibility of worksheet named **Sample** to visible. 
 
 ```js
 Excel.run(function (context) {
@@ -255,10 +255,96 @@ Excel.run(function (context) {
 });
 ```
 
-## Get a range or cell in a worksheet
+## Get a cell in a worksheet
+
+The following code sample gets the cell that is located in row 2, column 5 of the worksheet named **Sample**  and loads its **address** and **values** properties. The values that are passed into the **getCell(row: number, column:number)** method are the zero-indexed row number and column number for the cell that is being retrieved.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var cell = sheet.getCell(1, 4);
+    cell.load("address, values");
+    
+    return context.sync()
+        .then(function() {
+            console.log(`The value of the cell in row 2, column 5 is "${cell.values[0][0]}" and the address of that cell is "${cell.address}"`);
+        })
+});
+```
+
+## Get a range in a worksheet
 
 ...
 
+### Get range by address
+
+The following code sample gets the range with address **B2:B5** from the worksheet named **Sample** and loads its **address** property.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getRange("B2:C5");
+    range.load("address");
+
+    return context.sync()
+        .then(function () {
+            console.log(`The address of the range B2:C5 is "${range.address}"`);
+        });
+});
+```
+
+### Get range by name
+
+The following code sample gets the range named **MyRange** from the worksheet named **Sample** and loads its **address** property.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getRange("MyRange");
+    range.load("address");
+
+    return context.sync()
+        .then(function () {
+            console.log(`The address of the range "MyRange" is "${range.address}"`);
+        });
+});
+```
+
+### Get used range
+
+The following code sample gets the used range from the worksheet named **Sample** and loads its **address** property. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** function will return a range that consists of only the top left cell in the worksheet.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getUsedRange();
+    range.load("address");
+
+    return context.sync()
+        .then(function () {
+            console.log(`The address of the used range in the worksheet is "${range.address}"`);
+        });
+});
+```
+
+### Get entire range
+
+The following code sample gets the entire worksheet range from the worksheet named **Sample** and loads its **address** property.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getRange();
+    range.load("address");
+
+    return context.sync()
+        .then(function () {
+            console.log(`The address of the entire worksheet range is "${range.address}"`);
+        });
+});
+```
+
 ## Additional resources
 
+- [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md)
 - [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md)
