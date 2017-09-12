@@ -51,11 +51,11 @@ Excel.run(function (context) {
 
 ### Set the active worksheet
 
-The following code sample sets the active worksheet to the worksheet named **My Sheet**, loads its **name** property, and writes a message to the console. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
+The following code sample sets the active worksheet to the worksheet named **Sample**, loads its **name** property, and writes a message to the console. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
-    var sheet = context.workbook.worksheets.getItem("My Sheet");
+    var sheet = context.workbook.worksheets.getItem("Sample");
     sheet.activate();
     sheet.load("name");
 
@@ -68,7 +68,7 @@ Excel.run(function (context) {
 
 ## Reference worksheets by relative position
 
-These examples show how to get a reference to a worksheet by using its relative position.
+These examples show how to reference a worksheet by its relative position.
 
 ### Get the first worksheet
 
@@ -312,7 +312,7 @@ Excel.run(function (context) {
 
 ### Get used range
 
-The following code sample gets the used range from the worksheet named **Sample**, loads its **address** property, and writes a message to the console. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** function will return a range that consists of only the top left cell in the worksheet.
+The following code sample gets the used range from the worksheet named **Sample**, loads its **address** property, and writes a message to the console. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** method will return a range that consists of only the top-left cell in the worksheet.
 
 ```js
 Excel.run(function (context) {
