@@ -2,6 +2,8 @@
 
 This article provides code samples that show how to perform common tasks with worksheets using the Excel JavaScript API. For the complete list of properties and methods that the **Worksheet** object supports, see [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md).
 
+**Note**: [TODO: add note to indicate that the information in this article applies only to the "worksheet" type of worksheet; the JavaScript Excel APIs do not apply to "chart" type of sheet and the "macro" type of sheet. https://excel.tips.net/T002538_Detecting_Types_of_Sheets_in_VBA.html]
+
 ## List worksheets
 
 The following example lists the worksheets in a workbook.
@@ -25,7 +27,7 @@ Excel.run(function (context) {
 });
 ```
 
-**Note**: [TODO: add note about the **id** property being handled differently on Mac.] Returns a value that uniquely identifies the worksheet in a given workbook. The value of the identifier remains the same even when the worksheet is renamed or moved. 
+**Note**: [TODO: add note about the **id** property being handled differently on Mac.] Returns a value that uniquely identifies the worksheet in a given workbook. The value of the identifier remains the same even when the worksheet is renamed or moved.]
 
 ## Get and set the active worksheet
 
