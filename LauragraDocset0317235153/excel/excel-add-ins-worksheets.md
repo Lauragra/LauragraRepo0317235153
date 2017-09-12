@@ -6,7 +6,7 @@ This article provides code samples that show how to perform common tasks with wo
 
 ## List worksheets
 
-The following example lists the worksheets in a workbook.
+The following code sample lists the worksheets in a workbook.
 
 ```js
 Excel.run(function (context) {
@@ -31,11 +31,11 @@ Excel.run(function (context) {
 
 ## Get and set the active worksheet
 
-The following examples show how to get and set the active worksheet.
+These examples show how to get and set the active worksheet.
 
 ### Get the active worksheet
 
-The following example gets the active worksheet.
+The following code sample gets the active worksheet.
 
 ```js
 Excel.run(function (context) {
@@ -51,7 +51,7 @@ Excel.run(function (context) {
 
 ### Set the active worksheet
 
-The following example sets the active worksheet to the worksheet named **My Sheet**. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
+The following code sample sets the active worksheet to the worksheet named **My Sheet**. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
@@ -68,11 +68,11 @@ Excel.run(function (context) {
 
 ## Reference worksheets by relative position
 
-The following examples show how to get a reference to a worksheet by using its relative position.
+These examples show how to get a reference to a worksheet by using its relative position.
 
 ### Get the first worksheet
 
-The following example gets a reference to the first worksheet in a workbook.
+The following code sample gets a reference to the first worksheet in a workbook.
 
 ```js
 Excel.run(function (context) {
@@ -88,7 +88,7 @@ Excel.run(function (context) {
 
 ### Get the last worksheet
 
-The following example gets a reference to the last worksheet in a workbook.
+The following code sample gets a reference to the last worksheet in a workbook.
 
 ```js
 Excel.run(function (context) {
@@ -104,7 +104,7 @@ Excel.run(function (context) {
 
 ### Get the next worksheet
 
-The following example gets a reference to the worksheet that follows the active worksheet. If there is no worksheet after the active worksheet, the **getNext()** method will throw an **ItemNotFound** error.
+The following code sample gets a reference to the worksheet that follows the active worksheet. If there is no worksheet after the active worksheet, the **getNext()** method will throw an **ItemNotFound** error.
 
 ```js
  Excel.run(function (context) {
@@ -121,7 +121,7 @@ The following example gets a reference to the worksheet that follows the active 
 
 ### Get the previous worksheet
 
-The following example gets the worksheet that precedes the active worksheet. If there is no worksheet before the active worksheet, the **getPrevious()** method will throw an **ItemNotFound** error.
+The following code sample gets the worksheet that precedes the active worksheet. If there is no worksheet before the active worksheet, the **getPrevious()** method will throw an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
@@ -138,43 +138,122 @@ Excel.run(function (context) {
 
 ## Add, delete, rename and move a worksheet
 
-The following examples show how to get add, delete, rename, and move a worksheet.
+These examples show how to get add, delete, rename, and move a worksheet.
 
 ### Add a worksheet
 
-The following example . a worksheet.
+The following code sample adds a new worksheet to the workbook. The worksheet is added after all existing worksheets.
 
 ```js
+Excel.run(function (context) {
+    var sheets = context.workbook.worksheets;
+
+    var sheet = sheets.add();
+    sheet.load("name, position");
+    
+    return context.sync()
+        .then(function () {
+            console.log(`Added worksheet named "${sheet.name}" in position ${sheet.position}`);
+        });
+});
 ```
 
 ### Delete a worksheet
 
-The following example . a worksheet.
+If the workbook contains more than one worksheet, the following code sample deletes the final worksheet. 
 
 ```js
+Excel.run(function (context) {
+    var sheets = context.workbook.worksheets;
+    sheets.load("items/name");
+
+    return context.sync()
+        .then(function () {
+            if (sheets.items.length === 1) {
+                console.log("Unable to delete the only worksheet in the workbook");
+            } else {
+                var lastSheet = sheets.items[sheets.items.length - 1];
+
+                console.log(`Deleting worksheet named "${lastSheet.name}"`);
+                lastSheet.delete();
+
+                return context.sync();
+            };
+        });
+});
 ```
 
 ### Rename a worksheet
 
-The following example . a worksheet.
+The following code sample changes the name of the active worksheet to **New Name**.
 
 ```js
+Excel.run(function (context) {
+    var currentSheet = context.workbook.worksheets.getActiveWorksheet();
+    currentSheet.name = "New Name";
+
+    return context.sync();
+});
 ```
 
 ### Move a worksheet
 
-The following example . a worksheet.
+The following code sample moves a worksheet from the last position in the workbook to the first position in the workbook.
 
 ```js
+Excel.run(function (context) {
+    var sheets = context.workbook.worksheets;
+    sheets.load("items");
+
+    return context.sync()
+        .then(function () {
+            var lastSheet = sheets.items[sheets.items.length - 1];
+            lastSheet.position = 0;
+
+            return context.sync();
+        });
+});
 ```
 
+## Set worksheet visibility
 
+These examples show how to set the visibility of a worksheet.
 
+### Hide a worksheet
 
+The following code sample sets the visibility of worksheet named **Sample** to hidden. If there is no worksheet with that name, the API will throw an **ItemNotFound** error.
 
-## Hide and unhide a worksheet
+```js
+Excel.run(function (context) {
 
-...
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    sheet.visibility = Excel.SheetVisibility.hidden;
+    sheet.load("name");
+
+    return context.sync()
+        .then(function () {
+            console.log(`Worksheet with name "${sheet.name}" is hidden`);
+        });
+});
+```
+
+### Unhide a worksheet
+
+The following code sample sets the visibility of worksheet named **Sample** to visible. If there is no worksheet with that name, the API will throw an **ItemNotFound** error.
+
+```js
+Excel.run(function (context) {
+
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    sheet.visibility = Excel.SheetVisibility.visible;
+    sheet.load("name");
+
+    return context.sync()
+        .then(function () {
+            console.log(`Worksheet with name "${sheet.name}" is visible`);
+        });
+});
+```
 
 ## Get a range or cell in a worksheet
 
