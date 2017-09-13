@@ -348,3 +348,4 @@ Excel.run(function (context) {
 
 - [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md)
 - [Worksheet Object (JavaScript API for Excel)](../../reference/excel/worksheet.md)
+- [WorksheetCollection Object (JavaScript API for Excel)](../../reference/excel/worksheetcollection.md)
