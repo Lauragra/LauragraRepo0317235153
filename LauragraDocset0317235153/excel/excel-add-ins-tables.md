@@ -286,12 +286,7 @@ Excel.run(function (context) {
 
 ## Format a table
 
-The following code sample specifies the format for 
-
-sets the fill color
-
-specifies different 
-fill colors for the header row of a table, the body of the table, the second row of the table, and the first column of the table.\
+The following code sample applies formatting to a table. It specifies different fill colors for the header row of the table, the body of the table, the second row of the table, and the first column of the table. For information about the properties you can use to specify format, see [RangeFormat Object (JavaScript API for Excel)](../../reference/excel/rangeformat.md).
 
 ```js
 Excel.run(function (context) {
