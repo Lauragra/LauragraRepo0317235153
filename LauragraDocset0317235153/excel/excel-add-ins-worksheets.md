@@ -29,11 +29,7 @@ Excel.run(function (context) {
 
 **Note**: The **id** property of a worksheet uniquely identifies the worksheet in a given workbook and its value will remain the same even when the worksheet is renamed or moved. When a worksheet is deleted from a workbook in Excel for Mac, the **id** of the deleted worksheet may be reassigned to a new worksheet that is subsequently created.
 
-## Get and set the active worksheet
-
-These examples show how to get and set the active worksheet.
-
-### Get the active worksheet
+## Get the active worksheet
 
 The following code sample gets the active worksheet, loads its **name** property, and writes a message to the console.
 
@@ -49,7 +45,7 @@ Excel.run(function (context) {
 });
 ```
 
-### Set the active worksheet
+## Set the active worksheet
 
 The following code sample sets the active worksheet to the worksheet named **Sample**, loads its **name** property, and writes a message to the console. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
 
@@ -136,11 +132,7 @@ Excel.run(function (context) {
 });
 ```
 
-## Add, delete, rename and move a worksheet
-
-These examples show how to get add, delete, rename, and move a worksheet.
-
-### Add a worksheet
+## Add a worksheet
 
 The following code sample adds a new worksheet to the workbook, loads its **name** and **position** properties, and writes a message to the console. The worksheet is added after all existing worksheets.
 
@@ -158,7 +150,7 @@ Excel.run(function (context) {
 });
 ```
 
-### Delete a worksheet
+## Delete a worksheet
 
 The following code sample deletes the final worksheet in the workbook (as long as it's not the only sheet in the workbook) and writes a message to the console.
 
@@ -183,7 +175,7 @@ Excel.run(function (context) {
 });
 ```
 
-### Rename a worksheet
+## Rename a worksheet
 
 The following code sample changes the name of the active worksheet to **New Name**.
 
@@ -196,7 +188,7 @@ Excel.run(function (context) {
 });
 ```
 
-### Move a worksheet
+## Move a worksheet
 
 The following code sample moves a worksheet from the last position in the workbook to the first position in the workbook.
 
