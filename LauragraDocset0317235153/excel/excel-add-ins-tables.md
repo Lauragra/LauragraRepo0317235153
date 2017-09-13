@@ -39,11 +39,7 @@ Excel.run(function (context) {
 
 ![New table in Excel](images/Excel-table-create.png)
 
-## Add rows and columns to a table
-
-These examples show how to add rows and columns to a table.
-
-### Add rows to a table
+## Add rows to a table
 
 The following code sample adds seven new rows to the table named **ExpensesTable** within the worksheet named **Sample**. The new rows are added to the end of the table. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
@@ -75,6 +71,9 @@ Excel.run(function (context) {
 
 ![Table with new rows in Excel](images/Excel-table-add-rows.png)
 
+## Add columns to a table
+
+These examples show how to add a column to a table. The first example populates the new column with static values, while the second example populates the new column with formulas.
 
 ### Add a column to a table
 
@@ -141,53 +140,6 @@ Excel.run(function (context) {
 **Table with new calculated column**
 
 ![Table with new calculated column in Excel](images/Excel-table-add-calculated-column.png)
-
-## Import JSON data into a table
-
-The following code sample creates a table in the worksheet named **Sample** and then populates the table by using a JSON object that defines two rows of data. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
-
-```js
-Excel.run(function (context) {
-    var sheet = context.workbook.worksheets.getItem("Sample");
-
-    var expensesTable = sheet.tables.add("A1:D1", true /*hasHeaders*/);
-    expensesTable.name = "ExpensesTable";
-    expensesTable.getHeaderRowRange().values = [["Date", "Merchant", "Category", "Amount"]];
-
-    var transactions = [
-      {
-        "DATE": "1/1/2017",
-        "MERCHANT": "The Phone Company",
-        "CATEGORY": "Communications",
-        "AMOUNT": "$120"
-      },
-      {
-        "DATE": "1/1/2017",
-        "MERCHANT": "Southridge Video",
-        "CATEGORY": "Entertainment",
-        "AMOUNT": "$40"
-      }
-    ];
-
-    var newData = transactions.map(item =>
-        [item.DATE, item.MERCHANT, item.CATEGORY, item.AMOUNT]);
-
-    expensesTable.rows.add(null, newData);
-
-    if (Office.context.requirements.isSetSupported("ExcelApi", 1.2)) {
-        sheet.getUsedRange().format.autofitColumns();
-        sheet.getUsedRange().format.autofitRows();
-    }
-
-    sheet.activate();
-
-    return context.sync();
-});
-```
-
-**New table**
-
-![New table in Excel](images/Excel-table-create-from-json.png)
 
 ## Get data from a table
 
@@ -262,11 +214,7 @@ Excel.run(function (context) {
 
 ![Table data in Excel](images/Excel-table-sort.png)
 
-## Apply and clear table filters
-
-These examples show how to apply and clear filters on a table.
-
-### Apply filters
+## Apply filters to a table
 
 The following code sample applies filters to the **Amount** column and the **Category** column within a table. As a result of the filters, only rows where **Category** is one of the specified values and **Amount** is below the average value for all rows is shown.
 
@@ -298,7 +246,7 @@ Excel.run(function (context) {
 
 ![Table data filtered in Excel](images/Excel-table-filters-apply.png)
 
-### Clear filters 
+## Clear table filters 
 
 The following code sample clears any filters currently applied on the table.
 
@@ -319,17 +267,49 @@ Excel.run(function (context) {
 
 ## Get the visible range from a filtered table
 
-The following code sample..., loads the **name** property of each table..., and writes a message to the console.
+The following code sample gets a range that contains data only for cells that are currently visible within the specified table, and then writes the values of that range to the console. You can use the **getVisibleView()** method as shown below to get the visible contents of a table whenever column filters have been applied.
 
 ```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var expensesTable = sheet.tables.getItem("ExpensesTable");
+        
+    var visibleRange = expensesTable.getDataBodyRange().getVisibleView();
+    visibleRange.load("values");
+
+    return context.sync()
+        .then(function() {
+            console.log(visibleRange.values);
+        });
+});
 ```
 
 ## Format a table
 
-The following code sample..., loads the **name** property of each table..., and writes a message to the console.
+The following code sample specifies the format for 
+
+sets the fill color
+
+specifies different 
+fill colors for the header row of a table, the body of the table, the second row of the table, and the first column of the table.\
 
 ```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var expensesTable = sheet.tables.getItem("ExpensesTable");
+
+    expensesTable.getHeaderRowRange().format.fill.color = "#C70039";
+    expensesTable.getDataBodyRange().format.fill.color = "#DAF7A6";
+    expensesTable.rows.getItemAt(1).getRange().format.fill.color = "#FFC300";
+    expensesTable.columns.getItemAt(0).getDataBodyRange().format.fill.color = "#FFA07A";
+    
+    return context.sync();
+});
 ```
+
+**Table after formatting is applied**
+
+![Table after formatting is applied in Excel](images/Excel-table-formatting-after.png)
 
 ## Convert a range to a table
 
@@ -374,6 +354,53 @@ Excel.run(function (context) {
 **Data in the table (after the range is converted to a table)**
 
 ![Data in table in Excel](images/Excel-table-from-range.png)
+
+## Import JSON data into a table
+
+The following code sample creates a table in the worksheet named **Sample** and then populates the table by using a JSON object that defines two rows of data. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var expensesTable = sheet.tables.add("A1:D1", true /*hasHeaders*/);
+    expensesTable.name = "ExpensesTable";
+    expensesTable.getHeaderRowRange().values = [["Date", "Merchant", "Category", "Amount"]];
+
+    var transactions = [
+      {
+        "DATE": "1/1/2017",
+        "MERCHANT": "The Phone Company",
+        "CATEGORY": "Communications",
+        "AMOUNT": "$120"
+      },
+      {
+        "DATE": "1/1/2017",
+        "MERCHANT": "Southridge Video",
+        "CATEGORY": "Entertainment",
+        "AMOUNT": "$40"
+      }
+    ];
+
+    var newData = transactions.map(item =>
+        [item.DATE, item.MERCHANT, item.CATEGORY, item.AMOUNT]);
+
+    expensesTable.rows.add(null, newData);
+
+    if (Office.context.requirements.isSetSupported("ExcelApi", 1.2)) {
+        sheet.getUsedRange().format.autofitColumns();
+        sheet.getUsedRange().format.autofitRows();
+    }
+
+    sheet.activate();
+
+    return context.sync();
+});
+```
+
+**New table**
+
+![New table in Excel](images/Excel-table-create-from-json.png)
 
 ## Additional resources
 
