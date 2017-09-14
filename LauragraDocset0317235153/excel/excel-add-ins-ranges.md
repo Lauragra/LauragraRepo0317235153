@@ -74,44 +74,108 @@ Excel.run(function (context) {
 });
 ```
 
-## Insert a range
+## Insert a range of cells
 
-The following code sample...
-
-```js
-console.log('test');
-```
-
-## Clear a range
-
-The following code sample...
+The following code sample inserts a range of cells in location **B4:E4** and shifts other cells down to provide space for the new cells.
 
 ```js
-console.log('test');
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getRange("B4:E4");
+
+    range.insert(Excel.InsertShiftDirection.down);
+    
+    return context.sync();
+});
 ```
 
-## Delete a range
+**Data before range is inserted**
 
-The following code sample...
+![Data in Excel before range is inserted](images/Excel-range-start.png)
+
+**Data after range is inserted**
+
+![Data in Excel after range is inserted](images/Excel-range-after-insert.png)
+
+## Clear a range of cells
+
+The following code sample clears all contents and formatting of cells in the range **E2:E5**.  
 
 ```js
-console.log('test');
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getRange("E2:E5");
+
+    range.clear();
+
+    return context.sync();
+});
 ```
+
+**Data before range is cleared**
+
+![Data in Excel before range is cleared](images/Excel-range-start.png)
+
+**Data after range is cleared**
+
+![Data in Excel after range is cleared](images/Excel-range-after-clear.png)
+
+## Delete a range of cells
+
+The following code sample deletes the cells in the range **B4:E4** and shift other cells up to fill the space that was vacated by the deleted cells.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+    var range = sheet.getRange("B4:E4");
+
+    range.delete(Excel.DeleteShiftDirection.up);
+
+    return context.sync();
+});
+```
+
+**Data before range is deleted**
+
+![Data in Excel before range is deleted](images/Excel-range-start.png)
+
+**Data after range is deleted**
+
+![Data in Excel after range is deleted](images/Excel-range-after-delete.png)
 
 ## Set the selected range
 
-The following code sample...
+The following code sample selects the range **B2:E6** in the active worksheet.
 
 ```js
-console.log('test');
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getActiveWorksheet();
+    var range = sheet.getRange("B2:E6");
+
+    range.select();
+
+    return context.sync();
+});
 ```
+
+**Selected range B2:E6**
+
+![Selected range in Excel](images/Excel-range-set-selection.png)
 
 ## Get the selected range
 
-The following code sample...
+The following code sample gets the selected range, loads its **address** property, and writes a message to the console. 
 
 ```js
-console.log('test');
+Excel.run(function (context) {
+    var range = context.workbook.getSelectedRange();
+    range.load("address");
+
+    return context.sync()
+        .then(function () {
+            console.log(`The address of the selected range is "${range.address}"`);
+        });
+});
 ```
 
 ## Set values and formulas for a range
