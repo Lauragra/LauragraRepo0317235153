@@ -4,11 +4,9 @@ This article provides code samples that show how to perform common tasks with ta
 
 ## Create a table
 
-The following code sample creates a table in the worksheet named **Sample**. 
+The following code sample creates a table in the worksheet named **Sample**. The table has headers and contains four columns and seven rows of data. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 >**Note**: To specify a name for a table, you must first create the table and then set its **name** property, as shown in the example below.
-
-The table has headers and contains four columns and seven rows of data. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 ```js
 Excel.run(function (context) {
