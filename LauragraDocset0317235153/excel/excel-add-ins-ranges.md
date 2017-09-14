@@ -524,25 +524,6 @@ Excel.run(function (context) {
 
 ![Data in Excel after format is set](images/Excel-range-format-numbers.png)
 
-
-
-
-## Test for the existence of a range
-
-The following code sample...
-
-```js
-console.log('test');
-```
-
-## Copy value from one range to another
-
-The following code sample...
-
-```js
-console.log('test');
-```
-
 ## Additional resources
 
 - [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md)
