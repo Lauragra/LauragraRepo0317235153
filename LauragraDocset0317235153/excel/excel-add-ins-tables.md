@@ -4,7 +4,11 @@ This article provides code samples that show how to perform common tasks with ta
 
 ## Create a table
 
-The following code sample creates a table in the worksheet named **Sample**. The table has headers and contains four columns and seven rows of data. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+The following code sample creates a table in the worksheet named **Sample**. 
+
+>**Note**: To specify a name for a table, you must first create the table and then set its **name** property, as shown in the example below.
+
+The table has headers and contains four columns and seven rows of data. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 ```js
 Excel.run(function (context) {
@@ -41,7 +45,9 @@ Excel.run(function (context) {
 
 ## Add rows to a table
 
-The following code sample adds seven new rows to the table named **ExpensesTable** within the worksheet named **Sample**. The new rows are added to the end of the table. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+The following code sample adds seven new rows to the table named **ExpensesTable** within the worksheet named **Sample**. The new rows are added to the end of the table. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+
+>**Note**: The **index** property of a [TableRow](../../reference/excel/tablerow.md) object indicates the index number of the row within the rows collection of the table. A **TableRow** object does not contain an **id** property that can be used as a unique key to identify the row.
 
 ```js
 Excel.run(function (context) {
@@ -71,13 +77,15 @@ Excel.run(function (context) {
 
 ![Table with new rows in Excel](images/Excel-table-add-rows.png)
 
-## Add columns to a table
+## Add a column to a table
 
 These examples show how to add a column to a table. The first example populates the new column with static values, while the second example populates the new column with formulas.
 
+>**Note**: The **index** property of a [TableColumn](../../reference/excel/tablecolumn.md) object indicates the index number of the column within the columns collection of the table. The **id** property of a **TableColumn** object contains a unique key that identifies the column.
+
 ### Add a column to a table
 
-The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table and contains a header ("Day of the Week") as well as data to populate the cells in the column. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table and contains a header ("Day of the Week") as well as data to populate the cells in the column. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 ```js
 Excel.run(function (context) {
@@ -110,7 +118,7 @@ Excel.run(function (context) {
 
 ### Add a calculated column to a table
 
-The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table, contains a header ("Type of the Day"), and uses a formula to populate each data cell in the column. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table, contains a header ("Type of the Day"), and uses a formula to populate each data cell in the column. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 ```js
 Excel.run(function (context) {
@@ -140,6 +148,35 @@ Excel.run(function (context) {
 **Table with new calculated column**
 
 ![Table with new calculated column in Excel](images/Excel-table-add-calculated-column.png)
+
+## Update column name
+
+The following code sample updates the name of the first column in the table to **Purchase date**. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var expensesTable = sheet.tables.getItem("ExpensesTable");
+    expensesTable.columns.load("items");
+
+    return context.sync()
+        .then(function () {
+            expensesTable.columns.items[0].name = "Purchase date";
+
+            if (Office.context.requirements.isSetSupported("ExcelApi", 1.2)) {
+                sheet.getUsedRange().format.autofitColumns();
+                sheet.getUsedRange().format.autofitRows();
+            }
+            
+            return context.sync();
+        });
+});
+```
+
+**Table with new column name**
+
+![Table with new column name in Excel](images/Excel-table-update-column-name.png)
 
 ## Get data from a table
 
@@ -352,7 +389,7 @@ Excel.run(function (context) {
 
 ## Import JSON data into a table
 
-The following code sample creates a table in the worksheet named **Sample** and then populates the table by using a JSON object that defines two rows of data. If the Excel client where the code is running supports requirement set **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+The following code sample creates a table in the worksheet named **Sample** and then populates the table by using a JSON object that defines two rows of data. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 ```js
 Excel.run(function (context) {
