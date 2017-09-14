@@ -79,6 +79,7 @@ Excel.run(function (context) {
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Clear a range
@@ -86,6 +87,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Delete a range
@@ -93,6 +95,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Set the selected range
@@ -100,6 +103,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Get the selected range
@@ -107,6 +111,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Set values and formulas for a range
@@ -114,6 +119,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Get values and formulas from a range
@@ -121,6 +127,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Format a range
@@ -128,6 +135,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Test for the existence of a range
@@ -135,6 +143,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Copy value from one range to another
@@ -142,6 +151,7 @@ The following code sample...
 The following code sample...
 
 ```js
+console.log('test');
 ```
 
 ## Additional resources
