@@ -134,13 +134,13 @@ Excel.run(function (context) {
 
 ## Add a worksheet
 
-The following code sample adds a new worksheet to the workbook, loads its **name** and **position** properties, and writes a message to the console. The worksheet is added after all existing worksheets.
+The following code sample adds a new worksheet named **Sample** to the workbook, loads its **name** and **position** properties, and writes a message to the console. The new worksheet is added after all existing worksheets.
 
 ```js
 Excel.run(function (context) {
     var sheets = context.workbook.worksheets;
 
-    var sheet = sheets.add();
+    var sheet = sheets.add("Sample");
     sheet.load("name, position");
     
     return context.sync()
