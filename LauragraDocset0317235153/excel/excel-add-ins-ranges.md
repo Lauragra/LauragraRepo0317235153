@@ -467,7 +467,7 @@ Excel.run(function (context) {
 ]
 ```
 
-## Format a range
+## Set range format
 
 These examples show how to set font color, fill color, and number format for cells in a range.
 
