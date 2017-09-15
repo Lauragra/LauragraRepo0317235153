@@ -81,7 +81,7 @@ These examples show how to add a column to a table. The first example populates 
 
 >**Note**: The **index** property of a [TableColumn](../../reference/excel/tablecolumn.md) object indicates the index number of the column within the columns collection of the table. The **id** property of a **TableColumn** object contains a unique key that identifies the column.
 
-### Add a column to a table
+### Add a column that contains static values
 
 The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table and contains a header ("Day of the Week") as well as data to populate the cells in the column. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
@@ -114,7 +114,7 @@ Excel.run(function (context) {
 
 ![Table with new column in Excel](images/Excel-table-add-column.png)
 
-### Add a calculated column to a table
+### Add a column that contains formulas
 
 The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table, contains a header ("Type of the Day"), and uses a formula to populate each data cell in the column. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
