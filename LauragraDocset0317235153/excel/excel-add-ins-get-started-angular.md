@@ -58,13 +58,14 @@ yo office
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 ```
 
-- Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following code, and save the file. 
+- Open **src/main.ts**, replace `platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.log(err));` with the following code, and save the file. 
 
 ```typescript 
 declare const Office: any;
 
 Office.initialize = () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
 };
 ```
 
@@ -72,6 +73,25 @@ Office.initialize = () => {
 
 ```typescript
 import 'core-js/client/shim';
+```
+
+- In **src/polyfills.ts**, uncomment the following lines, and save the file.
+
+```typescript
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
+import 'core-js/es6/set';
 ```
 
 - Open **src/app/app.component.html**, replace file contents with the following HTML, and save the file. 
@@ -146,13 +166,9 @@ export class AppComponent {
 
 ## Try it out
 
-1. From the terminal, run one of the following commands to start the dev server:
+1. From the terminal, run the following command to start the dev server.
 ```bash
 npm start
-```
-or
-```bash
-ng serve
 ```
 
 2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane.

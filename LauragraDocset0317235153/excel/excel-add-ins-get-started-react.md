@@ -96,7 +96,7 @@ class App extends Component {
         </div>
         <div id="content-main">
           <div className="padding">
-              <p>Choose the following button to set the color of the selected range to green.</p>
+              <p>Choose the button below to set the color of the selected range to green.</p>
               <br />
               <h3>Try it out</h3>
               <button onClick={this.onColorMe}>Color Me</button>
@@ -141,13 +141,9 @@ export default App;
 
 ## Try it out
 
-1. From the terminal, run one of the following commands to start the dev server:
+1. From the terminal, run the following command to start the dev server.
 ```bash
 npm start
-```
-or
-```bash
-yarn start
 ```
 
 2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane.
