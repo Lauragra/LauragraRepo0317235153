@@ -1,26 +1,26 @@
 # Build an Excel add-in using Angular
 
-This article walks you through the process of building an Excel add-in by using Angular and the Excel JavaScript API.
+In this article, you'll walk you through the process of building an Excel add-in using Angular and the Excel JavaScript API.
 
 ## Prerequisites
 
-Get started by completing the following prerequisite tasks:
+If you haven't done so previously, install the following tools:
 
 1. Check whether you already have the [Angular CLI prerequisites](https://github.com/angular/angular-cli#prerequisites) and install any prerequistes that you are missing.
 
-2. If you haven't done so previously, install the [Angular CLI](https://github.com/angular/angular-cli) globally. 
+2. Install the [Angular CLI](https://github.com/angular/angular-cli) globally. 
 ```bash
 npm install -g @angular/cli
 ```
 
-3. If you haven't done so previously, install [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
+3. Install [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
 ```bash
 npm install -g yo generator-office
 ```
 
 ## Generate a new Angular app
 
-Use the Angular CLI to generate your Angular app by running the following command.
+Use the Angular CLI to generate your Angular app. From the terminal, run the following command:
 
 ```bash
 ng new my-addin
@@ -35,17 +35,17 @@ An add-in's manifest file defines its settings and capabilities.
 cd my-addin
 ```
 
-2. Use the Yeoman generator to generate the manifest file for your add-in by running the following command and then answering the prompts as shown in the screenshot below.
+2. Use the Yeoman generator to generate the manifest file for your add-in. Run the following command and then answer the prompts as shown in the screenshot below.
 ```bash
 yo office
 ```
 ![Yeoman generator](images/yo-office.png)
->**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
+>**Note**: If you're prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
 3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:4200` and save the file.
 >**Note**: Be sure to change the protocol to **http** in addition to changing the port number to **4200**.
 
-4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
+4. Follow the instructions for the platform you'll be using to run your add-in and sideload the add-in within Excel.
     - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
@@ -146,7 +146,7 @@ export class AppComponent {
 
 ## Try it out
 
-1. Start the dev server by running one of the following commands via the terminal.
+1. From the terminal, run one of the following commands to start the dev server:
 ```bash
 npm start
 ```

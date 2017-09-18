@@ -1,24 +1,24 @@
 # Build an Excel add-in using React
 
-This article walks you through the process of building an Excel add-in by using React and the Excel JavaScript API.
+In this article, you'll walk through the process of building an Excel add-in using React and the Excel JavaScript API.
 
 ## Prerequisites
 
-Get started by completing the following prerequisite tasks:
+If you haven't done so previously, you'll need to install the following tools:
 
-1. If you haven't done so previously, install [Create React App](https://github.com/facebookincubator/create-react-app) globally.
+1.  Install [Create React App](https://github.com/facebookincubator/create-react-app) globally.
 ```bash
 npm install -g create-react-app
 ```
 
-2. If you haven't done so previously, install [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
+2. Install [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
 ```bash
 npm install -g yo generator-office
 ```
 
 ## Generate a new React app
 
-Use Create React App to generate your React app by running the following command.
+Use Create React App to generate your React app. From the terminal, run the following command:
 
 ```bash
 create-react-app my-addin
@@ -26,23 +26,23 @@ create-react-app my-addin
 
 ## Generate the manifest file and sideload the add-in
 
-An add-in's manifest file defines its settings and capabilities.
+Each add-in requires a manifest file to define its settings and capabilities.
 
 1. Navigate to your app folder.
 ```bash
 cd my-addin
 ```
 
-2. Use the Yeoman generator to generate the manifest file for your add-in by running the following command and then answering the prompts as shown in the screenshot below.
+2. Use the Yeoman generator to generate the manifest file for your add-in. Run the following command and then answer the prompts as shown in the following screenshot:
 ```bash
 yo office
 ```
 ![Yeoman generator](images/yo-office.png)
->**Note**: If you are prompted to overwrite **package.json**, answer **No** (do not overwrite).
+>**Note**: If you're prompted to overwrite **package.json**, answer **No** (do not overwrite).
 
 3. Open the manifest file (i.e., the file in the root directory of your app with a name ending in "manifest.xml"). Replace all occurrences of `https://localhost:3000` with `http://localhost:3000` and save the file.
 
-4. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
+4. Follow the instructions for the platform you'll be using to run your add-in and sideload the add-in within Excel.
     - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
@@ -96,7 +96,7 @@ class App extends Component {
         </div>
         <div id="content-main">
           <div className="padding">
-              <p>Choose the button below to set the color of the selected range to green.</p>
+              <p>Choose the following button to set the color of the selected range to green.</p>
               <br />
               <h3>Try it out</h3>
               <button onClick={this.onColorMe}>Color Me</button>
@@ -141,7 +141,7 @@ export default App;
 
 ## Try it out
 
-1. Start the dev server by running one of the following commands via the terminal.
+1. From the terminal, run one of the following commands to start the dev server:
 ```bash
 npm start
 ```
@@ -153,7 +153,7 @@ yarn start
 2. In Excel, choose the **Home** tab, and then choose the **Show Taskpane** button in the ribbon to open the add-in task pane.
 ![Excel Add-in button](images/excel_quickstart_addin_2a.png)
 
-3. Choose the **Color Me** button in the task pane to set the color of the selected range to green.
+3. In the task pane, choose the **Color Me** button pane to set the color of the selected range to green.
 ![Excel Add-in](images/excel_quickstart_addin_2b.png)
 
 ## Next steps

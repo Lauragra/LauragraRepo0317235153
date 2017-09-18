@@ -1,10 +1,10 @@
 # Build an Excel add-in using jQuery
 
-This article walks you through the process of building an Excel add-in by using jQuery and the Excel JavaScript API.
+In this article, you'll walk through the process of building an Excel add-in by using jQuery and the Excel JavaScript API.
 
 ## Create the web app
 
-1. Create a folder on your local drive named **my-addin**. This is where you'll create the files for your app.
+1. Create a folder on your local drive and name it **my-addin**. This is where you'll create the files for your app.
 
 2. Navigate to your app folder.
 ```bash
@@ -138,12 +138,12 @@ cd my-addin
 
 ## Try it out
 
-1. Sideload the add-in within Excel by following the instructions for the platform you'll be using to run your add-in.
+1. Follow the instructions for the platform you'll use to run your add-in to sideload the add-in within Excel.
     - Windows: [Sideload Office Add-ins for testing on Windows](../testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins.md)
     - Excel Online: [Sideload Office Add-ins in Office Online](../testing/sideload-office-add-ins-for-testing.md#sideload-an-office-add-in-on-office-online)
     - iPad and Mac: [Sideload Office Add-ins on iPad and Mac](../testing/sideload-an-office-add-in-on-ipad-and-mac.md)
 
-2. In the task pane that opens to the right of the document, choose the **Set color** button to set the color of the selected range to green.
+2. In the right task pane, choose the **Set color** button to set the color of the selected range to green.
 
     ![Excel Add-in](images/excel_quickstart_addin_1.png)
 
