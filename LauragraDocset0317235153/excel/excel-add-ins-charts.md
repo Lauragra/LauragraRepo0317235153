@@ -1,30 +1,205 @@
 # Work with Charts using the Excel JavaScript API
 
-Add intro paragraph(s) here. 
+This article provides code samples that show how to perform common tasks with charts using the Excel JavaScript API. 
+For the complete list of properties and methods that the **Chart** and **ChartCollection** objects support, see [Chart Object (JavaScript API for Excel)](../../reference/excel/chart.md) and [Chart Collection Object (JavaScript API for Excel)](../../reference/excel/chartcollection.md).
 
-Then (below) add as many sections as you need for this article, writing content in standard markdown format.
+## Create a chart
 
-* **This is bold text** and *This is italic text*
-* JavaScript code blocks can be included like this:
+The following code sample creates a chart in the worksheet named **Sales Data**. The chart is a **Line** chart that is based upon data in the range **A1:B12**.
 
 ```js
-console.log('This is JavaScript code!');
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var dataRange = sheet.getRange("A1:B12");
+
+    var chart = sheet.charts.add("Line", dataRange, "auto");
+
+    chart.title.text = "Sales Data";
+    chart.legend.position = "right"
+    chart.legend.format.fill.setSolidColor("white");
+    chart.dataLabels.format.font.size = 15;
+    chart.dataLabels.format.font.color = "black";
+
+    return context.sync();
+});
 ```
 
-## Section 1
+**New line chart**
 
-...
+![New line chart in Excel](images/Excel-chart-create.png)
 
-### Subsection 1_A
 
-...
+## Add a data series to a chart
 
-### Subsection 1_B
+The following code sample adds a data series to the first chart in the worksheet. The new data series corresponds to the column named **2016** and is based upon data in the range **D2:D5**.
 
-...
+**Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var chart = sheet.charts.getItemAt(0);
+
+    var dataRange = sheet.getRange("D2:D5");
+
+    var newSeries = chart.series.add("2016");
+    newSeries.setValues(dataRange);
+
+    return context.sync();
+});
+```
+
+**Chart before the 2016 data series is added**
+
+![Chart in Excel before 2016 data series added](images/Excel-chart-data-series-before.png)
+
+**Chart after the 2016 data series is added**
+
+![Chart in Excel after 2016 data series added](images/Excel-chart-data-series-after.png)
+
+## Set chart title
+
+The following code sample sets the title of the first chart in the worksheet to **Sales Data by Year**. 
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var chart = sheet.charts.getItemAt(0);
+    chart.title.text = "Sales Data by Year";
+
+    return context.sync();
+});
+```
+
+**Chart after title is set**
+
+![Chart with title in Excel](images/Excel-chart-title-set.png)
+
+## Set properties of an axis in a chart
+
+Charts that use the [Cartesian coordinate system](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) such as column charts, bar charts, and scatter charts contain a category axis and a value axis. These examples show how to set the title and display unit of an axis in a chart.
+
+### Set axis title
+
+The following code sample sets the title of the category axis for the first chart in the worksheet to **Product**.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var chart = sheet.charts.getItemAt(0);
+    chart.axes.categoryAxis.title.text = "Product";
+
+    return context.sync();
+});
+```
+
+**Chart after title of category axis is set**
+
+![Chart with axis title in Excel](images/Excel-chart-axis-title-set.png)
+
+### Set axis display unit
+
+The following code sample sets the display unit of the value axis for the first chart in the worksheet to **Hundreds**.
+
+**Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var chart = sheet.charts.getItemAt(0);
+    chart.axes.valueAxis.displayUnit = "Hundreds";
+
+    return context.sync();
+});
+```
+
+**Chart after display unit of value axis is set**
+
+![Chart with axis display unit in Excel](images/Excel-chart-axis-display-unit-set.png)
+
+## Set visibility of gridlines in a chart
+
+The following code sample hides the major gridlines for the value axis of the first chart in the worksheet. You can show the major gridlines for the value axis of the chart, by setting `chart.axes.valueAxis.majorGridlines.visible` to **true**.
+
+```js
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
+
+    var chart = sheet.charts.getItemAt(0);
+    chart.axes.valueAxis.majorGridlines.visible = false;
+
+    return context.sync();
+});
+```
+
+**Chart with gridlines hidden**
+
+![Chart with gridlines hidden in Excel](images/Excel-chart-gridlines-removed.png)
+
+
+
+
+## Chart trendlines
+
+### Add a trendline
+
+The following code sample shows how to add a trendline to one of the data series for the chart. A trendline is applied to invidual data series. The sample shows how to add a Moving Average  trendline for the firs series in the chart. The trendline is showing a moving average over 5 periods.
+
+**Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
+
+```js
+Excel.run(async (context) => {
+
+            const sheet = context.workbook.worksheets.getItem("Sample");
+            let chart = sheet.charts.getItemAt(0);
+            let seriesCollection = context.workbook.worksheets.getItem("Sample").charts.getItemAt(0).series;
+          seriesCollection.getItemAt(0).trendlines.add("MovingAverage").movingAveragePeriod = 5;
+            
+                   
+            
+        });
+    }
+    catch (error) {
+        OfficeHelpers.UI.notify(error);
+        OfficeHelpers.Utilities.log(error);
+    }
+}
+```
+
+
+
+### Update a trendline
+
+The following code sample shows how to change the trendline to one of the data series to a linear trendline.
+
+**Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
+
+```js
+Excel.run(async (context) => {
+
+            const sheet = context.workbook.worksheets.getItem("Sample");
+            let seriesCollection = sheet.charts.getItemAt(0).series;
+            let series = seriesCollection.getItemAt(0);
+            series.trendlines.getItem(0).type = "Linear";
+
+
+
+        });
+    }
+    catch (error) {
+        OfficeHelpers.UI.notify(error);
+        OfficeHelpers.Utilities.log(error);
+    }
+}
+```
 
 ## Additional resources
 
-* [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md?product=excel)
-* [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel)
-* (add additional bullet points for links to other relevant information)
+- [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md)
+- [Chart Object (JavaScript API for Excel)](../../reference/excel/chart.md) 
+- [Chart Collection Object (JavaScript API for Excel)](../../reference/excel/chartcollection.md)
