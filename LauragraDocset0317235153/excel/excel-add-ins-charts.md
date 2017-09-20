@@ -5,14 +5,12 @@ For the complete list of properties and methods that the **Chart** and **ChartCo
 
 ## Create a chart
 
-The following code sample creates a chart in the worksheet named **Sales Data**. The chart is a **Line** chart that is based upon data in the range **A1:B12**.
+The following code sample creates a chart in the worksheet named **Sales Data**. The chart is a **Line** chart that is based upon data in the range **A1:B13**.
 
 ```js
 Excel.run(function (context) {
     var sheet = context.workbook.worksheets.getItem("Sample");
-
-    var dataRange = sheet.getRange("A1:B12");
-
+    var dataRange = sheet.getRange("A1:B13");
     var chart = sheet.charts.add("Line", dataRange, "auto");
 
     chart.title.text = "Sales Data";
@@ -27,7 +25,7 @@ Excel.run(function (context) {
 
 **New line chart**
 
-![New line chart in Excel](images/Excel-chart-create.png)
+![New line chart in Excel](images/Excel-chart-create-line.png)
 
 
 ## Add a data series to a chart
@@ -39,9 +37,7 @@ The following code sample adds a data series to the first chart in the worksheet
 ```js
 Excel.run(function (context) {
     var sheet = context.workbook.worksheets.getItem("Sample");
-
     var chart = sheet.charts.getItemAt(0);
-
     var dataRange = sheet.getRange("D2:D5");
 
     var newSeries = chart.series.add("2016");
@@ -141,14 +137,13 @@ Excel.run(function (context) {
 
 ![Chart with gridlines hidden in Excel](images/Excel-chart-gridlines-removed.png)
 
-
-
-
 ## Chart trendlines
 
 ### Add a trendline
 
-The following code sample shows how to add a trendline to one of the data series for the chart. A trendline is applied to invidual data series. The sample shows how to add a Moving Average  trendline for the firs series in the chart. The trendline is showing a moving average over 5 periods.
+The following code sample adds
+
+shows how to add a trendline to one of the data series for the chart. A trendline is applied to invidual data series. The sample shows how to add a Moving Average  trendline for the firs series in the chart. The trendline is showing a moving average over 5 periods.
 
 **Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
 
