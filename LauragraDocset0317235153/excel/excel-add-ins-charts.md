@@ -5,7 +5,7 @@ For the complete list of properties and methods that the **Chart** and **ChartCo
 
 ## Create a chart
 
-The following code sample creates a chart in the worksheet named **Sales Data**. The chart is a **Line** chart that is based upon data in the range **A1:B13**.
+The following code sample creates a chart in the worksheet named **Sample**. The chart is a **Line** chart that is based upon data in the range **A1:B13**.
 
 ```js
 Excel.run(function (context) {
