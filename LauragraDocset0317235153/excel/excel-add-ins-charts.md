@@ -141,57 +141,48 @@ Excel.run(function (context) {
 
 ### Add a trendline
 
-The following code sample adds
-
-shows how to add a trendline to one of the data series for the chart. A trendline is applied to invidual data series. The sample shows how to add a Moving Average  trendline for the firs series in the chart. The trendline is showing a moving average over 5 periods.
+The following code sample adds a moving average trendline to the first series in the first chart in the worksheet named **Sample**. The trendline shows a moving average over 5 periods.
 
 **Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
 
 ```js
-Excel.run(async (context) => {
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
 
-            const sheet = context.workbook.worksheets.getItem("Sample");
-            let chart = sheet.charts.getItemAt(0);
-            let seriesCollection = context.workbook.worksheets.getItem("Sample").charts.getItemAt(0).series;
-          seriesCollection.getItemAt(0).trendlines.add("MovingAverage").movingAveragePeriod = 5;
-            
-                   
-            
-        });
-    }
-    catch (error) {
-        OfficeHelpers.UI.notify(error);
-        OfficeHelpers.Utilities.log(error);
-    }
-}
+    var chart = sheet.charts.getItemAt(0);
+    var seriesCollection = chart.series;
+    seriesCollection.getItemAt(0).trendlines.add("MovingAverage").movingAveragePeriod = 5;
+
+    return context.sync();
+});
 ```
 
+**Chart with moving average trendline**
 
+![Chart with moving average trendline in Excel](images/Excel-chart-create-trendline.png)
 
 ### Update a trendline
 
-The following code sample shows how to change the trendline to one of the data series to a linear trendline.
+The following code sample sets the trendline to type **Linear** for the first series in the first chart in the worksheet named **Sample**.
 
 **Note**: This sample uses APIs that are currently available only in public preview (beta). To run this sample, you must use the beta library of the Office.js CDN: https://appsforoffice.microsoft.com/lib/beta/hosted/office.js.
 
 ```js
-Excel.run(async (context) => {
+Excel.run(function (context) {
+    var sheet = context.workbook.worksheets.getItem("Sample");
 
-            const sheet = context.workbook.worksheets.getItem("Sample");
-            let seriesCollection = sheet.charts.getItemAt(0).series;
-            let series = seriesCollection.getItemAt(0);
-            series.trendlines.getItem(0).type = "Linear";
+    var chart = sheet.charts.getItemAt(0);
+    var seriesCollection = chart.series;
+    var series = seriesCollection.getItemAt(0);
+    series.trendlines.getItem(0).type = "Linear";
 
-
-
-        });
-    }
-    catch (error) {
-        OfficeHelpers.UI.notify(error);
-        OfficeHelpers.Utilities.log(error);
-    }
-}
+    return context.sync();
+});
 ```
+
+**Chart with linear trendline**
+
+![Chart with linear trendline in Excel](images/Excel-chart-trendline-linear.png)
 
 ## Additional resources
 
