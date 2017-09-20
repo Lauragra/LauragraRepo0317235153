@@ -1,6 +1,6 @@
 # Work with Tables using the Excel JavaScript API
 
-This article provides code samples that show how to perform common tasks with tables using the Excel JavaScript API. For the complete list of properties and methods that the the **Table** and **TableCollection** objects support, see [Table Object (JavaScript API for Excel)](../../reference/excel/table.md) and [TableCollection Object (JavaScript API for Excel)](../../reference/excel/tablecollection.md).
+This article provides code samples that show you how to perform common tasks with tables using the Excel JavaScript API. For the complete list of properties and methods that the **Table** and **TableCollection** objects support, see [Table Object (JavaScript API for Excel)](../../reference/excel/table.md) and [TableCollection Object (JavaScript API for Excel)](../../reference/excel/tablecollection.md).
 
 ## Create a table
 
@@ -60,7 +60,7 @@ Excel.run(function (context) {
         ["1/25/2017", "BELLOWS COLLEGE", "Education", "$350"],
         ["1/28/2017", "TREY RESEARCH", "Other", "$135"],
         ["1/31/2017", "BEST FOR YOU ORGANICS COMPANY", "Groceries", "$97"]
-    ]); 
+    ]);
 
     if (Office.context.requirements.isSetSupported("ExcelApi", 1.2)) {
         sheet.getUsedRange().format.autofitColumns();
@@ -77,7 +77,7 @@ Excel.run(function (context) {
 
 ## Add a column to a table
 
-These examples show how to add a column to a table. The first example populates the new column with static values, while the second example populates the new column with formulas.
+These examples show you how to add a column to a table. The first example populates the new column with static values; the second example populates the new column with formulas.
 
 >**Note**: The **index** property of a [TableColumn](../../reference/excel/tablecolumn.md) object indicates the index number of the column within the columns collection of the table. The **id** property of a **TableColumn** object contains a unique key that identifies the column.
 
@@ -100,7 +100,7 @@ Excel.run(function (context) {
         ["Saturday"],
         ["Monday"]
     ]);
-        
+
     if (Office.context.requirements.isSetSupported("ExcelApi", 1.2)) {
         sheet.getUsedRange().format.autofitColumns();
         sheet.getUsedRange().format.autofitRows();
@@ -116,7 +116,7 @@ Excel.run(function (context) {
 
 ### Add a column that contains formulas
 
-The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added after all existing columns in the table, contains a header ("Type of the Day"), and uses a formula to populate each data cell in the column. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
+The following code sample adds a new column to the table named **ExpensesTable** within the worksheet named **Sample**. The new column is added to the end of the table, contains a header ("Type of the Day"), and uses a formula to populate each data cell in the column. If the Excel host application where the code is running supports [requirement set](../../reference/requirement-sets/excel-api-requirement-sets.md) **ExcelApi 1.2**, the width of the columns and height of the rows are set to best fit the current data in the table.
 
 ```js
 Excel.run(function (context) {
@@ -166,7 +166,7 @@ Excel.run(function (context) {
                 sheet.getUsedRange().format.autofitColumns();
                 sheet.getUsedRange().format.autofitRows();
             }
-            
+
             return context.sync();
         });
 });
@@ -178,7 +178,7 @@ Excel.run(function (context) {
 
 ## Get data from a table
 
-The following code sample reads data from a table named **ExpensesTable** in the worksheet named **Sample** and then outputs that data below the table in the same worksheet. 
+The following code sample reads data from a table named **ExpensesTable** in the worksheet named **Sample** and then outputs that data below the table in the same worksheet.
 
 ```js
 Excel.run(function (context) {
@@ -264,7 +264,7 @@ Excel.run(function (context) {
         filterOn: Excel.FilterOn.values,
         values: ["Restaurant", "Groceries"]
     });
-    
+
     // Queue a command to apply a filter on the Amount column
     var filter = expensesTable.columns.getItem("Amount").filter;
     filter.apply({
@@ -281,7 +281,7 @@ Excel.run(function (context) {
 
 ![Table data filtered in Excel](images/Excel-table-filters-apply.png)
 
-## Clear table filters 
+## Clear table filters
 
 The following code sample clears any filters currently applied on the table.
 
@@ -308,7 +308,7 @@ The following code sample gets a range that contains data only for cells that ar
 Excel.run(function (context) {
     var sheet = context.workbook.worksheets.getItem("Sample");
     var expensesTable = sheet.tables.getItem("ExpensesTable");
-        
+
     var visibleRange = expensesTable.getDataBodyRange().getVisibleView();
     visibleRange.load("values");
 
@@ -332,7 +332,7 @@ Excel.run(function (context) {
     expensesTable.getDataBodyRange().format.fill.color = "#DAF7A6";
     expensesTable.rows.getItemAt(1).getRange().format.fill.color = "#FFC300";
     expensesTable.columns.getItemAt(0).getDataBodyRange().format.fill.color = "#FFA07A";
-    
+
     return context.sync();
 });
 ```
@@ -435,5 +435,5 @@ Excel.run(function (context) {
 ## Additional resources
 
 - [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md)
-- [Table Object (JavaScript API for Excel)](../../reference/excel/table.md) 
+- [Table Object (JavaScript API for Excel)](../../reference/excel/table.md)
 - [TableCollection Object (JavaScript API for Excel)](../../reference/excel/tablecollection.md)
