@@ -34,7 +34,7 @@ Excel.run(function (context) {
     sheet.activate();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **New table**
@@ -68,7 +68,7 @@ Excel.run(function (context) {
     }
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table with new rows**
@@ -107,7 +107,7 @@ Excel.run(function (context) {
     }
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table with new column**
@@ -140,7 +140,7 @@ Excel.run(function (context) {
     }
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table with new calculated column**
@@ -169,7 +169,7 @@ Excel.run(function (context) {
 
             return context.sync();
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table with new column name**
@@ -215,7 +215,7 @@ Excel.run(function (context) {
             // Sync to update the sheet in Excel
             return context.sync();
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table and data output**
@@ -242,7 +242,7 @@ Excel.run(function (context) {
 
     // Sync to run the queued command in Excel
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table data sorted by Amount (descending)**
@@ -274,7 +274,7 @@ Excel.run(function (context) {
 
     // Sync to run the queued commands in Excel
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table data with filters applied for Category and Amount**
@@ -293,7 +293,7 @@ Excel.run(function (context) {
     expensesTable.clearFilters();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table data with no filters applied**
@@ -316,7 +316,7 @@ Excel.run(function (context) {
         .then(function() {
             console.log(visibleRange.values);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Format a table
@@ -334,7 +334,7 @@ Excel.run(function (context) {
     expensesTable.columns.getItemAt(0).getDataBodyRange().format.fill.color = "#FFA07A";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Table after formatting is applied**
@@ -374,7 +374,7 @@ Excel.run(function (context) {
     expensesTable.name = "ExpensesTable";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data in the range (before the range is converted to a table)**
@@ -425,7 +425,7 @@ Excel.run(function (context) {
     sheet.activate();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **New table**

@@ -20,7 +20,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The address of the range B2:C5 is "${range.address}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Get range by name
@@ -37,7 +37,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The address of the range "MyRange" is "${range.address}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Get used range
@@ -54,7 +54,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The address of the used range in the worksheet is "${range.address}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Get entire range
@@ -71,7 +71,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The address of the entire worksheet range is "${range.address}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Insert a range of cells
@@ -86,7 +86,7 @@ Excel.run(function (context) {
     range.insert(Excel.InsertShiftDirection.down);
     
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before range is inserted**
@@ -109,7 +109,7 @@ Excel.run(function (context) {
     range.clear();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before range is cleared**
@@ -132,7 +132,7 @@ Excel.run(function (context) {
     range.delete(Excel.DeleteShiftDirection.up);
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before range is deleted**
@@ -155,7 +155,7 @@ Excel.run(function (context) {
     range.select();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Selected range B2:E6**
@@ -175,7 +175,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The address of the selected range is "${range.address}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Set values or formulas
@@ -195,7 +195,7 @@ Excel.run(function (context) {
     range.format.autofitColumns();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before cell value is updated**
@@ -223,7 +223,7 @@ Excel.run(function (context) {
     range.format.autofitColumns();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before cell values are updated**
@@ -247,7 +247,7 @@ Excel.run(function (context) {
     range.format.autofitColumns();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before cell formula is set**
@@ -278,7 +278,7 @@ Excel.run(function (context) {
     range.format.autofitColumns();
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data before cell formulas are set**
@@ -307,7 +307,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(JSON.stringify(range.values, null, 4));
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data in range (values in column E are a result of formulas)**
@@ -365,7 +365,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(JSON.stringify(range.text, null, 4));
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data in range (values in column E are a result of formulas)**
@@ -423,7 +423,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(JSON.stringify(range.formulas, null, 4));
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data in range (values in column E are a result of formulas)**
@@ -484,7 +484,7 @@ Excel.run(function (context) {
     range.format.font.color = "white";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data in range before font color and fill color are set**
@@ -513,7 +513,7 @@ Excel.run(function (context) {
     range.numberFormat = formats;
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Data in range before number format is set**
