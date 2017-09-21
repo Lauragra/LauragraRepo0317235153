@@ -2,6 +2,46 @@
 
 This article describes some of the advanced topics of Excel JavaScript API that are essential to building complex add-ins for Excel 2016. 
 
+## Shared APIs needed for Excel 
+Introduced with Office 2013, the shared API enables you to access features such as UI, dialogs, and client settings that are common across multiple types of host applications such as Word, Excel, and PowerPoint. Below are the key objects from the shared API set that extends the Excel namespace specific API functionality:
+
+* [Context](../../reference/shared/context.md): Represents the runtime environment of the add-in and provides access to key objects of the API. It consists of workbook configutation details such as `contentLanguage` and `officeTheme`. It also provides add-in's run-time environment details such as `host` and `platform`. In addition, it offers `requirements.isSetSupported()` method to check if the specified requirement set is supported by the Excel application. 
+* [Document](../../reference/shared/document.md): Provides [`getFileAsync`](https://github.com/OfficeDev/office-js-docs/blob/master/reference/shared/document.getfileasync.md) API to download the Excel file that the add-in is currently running in. 
+
+## Requirement sets
+
+Requirement sets are named groups of API members. Office Add-ins use requirement sets specified in the manifest or use a runtime check to determine whether an Office host supports APIs that an add-in needs. Refer to [Excel requirement set](../reference/requirement-sets/excel-api-requirement-sets.md) documentation to identify specific requriement sets across supported platforms. 
+
+### Runtime requirement support check
+
+During the runtime, add-ins can check if a particular host supports an API requirement set by doing the following-check: 
+
+```js
+if (Office.context.requirements.isSetSupported('ExcelApi', 1.3) === true) {
+  /// perform actions
+}
+else {
+  /// provide alternate flow/logic
+}
+```
+
+### Manifest based requirement support check
+
+Use the Requirements element in the add-in manifest to specify critical requirement sets or API members that your add-in must use. If the Office host or platform doesn't support the requirement sets or API members specified in the Requirements element, the add-in won't run in that host or platform, and won't display in My Add-ins. Instead, we recommend that you make your add-in available on all platforms of an Office host, such as Excel for Windows, Excel Online, and Excel for iPad. To make your add-in available on all Office hosts and platforms, use runtime checks instead of the Requirements element.
+
+The following code example shows an add-in that loads in all Office host applications that support ExcelApi requirement set, version 1.3.
+
+```xml
+<Requirements>
+   <Sets DefaultMinVersion="1.3">
+      <Set Name="ExcelApi" MinVersion="1.3"/>
+   </Sets>
+</Requirements>
+```
+
+### Office common API requirement sets
+For information about common API requirement sets, see [Office common API requirement sets](../reference/requirement-sets/office-add-in-requirement-sets.md).
+
 ## Load method 
 
 The `load` method instructs Excel API to load the object into JavaScript memory upon the `sync` operation. It is used to read scalar or navigation properties of the object. `load` method accepts a string with comma delimited property names or an object that specifies properties, pagination options, etc. `load` method is available on each of the Excel JavaScript objects. 
