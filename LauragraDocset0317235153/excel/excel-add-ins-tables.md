@@ -1,6 +1,6 @@
 # Work with Tables using the Excel JavaScript API
 
-This article provides code samples that show you how to perform common tasks with tables using the Excel JavaScript API. For the complete list of properties and methods that the **Table** and **TableCollection** objects support, see [Table Object (JavaScript API for Excel)](../../reference/excel/table.md) and [TableCollection Object (JavaScript API for Excel)](../../reference/excel/tablecollection.md).
+This article provides code samples that show how to perform common tasks with tables using the Excel JavaScript API. For the complete list of properties and methods that the **Table** and **TableCollection** objects support, see [Table Object (JavaScript API for Excel)](../../reference/excel/table.md) and [TableCollection Object (JavaScript API for Excel)](../../reference/excel/tablecollection.md).
 
 ## Create a table
 
@@ -77,7 +77,7 @@ Excel.run(function (context) {
 
 ## Add a column to a table
 
-These examples show you how to add a column to a table. The first example populates the new column with static values; the second example populates the new column with formulas.
+These examples show how to add a column to a table. The first example populates the new column with static values; the second example populates the new column with formulas.
 
 >**Note**: The **index** property of a [TableColumn](../../reference/excel/tablecolumn.md) object indicates the index number of the column within the columns collection of the table. The **id** property of a **TableColumn** object contains a unique key that identifies the column.
 
