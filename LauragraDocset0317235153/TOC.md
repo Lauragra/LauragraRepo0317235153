@@ -99,7 +99,6 @@
 ### [Work with Ranges](excel/excel-add-ins-ranges.md)
 ### [Work with Tables](excel/excel-add-ins-tables.md)
 ### [Work with Charts](excel/excel-add-ins-charts.md)
-### [Work with Events](excel/excel-add-ins-events.md)
 ## [Advanced concepts](excel/excel-add-ins-advanced-concepts.md)
 ### [Sort and filter data](excel/excel-add-ins-sortfilter.md)
 ### [Protect data](excel/excel-add-ins-protect.md)
