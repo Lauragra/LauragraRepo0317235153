@@ -24,7 +24,7 @@ Excel.run(function (context) {
                 console.log(sheets.items[i].name);
             }
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Note**: The **id** property of a worksheet uniquely identifies the worksheet in a given workbook and its value will remain the same even when the worksheet is renamed or moved. When a worksheet is deleted from a workbook in Excel for Mac, the **id** of the deleted worksheet may be reassigned to a new worksheet that is subsequently created.
@@ -42,7 +42,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The active worksheet is "${sheet.name}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Set the active worksheet
@@ -59,7 +59,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The active worksheet is "${sheet.name}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Reference worksheets by relative position
@@ -79,7 +79,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The name of the first worksheet is "${firstSheet.name}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Get the last worksheet
@@ -95,7 +95,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The name of the last worksheet is "${lastSheet.name}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Get the next worksheet
@@ -112,7 +112,7 @@ The following code sample gets the worksheet that follows the active worksheet i
         .then(function () {
             console.log(`The name of the sheet that follows the active worksheet is "${nextSheet.name}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Get the previous worksheet
@@ -129,7 +129,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`The name of the sheet that precedes the active worksheet is "${previousSheet.name}"`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Add a worksheet
@@ -147,7 +147,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`Added worksheet named "${sheet.name}" in position ${sheet.position}`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Delete a worksheet
@@ -172,7 +172,7 @@ Excel.run(function (context) {
                 return context.sync();
             };
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Rename a worksheet
@@ -185,7 +185,7 @@ Excel.run(function (context) {
     currentSheet.name = "New Name";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Move a worksheet
@@ -204,7 +204,7 @@ Excel.run(function (context) {
 
             return context.sync();
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Set worksheet visibility
@@ -226,7 +226,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`Worksheet with name "${sheet.name}" is hidden`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ### Unhide a worksheet
@@ -244,7 +244,7 @@ Excel.run(function (context) {
         .then(function () {
             console.log(`Worksheet with name "${sheet.name}" is visible`);
         });
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Get a cell within a worksheet
@@ -261,7 +261,7 @@ Excel.run(function (context) {
         .then(function() {
             console.log(`The value of the cell in row 2, column 5 is "${cell.values[0][0]}" and the address of that cell is "${cell.address}"`);
         })
-});
+}).catch(errorHandlerFunction);
 ```
 
 ## Get a range within a worksheet

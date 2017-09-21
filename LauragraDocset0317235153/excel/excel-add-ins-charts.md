@@ -20,7 +20,7 @@ Excel.run(function (context) {
     chart.dataLabels.format.font.color = "black";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **New line chart**
@@ -44,7 +44,7 @@ Excel.run(function (context) {
     newSeries.setValues(dataRange);
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart before the 2016 data series is added**
@@ -67,7 +67,7 @@ Excel.run(function (context) {
     chart.title.text = "Sales Data by Year";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart after title is set**
@@ -90,7 +90,7 @@ Excel.run(function (context) {
     chart.axes.categoryAxis.title.text = "Product";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart after title of category axis is set**
@@ -111,7 +111,7 @@ Excel.run(function (context) {
     chart.axes.valueAxis.displayUnit = "Hundreds";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart after display unit of value axis is set**
@@ -130,7 +130,7 @@ Excel.run(function (context) {
     chart.axes.valueAxis.majorGridlines.visible = false;
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart with gridlines hidden**
@@ -154,7 +154,7 @@ Excel.run(function (context) {
     seriesCollection.getItemAt(0).trendlines.add("MovingAverage").movingAveragePeriod = 5;
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart with moving average trendline**
@@ -177,7 +177,7 @@ Excel.run(function (context) {
     series.trendlines.getItem(0).type = "Linear";
 
     return context.sync();
-});
+}).catch(errorHandlerFunction);
 ```
 
 **Chart with linear trendline**
