@@ -47,7 +47,7 @@ Excel.run(function (context) {
 
 ## Set the active worksheet
 
-The following code sample sets the active worksheet to the worksheet named **Sample**, loads its **name** property, and writes a message to the console. If there is no worksheet with that name, the **activate()** method will throw an **ItemNotFound** error.
+The following code sample sets the active worksheet to the worksheet named **Sample**, loads its **name** property, and writes a message to the console. If there is no worksheet with that name, the **activate()** method throws an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
@@ -100,7 +100,7 @@ Excel.run(function (context) {
 
 ### Get the next worksheet
 
-The following code sample gets the worksheet that follows the active worksheet in the workbook, loads its **name** property, and writes a message to the console. If there is no worksheet after the active worksheet, the **getNext()** method will throw an **ItemNotFound** error.
+The following code sample gets the worksheet that follows the active worksheet in the workbook, loads its **name** property, and writes a message to the console. If there is no worksheet after the active worksheet, the **getNext()** method throws an **ItemNotFound** error.
 
 ```js
  Excel.run(function (context) {
@@ -117,7 +117,7 @@ The following code sample gets the worksheet that follows the active worksheet i
 
 ### Get the previous worksheet
 
-The following code sample gets the worksheet that precedes the active worksheet in the workbook, loads its **name** property, and writes a message to the console. If there is no worksheet before the active worksheet, the **getPrevious()** method will throw an **ItemNotFound** error.
+The following code sample gets the worksheet that precedes the active worksheet in the workbook, loads its **name** property, and writes a message to the console. If there is no worksheet before the active worksheet, the **getPrevious()** method throws an **ItemNotFound** error.
 
 ```js
 Excel.run(function (context) {
