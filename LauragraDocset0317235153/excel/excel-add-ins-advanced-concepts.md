@@ -18,11 +18,11 @@ While you'll likely use the Excel JavaScript API to develop the majority of func
 
 ## Requirement sets
 
-Requirement sets are named groups of API members. An Office Add-in can use requirement sets specified in the manifest or a runtime check to determine whether an Office host supports APIs that the add-in needs. To identify the specific requirement sets that are available on each supported platform, see [Excel JavaScript API requirement sets](../reference/requirement-sets/excel-api-requirement-sets.md).
+Requirement sets are named groups of API members. An Office Add-in can perform a runtime check or use requirement sets specified in the manifest to determine whether an Office host supports the APIs that the add-in needs. To identify the specific requirement sets that are available on each supported platform, see [Excel JavaScript API requirement sets](../reference/requirement-sets/excel-api-requirement-sets.md).
 
-### Runtime requirement support check
+### Checking for requirement set support at runtime
 
-During the runtime, add-ins can check if a particular host supports an API requirement set by doing the following-check: 
+The following code sample shows how to determine whether the host application where the add-in is running supports the specified API requirement set.
 
 ```js
 if (Office.context.requirements.isSetSupported('ExcelApi', 1.3) === true) {
@@ -33,11 +33,11 @@ else {
 }
 ```
 
-### Manifest based requirement support check
+### Defining supported requirement sets in the manifest
 
-Use the Requirements element in the add-in manifest to specify critical requirement sets or API members that your add-in must use. If the Office host or platform doesn't support the requirement sets or API members specified in the Requirements element, the add-in won't run in that host or platform, and won't display in My Add-ins. Instead, we recommend that you make your add-in available on all platforms of an Office host, such as Excel for Windows, Excel Online, and Excel for iPad. To make your add-in available on all Office hosts and platforms, use runtime checks instead of the Requirements element.
+You can use the [Requirements element](../reference/manifest/requirements.md) in the add-in manifest to specify the minimal requirement sets and/or API methods that your add-in requires to activate. If the Office host or platform doesn't support the requirement sets or API methods that are specified in the **Requirements** element of the manifest, the add-in won't run in that host or platform, and won't display in **My Add-ins**. 
 
-The following code example shows an add-in that loads in all Office host applications that support ExcelApi requirement set, version 1.3.
+The following code sample shows the **Requirements** element in an add-in manifest which specifies that the add-in should load in all Office host applications that support ExcelApi requirement set version 1.3 or greater.
 
 ```xml
 <Requirements>
@@ -47,7 +47,9 @@ The following code example shows an add-in that loads in all Office host applica
 </Requirements>
 ```
 
-### Office common API requirement sets
+**Note**: To make your add-in available on all platforms of an Office host, such as Excel for Windows, Excel Online, and Excel for iPad, we recommend that you check for requirement support at runtime instead of specifying supported requirement sets using the **Requirements** element in the manifest.
+
+### Requirement sets for the Office.js Common API
 
 For information about common API requirement sets, see [Office common API requirement sets](../reference/requirement-sets/office-add-in-requirement-sets.md).
 
