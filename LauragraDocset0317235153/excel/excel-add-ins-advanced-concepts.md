@@ -33,9 +33,9 @@ else {
 }
 ```
 
-### Defining supported requirement sets in the manifest
+### Defining requirement set support in the manifest
 
-You can use the [Requirements element](../reference/manifest/requirements.md) in the add-in manifest to specify the minimal requirement sets and/or API methods that your add-in requires to activate. If the Office host or platform doesn't support the requirement sets or API methods that are specified in the **Requirements** element of the manifest, the add-in won't run in that host or platform, and won't display in **My Add-ins**. 
+You can use the [Requirements element](../reference/manifest/requirements.md) in the add-in manifest to specify the minimal requirement sets and/or API methods that your add-in requires to activate. If the Office host or platform doesn't support the requirement sets or API methods that are specified in the **Requirements** element of the manifest, the add-in won't run in that host or platform, and won't display in the list of add-ins that are shown in **My Add-ins**. 
 
 The following code sample shows the **Requirements** element in an add-in manifest which specifies that the add-in should load in all Office host applications that support ExcelApi requirement set version 1.3 or greater.
 
@@ -47,7 +47,7 @@ The following code sample shows the **Requirements** element in an add-in manife
 </Requirements>
 ```
 
-**Note**: To make your add-in available on all platforms of an Office host, such as Excel for Windows, Excel Online, and Excel for iPad, we recommend that you check for requirement support at runtime instead of specifying supported requirement sets using the **Requirements** element in the manifest.
+**Note**: To make your add-in available on all platforms of an Office host, such as Excel for Windows, Excel Online, and Excel for iPad, we recommend that you check for requirement support at runtime instead of defining requirement set support in the manifest.
 
 ### Requirement sets for the Office.js Common API
 
@@ -107,9 +107,9 @@ Excel.run(function (ctx) {
 });
 ```
 
-As an alternative to passing a comma-delimited string or array when you call the `load()` method, you can pass an object that contains the following properties. 
-
 ### Load option properties
+
+As an alternative to passing a comma-delimited string or array when you call the `load()` method, you can pass an object that contains the following properties. 
 
 |**Property**|**Type**|**Description**|
 |:-----------|:-------|:----------|
@@ -118,7 +118,7 @@ As an alternative to passing a comma-delimited string or array when you call the
 |`top`|int| Specifies the maximum number of collection items that can be included in the result. Optional. You can only use this option when you use the object notation option.|
 |`skip`|int|Specify the number of items in the collection that are to be skipped and not included in the result. If `top` is specified, the result set will start after skipping the specified number of items. Optional. You can only use this option when you use the object notation option.|
 
-The following code sample loads a workskeet collection by selecting the `name` property and the `address` of the used range for each of the worksheets in the collection. It also specifies that only the top five worksheets in the collection should be loaded. You could process the next set of five worksheets by specifying `top: 10` and `skip: 5` parameter values. 
+The following code sample loads a workskeet collection by selecting the `name` property and the `address` of the used range for each worksheet in the collection. It also specifies that only the top five worksheets in the collection should be loaded. You could process the next set of five worksheets by specifying `top: 10` and `skip: 5` as attribute values. 
 
 ```js 
 myWorksheets.load({
@@ -131,12 +131,17 @@ myWorksheets.load({
 
 ## Scalar and navigation properties 
 
-Throughout the Excel JavaScript API reference documentation, you may notce that the object members are distinguished between properties and relationships or navigation properties. Properties are regular scalar members such as strings or integers or boolean values. The navigation properties are members that are either objects or collection of objects. For example, `name` and `position` members on `worksheet` object are scalar properties, whereas `usedRange`, `tables` are navigation properties. The key differences to note between the two are:
+In the Excel JavaScript API reference documentation, you may notice that object members are grouped into two categories: **properties** and **relationships**. A property of an object is a scalar member such as a string, an integer, or a boolean value, while a relationship of an object (also known as a navigation property) is a member that is either an object or collection of objects. For example, `name` and `position` members on the [Worksheet](../reference/excel/worksheet.md) object are scalar properties, whereas `protection` and `tables` are relationships (navigation properties). 
 
-- The empty `load()` method by default does not load the navigation properties. 
-- The navigation properties cannot be loaded directly. Instead the load method should be used to reference individual scalar properties within the desired navigation property. Example: `someRange.load("address, format/font/name")`
+### Loading properties of an object
 
-Excel JavaScript allows setting scalar properties of a navigation property by traversing the path. For instance, `someRange.format.font.size` scalar property could be directly set without loading it first. 
+Calling the `object.load()` method with no parameters specified will not load the navigation properties of the object. Only the scalar properties of the object will be loaded. Additionally, navigation properties cannot be loaded directly. Instead, you should use the `load()` method to reference individual scalar properties within the desired navigation property. For example, to load the font name for a range, you must specify the **format** and **font** navigation properties as the path to the **name** property:
+
+```js
+someRange.load("format/font/name")
+```
+
+You can use the Excel JavaScript API to set scalar properties of a navigation property by traversing the path. For instance, the scalar property `someRange.format.font.size` could be directly set without loading it first. 
 
 ## Setting properties of an object
 
