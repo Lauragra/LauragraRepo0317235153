@@ -4,7 +4,7 @@ This article describes how to use the [Excel JavaScript API](../../reference/exc
 
 This article describes some of the advanced topics of [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) that are essential to building complex add-ins for Excel 2016. 
 
-## Shared APIs needed for Excel 
+## Office.js Shared APIs for Excel 
 
 Introduced with Office 2013, the shared API enables you to access features such as UI, dialogs, and client settings that are common across multiple types of host applications such as Word, Excel, and PowerPoint. Below are the key objects from the shared API set that extends the Excel namespace specific API functionality:
 
@@ -55,7 +55,7 @@ Note that an empty `load()` method will load all of the scalar properties of an 
 
 ### Method Details
 
-### load(param: object)
+#### load(param: object)
 
 Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.
 
@@ -72,6 +72,7 @@ object.load(param);
 |`param`|object|Optional. Accepts parameter and relationship names as delimited string or an array. An object can also be passed as shown below to set the selection and navigation properties|
 
 #### Returns
+
 void
 
 #### Example
