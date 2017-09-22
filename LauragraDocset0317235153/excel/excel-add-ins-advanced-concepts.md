@@ -55,15 +55,15 @@ For information about common API requirement sets, see [Office common API requir
 
 ## Loading the properties of an object
 
-The `load()` method instructs Excel API to load the object into JavaScript memory upon the `sync` operation. It is used to read scalar or navigation properties of the object. `load` method accepts a string with comma delimited property names or an object that specifies properties, pagination options, etc. `load` method is available on each of the Excel JavaScript objects. 
+The `load()` method instructs the Excel API to load the object into JavaScript memory when the `sync()` method runs. The `load` method is available on each of the Excel JavaScript objects and can be used to read scalar properties or navigation properties of an object. The `load` method accepts a string that contains comma-delimited property names or an object that specifies properties, pagination options, etc. 
 
-Note that an empty `load()` method will load all of the scalar properties of an object and on collections, loads all of scalar properties of individual objects in the collection. Hence, empty `load()` method should be avoided to reduce the amount of data transfer between Excel application/host and add-in. 
+**Note**: If you call the `load()` method on an object (or collection) without specifying any parameters, all scalar properties of the object (or all scalar properties of all objects in the collection) will be loaded. To reduce the amount of data transfer between the Excel host application and the add-in, you should avoid calling the `load()` method without explicitly specifying which properties to load.
 
-### Method Details
+### Method details
 
 #### load(param: object)
 
-Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.
+Fills the proxy object created in JavaScript layer with property and object values specified by the parameters.
 
 #### Syntax
 
@@ -75,7 +75,7 @@ object.load(param);
 
 |**Parameter**|**Type**|**Description**|
 |:------------|:-------|:----------|
-|`param`|object|Optional. Accepts parameter and relationship names as delimited string or an array. An object can also be passed as shown below to set the selection and navigation properties|
+|`param`|object|Optional. Accepts parameter and relationship names as comma-delimited string or an array. An object can also be passed to set the selection and navigation properties (as shown in the example below).|
 
 #### Returns
 
@@ -83,7 +83,7 @@ void
 
 #### Example
 
-The following example sets the properties of one Excel range by copying the properties of another range. Note that the source object must be loaded first. The example assumes there is data two ranges, B2:E2 and B7:E7, and that they are initially formatted differently.
+The following code sample sets the properties of one Excel range by copying the properties of another range. Note that the source object must be loaded first, before its property values can be accessed and written to the target range. This example assumes that there is data the two ranges (**B2:E2** and **B7:E7**) and that the two ranges are initially formatted differently.
 
 ```js
 Excel.run(function (ctx) { 
@@ -97,8 +97,8 @@ Excel.run(function (ctx) {
 			targetRange.set(sourceRange); 
 			targetRange.format.autofitColumns();
 
-			return ctx.sync()        
-		})     
+			return ctx.sync();
+		});
 }).catch(function(error) {
 	console.log("Error: " + error);
 	if (error instanceof OfficeExtension.Error) {
@@ -107,18 +107,18 @@ Excel.run(function (ctx) {
 });
 ```
 
-The `load` method also accepts an object with following properties. 
+As an alternative to passing a comma-delimited string or array when you call the `load()` method, you can pass an object that contains the following properties. 
 
 ### Load option properties
 
 |**Property**|**Type**|**Description**|
 |:-----------|:-------|:----------|
-|`select`|object|Contains a comma delimited list or an array of parameter/relationship names. Optional.|
-|`expand`|object|Contains a comma delimited list or an array of relationship names. Optional.|
+|`select`|object|Contains a comma-delimited list or an array of parameter/relationship names. Optional.|
+|`expand`|object|Contains a comma-delimited list or an array of relationship names. Optional.|
 |`top`|int| Specifies the maximum number of collection items that can be included in the result. Optional. You can only use this option when you use the object notation option.|
 |`skip`|int|Specify the number of items in the collection that are to be skipped and not included in the result. If `top` is specified, the result set will start after skipping the specified number of items. Optional. You can only use this option when you use the object notation option.|
 
-The sample below loads workskeet collection by selecting (loading) name property, and address of the used range for each of the worksheet. It also specifies that the top 5 worksheets be loaded. If you wish to process the next set of 5 worksheets, use `top: 10` and `skip: 5` values. 
+The following code sample loads a workskeet collection by selecting the `name` property and the `address` of the used range for each of the worksheets in the collection. It also specifies that only the top five worksheets in the collection should be loaded. You could process the next set of five worksheets by specifying `top: 10` and `skip: 5` parameter values. 
 
 ```js 
 myWorksheets.load({
