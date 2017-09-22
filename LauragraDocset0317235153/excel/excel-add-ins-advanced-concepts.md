@@ -145,14 +145,13 @@ You can use the Excel JavaScript API to set scalar properties of a navigation pr
 
 ## Setting properties of an object
 
-Setting properties on an object with nested navigation properties can be cumbersome. Instead of setting individual properties and nested statements, developers can use `set` method available on all of Excel's objects. This method sets multiple properties of an object at once by passing either another object of the same Office type or a JavaScript object with properties that are structured isomorphically to the properties of the object on which the method is called.
+Setting properties on an object with nested navigation properties can be cumbersome. As an alternative to setting individual properties using navigation paths as described above, you can use the `object.set()` method that is available on all objects in the Excel JavaScript API. With this method, you can set multiple properties of an object at once by passing either another object of the same Office.js type or a JavaScript object with properties that are structured like the properties of the object on which the method is called.
 
-- **Note**: This method is implemented only on the objects of the host-specific Office JavaScript APIs, such as Excel JavaScript objects. The method is not supported on the sommon APIs. 
+- **Note**: The `set()` method is implemented only for objects within the host-specific Office JavaScript APIs, such as the Excel JavaScript API. The common (shared) APIs do not support this method. 
 
 ### set (properties: object, options: object)
 
-The *non-read-only* properties of the object on which the method is called are set to the same values as the corresponding properties of the passed-in object.
-If the `properties` parameter is a JavaScript object, then properties in the passed-in object that correspond to a read-only property in the object on which the method is called are either ignored or cause an exception, depending on the `options` parameter.
+Properties of the object on which the method is called are set to the values that are specified by the corresponding properties of the passed-in object. If the `properties` parameter is a JavaScript object, any property of the passed-in object that corresponds to a read-only property in the object on which the method is called will either be ignored or cause an exception to be thrown, depending on the value of the `options` parameter.
 
 #### Syntax
 
@@ -164,16 +163,16 @@ object.set(properties[, options]);
 
 |**Parameter**|**Type**|**Description**|
 |:------------|:--------|:----------|
-|`properties`|object|Either an object *of the same Office type* on which the method is called, or a JavaScript object of property names and values that mirrors the structure of the properties of the object type on which the method is called.|
+|`properties`|object|Either an object of the same Office.js type of the object on which the method is called, or a JavaScript object with property names and types that mirror the structure of the object on which the method is called.|
 |`options`|object|Optional. Can only be passed when the first parameter is a JavaScript object. The object can contain the following property: `throwOnReadOnly?: boolean` (Default is `true`: throw an error if the passed in JavaScript object includes read-only properties.)|
 
 #### Returns
 
 void    
 
-#### Examples
+#### Example
 
-The following example sets several Excel format properties with a JavaScript object. The example assumes that there is data in range **B2:E2**.
+The following code sample sets several format properties of a range by calling the `set()` method and passing in a JavaScript object with property names and types that mirror the structure of properties in the **Range** object. This example assumes that there is data in range **B2:E2**.
 
 ```js
 Excel.run(function (ctx) { 
@@ -189,7 +188,7 @@ Excel.run(function (ctx) {
 				color: 'white'
 			}
 		}
-	})
+	});
 	range.format.autofitColumns();
 	return ctx.sync(); 
 }).catch(function(error) {
@@ -201,9 +200,11 @@ Excel.run(function (ctx) {
 ```
 ## &#42;OrNull objects
 
-Many of the APIs returns exception when the condition of the API is not met. For example, if you attempt to get a worksheet based on the name that doesn't exist, the API returns `ItemNotFound` exception. If the scenario is to create a worksheet only if the worksheet doesn't exist, then the structure of the code can be complex as the business logic now needs to be handleded through exception handling functions. In order to make the code flow better, some of the Excel JavaScript APIs contain `OrNullObject` varient that returns a null object (not the JavaScript `null`). Common example is `getItemOrNullObject` on various collections such as `worksheets` collection. 
+Many Excel JavaScript API methods will return an exception when the condition of the API is not met. For example, if you attempt to get a worksheet by specifying a worksheet name that doesn't exist in the the workbook, the API will return an `ItemNotFound` exception. 
 
-The null object is returned consists of `isNullObject` boolean property that can be checked to see if the object exists or not.
+Instead of implementing complex exception handling logic for scenarios like this, you can use the `&#42;OrNullObject` variant that's available for several methods in the Excel JavaScript API. An `&#42;OrNullObject` method will return a `null` object (not the JavaScript `null`) rather than throwing an exception if the item doesn't exist. For example, you can use the `getItemOrNullObject()` method on a collection such as **Worksheets** when attempting to retrieve an item from the collection. The `getItemOrNullObject()` method returns the specified item if it exists; otherwise, it returns a `null` object. The null object that is returned contains the boolean property `isNullObject` that you can evaluate to determine whether or not the object exists.
+
+The following code sample attempts to retrieve a worksheet named "Data" by using the `getItemOrNullObject()` method. If the method returns a null object, a new sheet needs to be created before actions can taken on the sheet.
 
 ```js
 let dataSheet = context.workbook.worksheets.getItemOrNullObject("Data"); 
