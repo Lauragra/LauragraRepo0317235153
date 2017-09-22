@@ -101,7 +101,7 @@
 ### [Work with Charts](excel/excel-add-ins-charts.md)
 ## [Advanced concepts](excel/excel-add-ins-advanced-concepts.md)
 ### [Coauthoring in Excel add-ins](excel/co-authoring-in-excel-add-ins.md)
-### [Error handling](excel/excel-add-ins-error.md)
+### [Error handling](excel/excel-add-ins-error-handling.md)
 ## [Excel JavaScript API reference](https://dev.office.com/reference/add-ins/excel/excel-add-ins-reference-overview.md)
 # [Outlook](https://docs.microsoft.com/outlook/add-ins/)
 # [PowerPoint](powerpoint/powerpoint-add-ins.md)
