@@ -55,7 +55,7 @@ For information about common API requirement sets, see [Office common API requir
 
 ## Loading the properties of an object
 
-The `load()` method instructs the Excel API to load the object into JavaScript memory when the `sync()` method runs. The `load` method is available on each of the Excel JavaScript objects and can be used to read scalar properties or navigation properties of an object. The `load` method accepts a string that contains comma-delimited property names or an object that specifies properties, pagination options, etc. 
+Calling the `load()` method on an Excel JavaScript object instructs the API to load the object into JavaScript memory when the `sync()` method runs. The `load()` method accepts a string that contains comma-delimited names of properties to load or an object that specifies properties to load, pagination options, etc. 
 
 **Note**: If you call the `load()` method on an object (or collection) without specifying any parameters, all scalar properties of the object (or all scalar properties of all objects in the collection) will be loaded. To reduce the amount of data transfer between the Excel host application and the add-in, you should avoid calling the `load()` method without explicitly specifying which properties to load.
 
@@ -133,21 +133,21 @@ myWorksheets.load({
 
 In the Excel JavaScript API reference documentation, you may notice that object members are grouped into two categories: **properties** and **relationships**. A property of an object is a scalar member such as a string, an integer, or a boolean value, while a relationship of an object (also known as a navigation property) is a member that is either an object or collection of objects. For example, `name` and `position` members on the [Worksheet](../reference/excel/worksheet.md) object are scalar properties, whereas `protection` and `tables` are relationships (navigation properties). 
 
-### Loading properties of an object
+### Scalar properties and navigation properties with `object.load()`
 
-Calling the `object.load()` method with no parameters specified will not load the navigation properties of the object. Only the scalar properties of the object will be loaded. Additionally, navigation properties cannot be loaded directly. Instead, you should use the `load()` method to reference individual scalar properties within the desired navigation property. For example, to load the font name for a range, you must specify the **format** and **font** navigation properties as the path to the **name** property:
+Calling the `object.load()` method with no parameters specified will load all scalar properties of the object; navigation properties of the object will not be loaded. Additionally, navigation properties cannot be loaded directly. Instead, you should use the `load()` method to reference individual scalar properties within the desired navigation property. For example, to load the font name for a range, you must specify the **format** and **font** navigation properties as the path to the **name** property:
 
 ```js
 someRange.load("format/font/name")
 ```
 
-You can use the Excel JavaScript API to set scalar properties of a navigation property by traversing the path. For instance, the scalar property `someRange.format.font.size` could be directly set without loading it first. 
+**Note**: With the Excel JavaScript API, you can set scalar properties of a navigation property by traversing the path. For example, you could set the font size for a range by using `someRange.format.font.size = 10;`. You do not need to load the property before you set it. 
 
 ## Setting properties of an object
 
 Setting properties on an object with nested navigation properties can be cumbersome. As an alternative to setting individual properties using navigation paths as described above, you can use the `object.set()` method that is available on all objects in the Excel JavaScript API. With this method, you can set multiple properties of an object at once by passing either another object of the same Office.js type or a JavaScript object with properties that are structured like the properties of the object on which the method is called.
 
-- **Note**: The `set()` method is implemented only for objects within the host-specific Office JavaScript APIs, such as the Excel JavaScript API. The common (shared) APIs do not support this method. 
+**Note**: The `set()` method is implemented only for objects within the host-specific Office JavaScript APIs, such as the Excel JavaScript API. The common (shared) APIs do not support this method. 
 
 ### set (properties: object, options: object)
 
@@ -190,6 +190,7 @@ Excel.run(function (ctx) {
 		}
 	});
 	range.format.autofitColumns();
+
 	return ctx.sync(); 
 }).catch(function(error) {
 	console.log("Error: " + error);
@@ -200,7 +201,7 @@ Excel.run(function (ctx) {
 ```
 ## &#42;OrNull objects
 
-Many Excel JavaScript API methods will return an exception when the condition of the API is not met. For example, if you attempt to get a worksheet by specifying a worksheet name that doesn't exist in the the workbook, the API will return an `ItemNotFound` exception. 
+Many Excel JavaScript API methods will return an exception when the condition of the API is not met. For example, if you attempt to get a worksheet by specifying a worksheet name that doesn't exist in the the workbook, the `getItem()` method will return an `ItemNotFound` exception. 
 
 Instead of implementing complex exception handling logic for scenarios like this, you can use the `&#42;OrNullObject` variant that's available for several methods in the Excel JavaScript API. An `&#42;OrNullObject` method will return a `null` object (not the JavaScript `null`) rather than throwing an exception if the item doesn't exist. For example, you can use the `getItemOrNullObject()` method on a collection such as **Worksheets** when attempting to retrieve an item from the collection. The `getItemOrNullObject()` method returns the specified item if it exists; otherwise, it returns a `null` object. The null object that is returned contains the boolean property `isNullObject` that you can evaluate to determine whether or not the object exists.
 
