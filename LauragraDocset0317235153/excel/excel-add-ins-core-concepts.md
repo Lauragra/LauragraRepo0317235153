@@ -44,7 +44,7 @@ selectedRange.format.autofitColumns();
  
 ### sync()
  
-Calling the **sync()** method on the request context synchronizes the state between proxy objects and objects in the Excel document. The **sync()** method runs any commands that have been queued on the request context and retrieves values for any properties that should be loaded on the proxy objects. The **sync()** method executes asynchronously and returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which is resolved when the **sync()** method completes.
+Calling the **sync()** method on the request context synchronizes the state between proxy objects and objects in the Excel document. The **sync()** method runs any commands that are queued on the request context and retrieves values for any properties that should be loaded on the proxy objects. The **sync()** method executes asynchronously and returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which is resolved when the **sync()** method completes.
  
 >**Note**: In the Excel JavaScript API, **sync()** is the only asynchronous operation. To optimize performance, you should queue up as many changes as possible before calling **sync()** and minimize the number of times you call **sync()**.
  
@@ -66,9 +66,9 @@ Excel.run(function (context) {
 });
 ```
  
-In the above example, **selectedRange** is set and its **address** property is loaded when **context.sync()** is called.
+In the previous example, **selectedRange** is set and its **address** property is loaded when **context.sync()** is called.
  
-Because **sync()** is an asynchronous operation that returns a promise, you should always **return** the promise (in JavaScript). Doing so will ensure that the **sync()** operation completes before the script continues to run.
+Because **sync()** is an asynchronous operation that returns a promise, you should always **return** the promise (in JavaScript). Doing so ensures that the **sync()** operation completes before the script continues to run.
  
 ### load()
  
@@ -104,7 +104,7 @@ Excel.run(function (context) {
 });
 ```
  
-In the above example, because `format/font` is not specified in the call to **myRange.load()**, the `format.font.color` property cannot be read.
+In the previous example, because `format/font` is not specified in the call to **myRange.load()**, the `format.font.color` property cannot be read.
  
 To optimize performance, you should explicitly specify the properties and relationships to load when using the **load()** method on an object. For example, if you only intend to read back the **address** property of a range object, specify only that property when you call the **load()** method:
  
@@ -207,7 +207,7 @@ range.values = 'Due Date';
  
 ## Read or write to a large range
  
-If a range contains a large number of cells, values, number formats, and/or formulas, it may not be possible to run API operations on that range. The API will always make a best attempt to run the requested operation on a range (i.e., to retrieve or write the specified data), but attempting to perform read or write operations for a large range may result in an API error due to excessive resource utilization. To avoid such errors, we recommend that you execute separate read or write operations for smaller subsets of a large range, instead of attempting to run a single read or write operation on a large range.
+If a range contains a large number of cells, values, number formats, and/or formulas, it may not be possible to run API operations on that range. The API will always make a best attempt to run the requested operation on a range (i.e., to retrieve or write the specified data), but attempting to perform read or write operations for a large range may result in an API error due to excessive resource utilization. To avoid such errors, we recommend that you run separate read or write operations for smaller subsets of a large range, instead of attempting to run a single read or write operation on a large range.
  
 ## Update all cells in a range
  
