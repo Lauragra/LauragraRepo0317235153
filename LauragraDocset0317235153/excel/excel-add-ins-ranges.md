@@ -4,7 +4,7 @@ This article provides code samples that show how to perform common tasks with ra
 
 ## Get a range
 
-These examples show different ways to get a reference to a range within a worksheet.
+The following examples show different ways to get a reference to a range within a worksheet.
 
 ### Get range by address
 
@@ -469,7 +469,7 @@ Excel.run(function (context) {
 
 ## Set range format
 
-These examples show how to set font color, fill color, and number format for cells in a range.
+The following code examples show how to set font color, fill color, and number format for cells in a range.
 
 ### Set font color and fill color
 
