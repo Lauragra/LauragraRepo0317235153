@@ -42,7 +42,7 @@ Excel.run(function (context) {
 
 ### Get used range
 
-The following code sample gets the used range from the worksheet named **Sample**, loads its **address** property, and writes a message to the console. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** method will return a range that consists of only the top-left cell in the worksheet.
+The following code sample gets the used range from the worksheet named **Sample**, loads its **address** property, and writes a message to the console. The used range is the smallest range that encompasses any cells in the worksheet that have a value or formatting assigned to them. If the entire worksheet is blank, the **getUsedRange()** method returns a range that consists of only the top-left cell in the worksheet.
 
 ```js
 Excel.run(function (context) {
@@ -180,7 +180,7 @@ Excel.run(function (context) {
 
 ## Set values or formulas
 
-These examples show how to set values and formulas for a single cell or a range of cells.
+The following examples show how to set values and formulas for a single cell or a range of cells.
 
 ### Set value for a single cell
 
