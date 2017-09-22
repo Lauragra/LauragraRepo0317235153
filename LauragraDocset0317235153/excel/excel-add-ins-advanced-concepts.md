@@ -1,16 +1,20 @@
 # Excel JavaScript API advanced concepts
 
-This article describes how to use the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) to build add-ins for Excel 2016. It introduces core concepts that are fundamental to using the API and provides guidance for performing specific tasks such as reading or writing to a large range, updating all cells in range, and more.
+This article builds upon the information in [Excel JavaScript API core concepts](excel-add-ins-core-concepts.md) to describe some of the more advanced concepts that are essential to building complex add-ins for Excel 2016. 
 
-This article describes some of the advanced topics of [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) that are essential to building complex add-ins for Excel 2016. 
+## Office.js APIs for Excel
 
-## Office.js Shared APIs for Excel 
+An Excel add-in interacts with objects in Excel by using the JavaScript API for Office, which includes two JavaScript object models:
 
-Introduced with Office 2013, the shared API enables you to access features such as UI, dialogs, and client settings that are common across multiple types of host applications such as Word, Excel, and PowerPoint. Below are the key objects from the shared API set that extends the Excel namespace specific API functionality:
+* **Excel JavaScript API**: Introduced with Office 2016, the [Excel JavaScript API](../../reference/excel/excel-add-ins-reference-overview.md?product=excel) provides strongly-typed objects that you can use to access worksheets, ranges, tables, charts, and more. 
 
-- [Context](../../reference/shared/context.md): Represents the runtime environment of the add-in and provides access to key objects of the API. It consists of workbook configutation details such as `contentLanguage` and `officeTheme`. It also provides add-in's run-time environment details such as `host` and `platform`. In addition, it offers `requirements.isSetSupported()` method to check if the specified requirement set is supported by the Excel application. 
+* **Common APIs**: Introduced with Office 2013, the common APIs (also referred to as the [Shared API](../../reference/add-ins/javascript-api-for-office.md?product=excel)) can be used to access features such as UI, dialogs, and client settings that are common across multiple types of host applications such as Word, Excel, and PowerPoint.
 
-- [Document](../../reference/shared/document.md): Provides [`getFileAsync`](https://github.com/OfficeDev/office-js-docs/blob/master/reference/shared/document.getfileasync.md) API to download the Excel file that the add-in is currently running in. 
+While you'll likely use the Excel JavaScript API to develop the majority of functionality in add-ins that target Excel 2016, you'll also use objects in the Shared API. For example:
+
+- [Context](../../reference/shared/context.md): The **Context** object represents the runtime environment of the add-in and provides access to key objects of the API. It consists of workbook configuration details such as `contentLanguage` and `officeTheme` and also provides information about the add-in's runtime environment such as `host` and `platform`. Additionally, it provides the `requirements.isSetSupported()` method, which you can use to check whether the specified requirement set is supported by the Excel application where the add-in is running. 
+
+- [Document](../../reference/shared/document.md): The **Document** object provides the `getFileAsync()` method, which you can use to download the Excel file where the add-in is running. 
 
 ## Requirement sets
 
@@ -47,9 +51,9 @@ The following code example shows an add-in that loads in all Office host applica
 
 For information about common API requirement sets, see [Office common API requirement sets](../reference/requirement-sets/office-add-in-requirement-sets.md).
 
-## Load method 
+## Loading the properties of an object
 
-The `load` method instructs Excel API to load the object into JavaScript memory upon the `sync` operation. It is used to read scalar or navigation properties of the object. `load` method accepts a string with comma delimited property names or an object that specifies properties, pagination options, etc. `load` method is available on each of the Excel JavaScript objects. 
+The `load()` method instructs Excel API to load the object into JavaScript memory upon the `sync` operation. It is used to read scalar or navigation properties of the object. `load` method accepts a string with comma delimited property names or an object that specifies properties, pagination options, etc. `load` method is available on each of the Excel JavaScript objects. 
 
 Note that an empty `load()` method will load all of the scalar properties of an object and on collections, loads all of scalar properties of individual objects in the collection. Hence, empty `load()` method should be avoided to reduce the amount of data transfer between Excel application/host and add-in. 
 
@@ -132,7 +136,7 @@ Throughout the Excel JavaScript API reference documentation, you may notce that 
 
 Excel JavaScript allows setting scalar properties of a navigation property by traversing the path. For instance, `someRange.format.font.size` scalar property could be directly set without loading it first. 
 
-## object.set method
+## Setting properties of an object
 
 Setting properties on an object with nested navigation properties can be cumbersome. Instead of setting individual properties and nested statements, developers can use `set` method available on all of Excel's objects. This method sets multiple properties of an object at once by passing either another object of the same Office type or a JavaScript object with properties that are structured isomorphically to the properties of the object on which the method is called.
 

@@ -128,7 +128,9 @@ _Where:_
  
 * `properties` is the list of properties and/or relationship names to be loaded specified as comma-delimited strings, or an array of names. For more information, see the **load()** methods defined for objects in [Excel JavaScript API reference](../../reference/excel/excel-add-ins-reference-overview.md?product=excel).
 * `loadOption` specifies an object that describes the selection, expansion, top, and skip options. See object load [options](../../reference/excel/loadoption.md?product=excel) for details.
- 
+
+For more information about the **load()** method, see [Excel JavaScript API advanced concepts](excel-add-ins-advanced-concepts.md).
+
 ## `null` or blank property values
  
 ### `null` input in 2-D Array
