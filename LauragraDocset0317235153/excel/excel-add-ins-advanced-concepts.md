@@ -18,7 +18,7 @@ While you'll likely use the Excel JavaScript API to develop the majority of func
 
 ## Requirement sets
 
-Requirement sets are named groups of API members. Office Add-ins use requirement sets specified in the manifest or use a runtime check to determine whether an Office host supports APIs that an add-in needs. Refer to [Excel requirement set](../reference/requirement-sets/excel-api-requirement-sets.md) documentation to identify specific requriement sets across supported platforms. 
+Requirement sets are named groups of API members. An Office Add-in can use requirement sets specified in the manifest or a runtime check to determine whether an Office host supports APIs that the add-in needs. To identify the specific requirement sets that are available on each supported platform, see [Excel JavaScript API requirement sets](../reference/requirement-sets/excel-api-requirement-sets.md).
 
 ### Runtime requirement support check
 
